@@ -1,0 +1,359 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "name": "wooden chair with floral cushion",
+      "description": "a wooden chair with a light brown frame and a cushion featuring a floral pattern in shades of orange, beige, and brown; the chair has armrests and is positioned on a tiled floor."
+    },
+    {
+      "id": 2,
+      "name": "black clothing item",
+      "description": "a crumpled black piece of clothing, possibly a hoodie or jacket, lying on the left side of the chair's seat."
+    },
+    {
+      "id": 3,
+      "name": "blue fabric item",
+      "description": "a folded blue fabric item, possibly a towel or small blanket, placed on the right side of the chair's seat."
+    },
+    {
+      "id": 4,
+      "name": "woven wicker table",
+      "description": "a rectangular wicker table with a natural brown woven texture, positioned behind the chair and leaning against a wall."
+    },
+    {
+      "id": 5,
+      "name": "beige sofa or cushioned bench",
+      "description": "a beige upholstered sofa or bench with a quilted pattern, located to the left of the chair and partially visible."
+    },
+    {
+      "id": 6,
+      "name": "tiled floor",
+      "description": "a light beige tiled floor with square tiles and visible grout lines, covering the ground surface of the room."
+    },
+    {
+      "id": 7,
+      "name": "beige wall",
+      "description": "a beige wall with a textured, possibly brick-like or panelled surface, visible behind the sofa and wicker table."
+    },
+    {
+      "id": 8,
+      "name": "white appliance",
+      "description": "a white rectangular appliance, likely a portable air conditioner or heater, with a vented side panel, positioned on the floor next to a curtain."
+    },
+    {
+      "id": 9,
+      "name": "brown curtain",
+      "description": "a brown, textured curtain with a shiny or satin-like finish, partially covering the white appliance and hanging from above."
+    },
+    {
+      "id": 10,
+      "name": "wooden side table",
+      "description": "a wooden side table with a glass top, positioned next to the chair; on the table, there is a white remote control and a black object, possibly a phone or charger."
+    },
+    {
+      "id": 11,
+      "name": "bicycle wheel and basket",
+      "description": "a bicycle wheel with a black tire and a wire basket attached to the front, positioned on the floor near the chair and partially under the wooden frame of the chair."
+    },
+    {
+      "id": 12,
+      "name": "power strip with cables",
+      "description": "a white power strip with multiple black cables plugged into it, located on the floor near the chair and the bicycle wheel, with a green indicator light on."
+    },
+    {
+      "id": 13,
+      "name": "beige patterned curtain",
+      "description": "a beige curtain with a subtle floral or striped pattern, hanging in front of the scene and partially obscuring the view of the floor and bicycle wheel."
+    }
+  ],
+  "edges": [
+    {
+      "src": "1",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "close by"
+      ]
+    },
+    {
+      "src": "2",
+      "tgt": "1",
+      "c_edge": [
+        "lying on",
+        "belonging to",
+        "left"
+      ]
+    },
+    {
+      "src": "3",
+      "tgt": "1",
+      "c_edge": [
+        "lying on",
+        "belonging to",
+        "right"
+      ]
+    },
+    {
+      "src": "4",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "behind"
+      ]
+    },
+    {
+      "src": "4",
+      "tgt": "7",
+      "c_edge": [
+        "leaning against",
+        "attached to",
+        "higher than"
+      ]
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "left"
+      ]
+    },
+    {
+      "src": "5",
+      "tgt": "7",
+      "c_edge": [
+        "leaning against",
+        "attached to",
+        "higher than"
+      ]
+    },
+    {
+      "src": "1",
+      "tgt": "4",
+      "c_edge": [
+        "in front of",
+        "lower than",
+        "close by"
+      ]
+    },
+    {
+      "src": "1",
+      "tgt": "5",
+      "c_edge": [
+        "right",
+        "close by",
+        "front"
+      ]
+    },
+    {
+      "src": "4",
+      "tgt": "5",
+      "c_edge": [
+        "right",
+        "behind",
+        "higher than"
+      ]
+    },
+    {
+      "src": "7",
+      "tgt": "6",
+      "c_edge": [
+        "attached to",
+        "higher than",
+        "behind"
+      ]
+    },
+    {
+      "src": "8",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "close by"
+      ]
+    },
+    {
+      "src": "9",
+      "tgt": "8",
+      "c_edge": [
+        "covering",
+        "hanging on",
+        "higher than"
+      ]
+    },
+    {
+      "src": "8",
+      "tgt": "1",
+      "c_edge": [
+        "right",
+        "close by",
+        "lower than"
+      ]
+    },
+    {
+      "src": "9",
+      "tgt": "1",
+      "c_edge": [
+        "right",
+        "close by",
+        "higher than"
+      ]
+    },
+    {
+      "src": "8",
+      "tgt": "7",
+      "c_edge": [
+        "front",
+        "close by",
+        "lower than"
+      ]
+    },
+    {
+      "src": "9",
+      "tgt": "7",
+      "c_edge": [
+        "front",
+        "close by",
+        "higher than"
+      ]
+    },
+    {
+      "src": "10",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "close by"
+      ]
+    },
+    {
+      "src": "10",
+      "tgt": "1",
+      "c_edge": [
+        "right",
+        "close by",
+        "higher than"
+      ]
+    },
+    {
+      "src": "10",
+      "tgt": "7",
+      "c_edge": [
+        "attached to",
+        "higher than",
+        "close by"
+      ]
+    },
+    {
+      "src": "11",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "close by"
+      ]
+    },
+    {
+      "src": "11",
+      "tgt": "1",
+      "c_edge": [
+        "behind",
+        "lower than",
+        "close by"
+      ]
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "c_edge": [
+        "close by",
+        "left",
+        "lower than"
+      ]
+    },
+    {
+      "src": "12",
+      "tgt": "6",
+      "c_edge": [
+        "standing on",
+        "supported by",
+        "close by"
+      ]
+    },
+    {
+      "src": "12",
+      "tgt": "1",
+      "c_edge": [
+        "close by",
+        "right",
+        "lower than"
+      ]
+    },
+    {
+      "src": "12",
+      "tgt": "11",
+      "c_edge": [
+        "close by",
+        "right",
+        "higher than"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "6",
+      "c_edge": [
+        "hanging on",
+        "covering",
+        "front"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "11",
+      "c_edge": [
+        "covering",
+        "front",
+        "higher than"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "12",
+      "c_edge": [
+        "covering",
+        "front",
+        "higher than"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "1",
+      "c_edge": [
+        "front",
+        "close by",
+        "higher than"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "5",
+      "c_edge": [
+        "front",
+        "close by",
+        "higher than"
+      ]
+    },
+    {
+      "src": "13",
+      "tgt": "4",
+      "c_edge": [
+        "front",
+        "close by",
+        "higher than"
+      ]
+    }
+  ]
+}

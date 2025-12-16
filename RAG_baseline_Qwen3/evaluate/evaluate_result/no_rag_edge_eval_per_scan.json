@@ -1,0 +1,1789 @@
+{
+  "per_scan": [
+    {
+      "scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60",
+      "num_gt_obj": 12,
+      "num_pred_obj": 34,
+      "obj_pred_over_gt": 2.8333333333333335,
+      "obj_recall": 0.8333333333333334,
+      "num_matched_obj": 10,
+      "num_gt_edge": 26,
+      "num_pred_edge": 91,
+      "edge_pred_over_gt": 3.5,
+      "edge_recall": 0.07692307692307693,
+      "num_matched_edge": 2,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 2
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 3
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "front": {
+          "matched": 0,
+          "gt": 3
+        },
+        "left": {
+          "matched": 1,
+          "gt": 3
+        },
+        "right": {
+          "matched": 1,
+          "gt": 3
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 3
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b",
+      "num_gt_obj": 7,
+      "num_pred_obj": 33,
+      "obj_pred_over_gt": 4.714285714285714,
+      "obj_recall": 0.8571428571428571,
+      "num_matched_obj": 6,
+      "num_gt_edge": 20,
+      "num_pred_edge": 81,
+      "edge_pred_over_gt": 4.05,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 6
+        },
+        "front": {
+          "matched": 0,
+          "gt": 2
+        },
+        "right": {
+          "matched": 0,
+          "gt": 2
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 2
+        },
+        "left": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6",
+      "num_gt_obj": 28,
+      "num_pred_obj": 129,
+      "obj_pred_over_gt": 4.607142857142857,
+      "obj_recall": 0.5357142857142857,
+      "num_matched_obj": 15,
+      "num_gt_edge": 199,
+      "num_pred_edge": 225,
+      "edge_pred_over_gt": 1.1306532663316582,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 6
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 14
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 7
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 18
+        },
+        "right": {
+          "matched": 0,
+          "gt": 29
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 24
+        },
+        "left": {
+          "matched": 0,
+          "gt": 29
+        },
+        "front": {
+          "matched": 0,
+          "gt": 18
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 20
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 20
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 5
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 5
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7",
+      "num_gt_obj": 5,
+      "num_pred_obj": 7,
+      "obj_pred_over_gt": 1.4,
+      "obj_recall": 0.8,
+      "num_matched_obj": 4,
+      "num_gt_edge": 4,
+      "num_pred_edge": 16,
+      "edge_pred_over_gt": 4.0,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8",
+      "num_gt_obj": 31,
+      "num_pred_obj": 133,
+      "obj_pred_over_gt": 4.290322580645161,
+      "obj_recall": 0.3548387096774194,
+      "num_matched_obj": 11,
+      "num_gt_edge": 363,
+      "num_pred_edge": 219,
+      "edge_pred_over_gt": 0.6033057851239669,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 12
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 3
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 10
+        },
+        "lying in": {
+          "matched": 0,
+          "gt": 4
+        },
+        "leaning against": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 3
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 40
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 52
+        },
+        "left": {
+          "matched": 0,
+          "gt": 89
+        },
+        "front": {
+          "matched": 0,
+          "gt": 52
+        },
+        "right": {
+          "matched": 0,
+          "gt": 89
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 3
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 3
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501",
+      "num_gt_obj": 37,
+      "num_pred_obj": 106,
+      "obj_pred_over_gt": 2.864864864864865,
+      "obj_recall": 0.5405405405405406,
+      "num_matched_obj": 20,
+      "num_gt_edge": 816,
+      "num_pred_edge": 259,
+      "edge_pred_over_gt": 0.3174019607843137,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 5
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 29
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 1
+        },
+        "part of": {
+          "matched": 0,
+          "gt": 1
+        },
+        "left": {
+          "matched": 0,
+          "gt": 173
+        },
+        "front": {
+          "matched": 0,
+          "gt": 119
+        },
+        "right": {
+          "matched": 0,
+          "gt": 173
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 88
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 119
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 11
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 32
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 11
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 32
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 22
+        }
+      }
+    },
+    {
+      "scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618",
+      "num_gt_obj": 23,
+      "num_pred_obj": 89,
+      "obj_pred_over_gt": 3.869565217391304,
+      "obj_recall": 0.4782608695652174,
+      "num_matched_obj": 11,
+      "num_gt_edge": 72,
+      "num_pred_edge": 211,
+      "edge_pred_over_gt": 2.9305555555555554,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 5
+        },
+        "build in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 13
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "right": {
+          "matched": 0,
+          "gt": 15
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 7
+        },
+        "left": {
+          "matched": 0,
+          "gt": 15
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 4
+        },
+        "front": {
+          "matched": 0,
+          "gt": 7
+        }
+      }
+    },
+    {
+      "scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d",
+      "num_gt_obj": 24,
+      "num_pred_obj": 69,
+      "obj_pred_over_gt": 2.875,
+      "obj_recall": 0.4166666666666667,
+      "num_matched_obj": 10,
+      "num_gt_edge": 46,
+      "num_pred_edge": 144,
+      "edge_pred_over_gt": 3.130434782608696,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 15
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "build in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "left": {
+          "matched": 0,
+          "gt": 7
+        },
+        "right": {
+          "matched": 0,
+          "gt": 7
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 3
+        },
+        "front": {
+          "matched": 0,
+          "gt": 3
+        }
+      }
+    },
+    {
+      "scan_id": "22312382-b828-2c09-9267-bad5dd60ac79",
+      "num_gt_obj": 12,
+      "num_pred_obj": 15,
+      "obj_pred_over_gt": 1.25,
+      "obj_recall": 0.4166666666666667,
+      "num_matched_obj": 5,
+      "num_gt_edge": 70,
+      "num_pred_edge": 35,
+      "edge_pred_over_gt": 0.5,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "build in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 10
+        },
+        "lying in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 11
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 10
+        },
+        "front": {
+          "matched": 0,
+          "gt": 13
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 13
+        },
+        "left": {
+          "matched": 0,
+          "gt": 11
+        }
+      }
+    },
+    {
+      "scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf",
+      "num_gt_obj": 76,
+      "num_pred_obj": 477,
+      "obj_pred_over_gt": 6.276315789473684,
+      "obj_recall": 0.4473684210526316,
+      "num_matched_obj": 34,
+      "num_gt_edge": 541,
+      "num_pred_edge": 1208,
+      "edge_pred_over_gt": 2.232902033271719,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 25
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 24
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 5
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 3
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 7
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 8
+        },
+        "part of": {
+          "matched": 0,
+          "gt": 1
+        },
+        "lying in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "build in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 52
+        },
+        "left": {
+          "matched": 0,
+          "gt": 134
+        },
+        "right": {
+          "matched": 0,
+          "gt": 134
+        },
+        "front": {
+          "matched": 0,
+          "gt": 60
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 60
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 6
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 6
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 12
+        }
+      }
+    },
+    {
+      "scan_id": "4138582f-a238-2435-8332-6902542c2823",
+      "num_gt_obj": 23,
+      "num_pred_obj": 336,
+      "obj_pred_over_gt": 14.608695652173912,
+      "obj_recall": 0.6086956521739131,
+      "num_matched_obj": 14,
+      "num_gt_edge": 132,
+      "num_pred_edge": 911,
+      "edge_pred_over_gt": 6.901515151515151,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 11
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 5
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 25
+        },
+        "front": {
+          "matched": 0,
+          "gt": 18
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 16
+        },
+        "left": {
+          "matched": 0,
+          "gt": 25
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 18
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "422885b1-192d-25fc-868c-110216f86479",
+      "num_gt_obj": 9,
+      "num_pred_obj": 79,
+      "obj_pred_over_gt": 8.777777777777779,
+      "obj_recall": 0.5555555555555556,
+      "num_matched_obj": 5,
+      "num_gt_edge": 10,
+      "num_pred_edge": 190,
+      "edge_pred_over_gt": 19.0,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 9
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac",
+      "num_gt_obj": 7,
+      "num_pred_obj": 17,
+      "obj_pred_over_gt": 2.4285714285714284,
+      "obj_recall": 1.0,
+      "num_matched_obj": 7,
+      "num_gt_edge": 9,
+      "num_pred_edge": 61,
+      "edge_pred_over_gt": 6.777777777777778,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 1
+        },
+        "front": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00",
+      "num_gt_obj": 33,
+      "num_pred_obj": 353,
+      "obj_pred_over_gt": 10.696969696969697,
+      "obj_recall": 0.8484848484848485,
+      "num_matched_obj": 28,
+      "num_gt_edge": 164,
+      "num_pred_edge": 948,
+      "edge_pred_over_gt": 5.780487804878049,
+      "edge_recall": 0.006097560975609756,
+      "num_matched_edge": 1,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 8
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 12
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lying on": {
+          "matched": 1,
+          "gt": 8
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 2
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 16
+        },
+        "right": {
+          "matched": 0,
+          "gt": 34
+        },
+        "left": {
+          "matched": 0,
+          "gt": 34
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 24
+        },
+        "front": {
+          "matched": 0,
+          "gt": 16
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad",
+      "num_gt_obj": 32,
+      "num_pred_obj": 53,
+      "obj_pred_over_gt": 1.65625,
+      "obj_recall": 0.5,
+      "num_matched_obj": 16,
+      "num_gt_edge": 133,
+      "num_pred_edge": 121,
+      "edge_pred_over_gt": 0.9097744360902256,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 11
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 9
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 3
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 7
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "front": {
+          "matched": 0,
+          "gt": 15
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 20
+        },
+        "right": {
+          "matched": 0,
+          "gt": 24
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 15
+        },
+        "left": {
+          "matched": 0,
+          "gt": 24
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19",
+      "num_gt_obj": 21,
+      "num_pred_obj": 75,
+      "obj_pred_over_gt": 3.5714285714285716,
+      "obj_recall": 0.47619047619047616,
+      "num_matched_obj": 10,
+      "num_gt_edge": 55,
+      "num_pred_edge": 203,
+      "edge_pred_over_gt": 3.690909090909091,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 9
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 4
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 6
+        },
+        "lying in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 7
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 10
+        },
+        "left": {
+          "matched": 0,
+          "gt": 7
+        },
+        "front": {
+          "matched": 0,
+          "gt": 4
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 4
+        }
+      }
+    },
+    {
+      "scan_id": "68bae75f-3567-2f7c-829d-7422117729f3",
+      "num_gt_obj": 23,
+      "num_pred_obj": 44,
+      "obj_pred_over_gt": 1.9130434782608696,
+      "obj_recall": 0.391304347826087,
+      "num_matched_obj": 9,
+      "num_gt_edge": 133,
+      "num_pred_edge": 118,
+      "edge_pred_over_gt": 0.8872180451127819,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 10
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 6
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 5
+        },
+        "right": {
+          "matched": 0,
+          "gt": 20
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 30
+        },
+        "front": {
+          "matched": 0,
+          "gt": 18
+        },
+        "left": {
+          "matched": 0,
+          "gt": 20
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 18
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "68bae76e-3567-2f7c-82bd-a09641695364",
+      "num_gt_obj": 16,
+      "num_pred_obj": 131,
+      "obj_pred_over_gt": 8.1875,
+      "obj_recall": 0.5,
+      "num_matched_obj": 8,
+      "num_gt_edge": 98,
+      "num_pred_edge": 332,
+      "edge_pred_over_gt": 3.3877551020408165,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 3
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 10
+        },
+        "leaning against": {
+          "matched": 0,
+          "gt": 1
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 11
+        },
+        "left": {
+          "matched": 0,
+          "gt": 22
+        },
+        "right": {
+          "matched": 0,
+          "gt": 22
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 10
+        },
+        "front": {
+          "matched": 0,
+          "gt": 11
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 2
+        },
+        "same symmetry as": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14",
+      "num_gt_obj": 8,
+      "num_pred_obj": 69,
+      "obj_pred_over_gt": 8.625,
+      "obj_recall": 0.5,
+      "num_matched_obj": 4,
+      "num_gt_edge": 50,
+      "num_pred_edge": 157,
+      "edge_pred_over_gt": 3.14,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 6
+        },
+        "right": {
+          "matched": 0,
+          "gt": 8
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 10
+        },
+        "left": {
+          "matched": 0,
+          "gt": 8
+        },
+        "front": {
+          "matched": 0,
+          "gt": 6
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 6
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 4
+        },
+        "same symmetry as": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358",
+      "num_gt_obj": 66,
+      "num_pred_obj": 228,
+      "obj_pred_over_gt": 3.4545454545454546,
+      "obj_recall": 0.3787878787878788,
+      "num_matched_obj": 25,
+      "num_gt_edge": 341,
+      "num_pred_edge": 508,
+      "edge_pred_over_gt": 1.4897360703812317,
+      "edge_recall": 0.002932551319648094,
+      "num_matched_edge": 1,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 30
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 17
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 3
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 8
+        },
+        "lying on": {
+          "matched": 1,
+          "gt": 8
+        },
+        "leaning against": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 67
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 40
+        },
+        "left": {
+          "matched": 0,
+          "gt": 67
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 46
+        },
+        "front": {
+          "matched": 0,
+          "gt": 46
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 3
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 3
+        }
+      }
+    },
+    {
+      "scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a",
+      "num_gt_obj": 23,
+      "num_pred_obj": 59,
+      "obj_pred_over_gt": 2.5652173913043477,
+      "obj_recall": 0.43478260869565216,
+      "num_matched_obj": 10,
+      "num_gt_edge": 83,
+      "num_pred_edge": 157,
+      "edge_pred_over_gt": 1.891566265060241,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 7
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 6
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 7
+        },
+        "lying in": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 14
+        },
+        "front": {
+          "matched": 0,
+          "gt": 5
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 14
+        },
+        "left": {
+          "matched": 0,
+          "gt": 14
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 5
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 3
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 3
+        }
+      }
+    },
+    {
+      "scan_id": "752cc589-920c-26f5-8ffe-8166547078c1",
+      "num_gt_obj": 33,
+      "num_pred_obj": 279,
+      "obj_pred_over_gt": 8.454545454545455,
+      "obj_recall": 0.45454545454545453,
+      "num_matched_obj": 15,
+      "num_gt_edge": 216,
+      "num_pred_edge": 966,
+      "edge_pred_over_gt": 4.472222222222222,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 12
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 10
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 1
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "right": {
+          "matched": 0,
+          "gt": 42
+        },
+        "front": {
+          "matched": 0,
+          "gt": 36
+        },
+        "left": {
+          "matched": 0,
+          "gt": 42
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 36
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 22
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 1
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 1
+        }
+      }
+    },
+    {
+      "scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7",
+      "num_gt_obj": 8,
+      "num_pred_obj": 92,
+      "obj_pred_over_gt": 11.5,
+      "obj_recall": 0.375,
+      "num_matched_obj": 3,
+      "num_gt_edge": 89,
+      "num_pred_edge": 214,
+      "edge_pred_over_gt": 2.404494382022472,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 7
+        },
+        "right": {
+          "matched": 0,
+          "gt": 15
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 14
+        },
+        "front": {
+          "matched": 0,
+          "gt": 11
+        },
+        "left": {
+          "matched": 0,
+          "gt": 15
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 11
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "same as": {
+          "matched": 0,
+          "gt": 12
+        }
+      }
+    },
+    {
+      "scan_id": "95be45dd-a558-22da-9de4-002d61e13deb",
+      "num_gt_obj": 23,
+      "num_pred_obj": 129,
+      "obj_pred_over_gt": 5.608695652173913,
+      "obj_recall": 0.43478260869565216,
+      "num_matched_obj": 10,
+      "num_gt_edge": 72,
+      "num_pred_edge": 283,
+      "edge_pred_over_gt": 3.9305555555555554,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 19
+        },
+        "build in": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 4
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 1
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "right": {
+          "matched": 0,
+          "gt": 12
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 8
+        },
+        "front": {
+          "matched": 0,
+          "gt": 8
+        },
+        "left": {
+          "matched": 0,
+          "gt": 12
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 4
+        }
+      }
+    },
+    {
+      "scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447",
+      "num_gt_obj": 15,
+      "num_pred_obj": 21,
+      "obj_pred_over_gt": 1.4,
+      "obj_recall": 0.3333333333333333,
+      "num_matched_obj": 5,
+      "num_gt_edge": 42,
+      "num_pred_edge": 47,
+      "edge_pred_over_gt": 1.119047619047619,
+      "edge_recall": 0.023809523809523808,
+      "num_matched_edge": 1,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 6
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing on": {
+          "matched": 1,
+          "gt": 6
+        },
+        "right": {
+          "matched": 0,
+          "gt": 11
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 2
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 2
+        },
+        "left": {
+          "matched": 0,
+          "gt": 11
+        },
+        "front": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe",
+      "num_gt_obj": 23,
+      "num_pred_obj": 246,
+      "obj_pred_over_gt": 10.695652173913043,
+      "obj_recall": 0.6086956521739131,
+      "num_matched_obj": 14,
+      "num_gt_edge": 54,
+      "num_pred_edge": 756,
+      "edge_pred_over_gt": 14.0,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 8
+        },
+        "belonging to": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 7
+        },
+        "supported by": {
+          "matched": 0,
+          "gt": 5
+        },
+        "right": {
+          "matched": 0,
+          "gt": 10
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 4
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 4
+        },
+        "left": {
+          "matched": 0,
+          "gt": 10
+        },
+        "front": {
+          "matched": 0,
+          "gt": 4
+        }
+      }
+    },
+    {
+      "scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1",
+      "num_gt_obj": 56,
+      "num_pred_obj": 499,
+      "obj_pred_over_gt": 8.910714285714286,
+      "obj_recall": 0.32142857142857145,
+      "num_matched_obj": 18,
+      "num_gt_edge": 379,
+      "num_pred_edge": 1594,
+      "edge_pred_over_gt": 4.205804749340369,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 20
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 2
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 21
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 3
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "front": {
+          "matched": 0,
+          "gt": 34
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 34
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 62
+        },
+        "left": {
+          "matched": 0,
+          "gt": 94
+        },
+        "right": {
+          "matched": 0,
+          "gt": 94
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 4
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 4
+        },
+        "same symmetry as": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    },
+    {
+      "scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692",
+      "num_gt_obj": 44,
+      "num_pred_obj": 279,
+      "obj_pred_over_gt": 6.340909090909091,
+      "obj_recall": 0.4090909090909091,
+      "num_matched_obj": 18,
+      "num_gt_edge": 642,
+      "num_pred_edge": 737,
+      "edge_pred_over_gt": 1.14797507788162,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "attached to": {
+          "matched": 0,
+          "gt": 15
+        },
+        "standing on": {
+          "matched": 0,
+          "gt": 16
+        },
+        "connected to": {
+          "matched": 0,
+          "gt": 1
+        },
+        "hanging on": {
+          "matched": 0,
+          "gt": 1
+        },
+        "lying on": {
+          "matched": 0,
+          "gt": 10
+        },
+        "standing in": {
+          "matched": 0,
+          "gt": 3
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 62
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 44
+        },
+        "right": {
+          "matched": 0,
+          "gt": 87
+        },
+        "left": {
+          "matched": 0,
+          "gt": 87
+        },
+        "front": {
+          "matched": 0,
+          "gt": 62
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 84
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 43
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 43
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 84
+        }
+      }
+    },
+    {
+      "scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56",
+      "num_gt_obj": 22,
+      "num_pred_obj": 84,
+      "obj_pred_over_gt": 3.8181818181818183,
+      "obj_recall": 0.6818181818181818,
+      "num_matched_obj": 15,
+      "num_gt_edge": 182,
+      "num_pred_edge": 301,
+      "edge_pred_over_gt": 1.6538461538461537,
+      "edge_recall": 0.0,
+      "num_matched_edge": 0,
+      "per_predicate_counts": {
+        "standing on": {
+          "matched": 0,
+          "gt": 14
+        },
+        "attached to": {
+          "matched": 0,
+          "gt": 8
+        },
+        "close by": {
+          "matched": 0,
+          "gt": 42
+        },
+        "right": {
+          "matched": 0,
+          "gt": 32
+        },
+        "front": {
+          "matched": 0,
+          "gt": 17
+        },
+        "behind": {
+          "matched": 0,
+          "gt": 17
+        },
+        "left": {
+          "matched": 0,
+          "gt": 32
+        },
+        "bigger than": {
+          "matched": 0,
+          "gt": 2
+        },
+        "higher than": {
+          "matched": 0,
+          "gt": 8
+        },
+        "lower than": {
+          "matched": 0,
+          "gt": 8
+        },
+        "smaller than": {
+          "matched": 0,
+          "gt": 2
+        }
+      }
+    }
+  ],
+  "global_summary": {
+    "total_gt_obj": 740,
+    "total_pred_obj": 4165,
+    "global_obj_recall_micro": 0.4864864864864865,
+    "total_gt_edge": 5041,
+    "total_pred_edge": 11093,
+    "global_edge_recall_micro": 0.0009918666931164452,
+    "global_edge_mRecall": 0.0014846924220148648,
+    "per_predicate_recall": {
+      "attached to": 0.0,
+      "hanging on": 0.0,
+      "standing on": 0.003952569169960474,
+      "lying on": 0.028169014084507043,
+      "front": 0.0,
+      "left": 0.0010131712259371835,
+      "right": 0.0010131712259371835,
+      "behind": 0.0,
+      "close by": 0.0,
+      "lower than": 0.0,
+      "higher than": 0.0,
+      "same as": 0.0,
+      "smaller than": 0.0,
+      "bigger than": 0.0,
+      "lying in": 0.0,
+      "leaning against": 0.0,
+      "standing in": 0.0,
+      "supported by": 0.0,
+      "part of": 0.0,
+      "build in": 0.0,
+      "belonging to": 0.0,
+      "connected to": 0.0,
+      "same symmetry as": 0.0
+    }
+  }
+}

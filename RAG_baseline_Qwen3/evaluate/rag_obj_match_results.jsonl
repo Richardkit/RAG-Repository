@@ -1,0 +1,740 @@
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.98}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "6", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "8", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "10", "gt_label": "armchair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "12", "gt_label": "cushion", "match_pred_node_id": "10", "raw_match_pred_node_id": "10", "raw_confidence": 0.95}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "13", "gt_label": "armchair", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.98}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "14", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "15", "gt_label": "stand", "match_pred_node_id": "33", "raw_match_pred_node_id": "33", "raw_confidence": 0.95}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "17", "gt_label": "table", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "09582205-e2c2-2de1-9475-1cdac7639e60", "gt_obj_id": "21", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.98}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "5", "gt_label": "desk", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.98}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "8", "gt_label": "chair", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "11", "gt_label": "garbage", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "12", "gt_label": "monitor", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "09582242-e2c2-2de1-942f-d1001cbff56b", "gt_obj_id": "13", "gt_label": "stand", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "2", "gt_label": "nightstand", "match_pred_node_id": "53", "raw_match_pred_node_id": "53", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "3", "gt_label": "nightstand", "match_pred_node_id": "none", "raw_match_pred_node_id": "53", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "5", "gt_label": "picture", "match_pred_node_id": "133", "raw_match_pred_node_id": "133", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "6", "gt_label": "bed", "match_pred_node_id": "77", "raw_match_pred_node_id": "77", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "8", "gt_label": "curtain", "match_pred_node_id": "12", "raw_match_pred_node_id": "12", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "9", "gt_label": "commode", "match_pred_node_id": "28", "raw_match_pred_node_id": "28", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "10", "gt_label": "wardrobe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "10", "raw_match_pred_node_id": "10", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "12", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "14", "gt_label": "shelf", "match_pred_node_id": "63", "raw_match_pred_node_id": "63", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "15", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "18", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "19", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "21", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "22", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "23", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "24", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "25", "gt_label": "clothes", "match_pred_node_id": "108", "raw_match_pred_node_id": "108", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "26", "gt_label": "organizer", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "27", "gt_label": "pillow", "match_pred_node_id": "89", "raw_match_pred_node_id": "89", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "28", "gt_label": "pillow", "match_pred_node_id": "99", "raw_match_pred_node_id": "99", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "29", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "89", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "30", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "99", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "31", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "99", "raw_confidence": 0.95}
+{"scan_id": "0cac7640-8d6f-2d13-8d50-e374f145f2b6", "gt_obj_id": "32", "gt_label": "blanket", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "4", "raw_match_pred_node_id": "4", "raw_confidence": 0.95}
+{"scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7", "gt_obj_id": "2", "gt_label": "chair", "match_pred_node_id": "ID 1", "raw_match_pred_node_id": "ID 1", "raw_confidence": 0.95}
+{"scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7", "gt_obj_id": "3", "gt_label": "table", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "0cac768c-8d6f-2d13-8cc8-7ace156fc3e7", "gt_obj_id": "5", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "54", "raw_match_pred_node_id": "54", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "3", "gt_label": "curtain", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "4", "gt_label": "decoration", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "8", "gt_label": "shelf", "match_pred_node_id": "126", "raw_match_pred_node_id": "126", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "9", "gt_label": "cabinet", "match_pred_node_id": "114", "raw_match_pred_node_id": "114", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "11", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "12", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "13", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "126", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "14", "gt_label": "decoration", "match_pred_node_id": "127", "raw_match_pred_node_id": "127", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "15", "gt_label": "decoration", "match_pred_node_id": "100", "raw_match_pred_node_id": "100", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "16", "gt_label": "wardrobe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "17", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "114", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "21", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "22", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "126", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "23", "gt_label": "wardrobe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "26", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "27", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "100", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "28", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "29", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "30", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "31", "gt_label": "pack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "32", "gt_label": "pack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "33", "gt_label": "clutter", "match_pred_node_id": "none", "raw_match_pred_node_id": "114", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "34", "gt_label": "jar", "match_pred_node_id": "34", "raw_match_pred_node_id": "34", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "35", "gt_label": "jar", "match_pred_node_id": "43", "raw_match_pred_node_id": "43", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "36", "gt_label": "bucket", "match_pred_node_id": "113", "raw_match_pred_node_id": "113", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "37", "gt_label": "pack", "match_pred_node_id": "none", "raw_match_pred_node_id": "113", "raw_confidence": 0.95}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "40", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "10b1795b-3938-2467-88fe-b10cad8913f8", "gt_obj_id": "49", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "44", "raw_match_pred_node_id": "44", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "59", "raw_match_pred_node_id": "59", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "3", "gt_label": "garbage bin", "match_pred_node_id": "88", "raw_match_pred_node_id": "88", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "59", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "7", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "8", "gt_label": "table", "match_pred_node_id": "13", "raw_match_pred_node_id": "13", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "9", "gt_label": "window", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "10", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "11", "gt_label": "chair", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "12", "gt_label": "chair", "match_pred_node_id": "62", "raw_match_pred_node_id": "62", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "13", "gt_label": "chair", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "14", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "15", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "16", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "17", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "18", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "19", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "2", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "20", "gt_label": "chair", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "21", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "22", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "23", "gt_label": "kitchen cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "24", "gt_label": "kitchen counter", "match_pred_node_id": "20", "raw_match_pred_node_id": "20", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "25", "gt_label": "wall", "match_pred_node_id": "23", "raw_match_pred_node_id": "23", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "26", "gt_label": "ceiling", "match_pred_node_id": "26", "raw_match_pred_node_id": "26", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "27", "gt_label": "microwave", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "28", "gt_label": "microwave", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "29", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "32", "gt_label": "chair", "match_pred_node_id": "82", "raw_match_pred_node_id": "82", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "33", "gt_label": "chair", "match_pred_node_id": "83", "raw_match_pred_node_id": "83", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "34", "gt_label": "chair", "match_pred_node_id": "47", "raw_match_pred_node_id": "47", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "37", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "38", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "39", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "40", "gt_label": "chair", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "41", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "62", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "43", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "62", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "46", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "1d233ffa-e280-2b1a-8e92-2540f61e5501", "gt_obj_id": "57", "gt_label": "box", "match_pred_node_id": "103", "raw_match_pred_node_id": "103", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "1", "gt_label": "toilet", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 1.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "2", "gt_label": "bidet", "match_pred_node_id": "none", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "3", "gt_label": "bathtub", "match_pred_node_id": "20", "raw_match_pred_node_id": "20", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "4", "gt_label": "sink", "match_pred_node_id": "49", "raw_match_pred_node_id": "49", "raw_confidence": 1.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "6", "gt_label": "door", "match_pred_node_id": "66", "raw_match_pred_node_id": "66", "raw_confidence": 0.98}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "8", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "9", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "76", "raw_match_pred_node_id": "76", "raw_confidence": 0.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "11", "gt_label": "clothes dryer", "match_pred_node_id": "33", "raw_match_pred_node_id": "33", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "13", "gt_label": "floor", "match_pred_node_id": "25", "raw_match_pred_node_id": "25", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "14", "gt_label": "stand", "match_pred_node_id": "89", "raw_match_pred_node_id": "89", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "15", "gt_label": "ceiling", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 1.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "19", "gt_label": "shelf", "match_pred_node_id": "51", "raw_match_pred_node_id": "51", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "20", "gt_label": "trash can", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "21", "gt_label": "lamp", "match_pred_node_id": "78", "raw_match_pred_node_id": "78", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "22", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "24", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "25", "gt_label": "towel", "match_pred_node_id": "none", "raw_match_pred_node_id": "89", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "27", "gt_label": "lamp", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "28", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d23401e-e280-2b1a-8cef-f28df9df2618", "gt_obj_id": "30", "gt_label": "towel", "match_pred_node_id": "10", "raw_match_pred_node_id": "10", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "3", "gt_label": "sink", "match_pred_node_id": "12", "raw_match_pred_node_id": "12", "raw_confidence": 1.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "4", "gt_label": "garbage bin", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "6", "gt_label": "counter", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "8", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "9", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "12", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "13", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "14", "gt_label": "toilet", "match_pred_node_id": "29", "raw_match_pred_node_id": "29", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "15", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "16", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "17", "gt_label": "lamp", "match_pred_node_id": "58", "raw_match_pred_node_id": "58", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "18", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "22", "gt_label": "heater", "match_pred_node_id": "23", "raw_match_pred_node_id": "23", "raw_confidence": 1.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "23", "gt_label": "toilet paper", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "24", "gt_label": "toilet paper", "match_pred_node_id": "28", "raw_match_pred_node_id": "28", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "25", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "58", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "26", "gt_label": "sink", "match_pred_node_id": "none", "raw_match_pred_node_id": "12", "raw_confidence": 1.0}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "29", "gt_label": "hand dryer", "match_pred_node_id": "56", "raw_match_pred_node_id": "56", "raw_confidence": 0.95}
+{"scan_id": "1d234026-e280-2b1a-8fe1-713e28269f4d", "gt_obj_id": "32", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "2", "gt_label": "sink", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 1.0}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "3", "gt_label": "bath cabinet", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "4", "gt_label": "bath cabinet", "match_pred_node_id": "11", "raw_match_pred_node_id": "11", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "14", "raw_match_pred_node_id": "14", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "6", "gt_label": "bath cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "7", "gt_label": "bath cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "8", "gt_label": "bath cabinet", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "9", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "14", "raw_confidence": 0.95}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "10", "gt_label": "bath cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "12", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "22312382-b828-2c09-9267-bad5dd60ac79", "gt_obj_id": "17", "gt_label": "towel", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "158", "raw_match_pred_node_id": "158", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "2", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "3", "gt_label": "chair", "match_pred_node_id": "131", "raw_match_pred_node_id": "131", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "4", "gt_label": "chair", "match_pred_node_id": "135", "raw_match_pred_node_id": "135", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "5", "gt_label": "chair", "match_pred_node_id": "17", "raw_match_pred_node_id": "17", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "6", "gt_label": "chair", "match_pred_node_id": "135", "raw_match_pred_node_id": "135", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "8", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "9", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "12", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "13", "gt_label": "door", "match_pred_node_id": "70", "raw_match_pred_node_id": "70", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "15", "gt_label": "kitchen cabinet", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "16", "gt_label": "kitchen cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "17", "gt_label": "microwave", "match_pred_node_id": "347", "raw_match_pred_node_id": "347", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "18", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "19", "gt_label": "kitchen cabinet", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "20", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "21", "gt_label": "door", "match_pred_node_id": "75", "raw_match_pred_node_id": "75", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "22", "gt_label": "shoe rack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "23", "gt_label": "door", "match_pred_node_id": "76", "raw_match_pred_node_id": "76", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "24", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "25", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "26", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "27", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "28", "gt_label": "heater", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "29", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "30", "gt_label": "wall", "match_pred_node_id": "401", "raw_match_pred_node_id": "401", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "32", "gt_label": "curtain", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "33", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "34", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "35", "gt_label": "counter", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "36", "gt_label": "sink", "match_pred_node_id": "431", "raw_match_pred_node_id": "431", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "37", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "38", "gt_label": "backpack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "39", "gt_label": "kitchen cabinet", "match_pred_node_id": "ID 2", "raw_match_pred_node_id": "ID 2", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "40", "gt_label": "kitchen counter", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "42", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "43", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "44", "gt_label": "wall", "match_pred_node_id": "359", "raw_match_pred_node_id": "359", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "46", "gt_label": "door", "match_pred_node_id": "85", "raw_match_pred_node_id": "85", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "47", "gt_label": "cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "48", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "49", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "53", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "54", "gt_label": "clutter", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "55", "gt_label": "board", "match_pred_node_id": "31", "raw_match_pred_node_id": "31", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "56", "gt_label": "box", "match_pred_node_id": "33", "raw_match_pred_node_id": "33", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "57", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "58", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "60", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "61", "gt_label": "shoes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "62", "gt_label": "doorframe", "match_pred_node_id": "90", "raw_match_pred_node_id": "90", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "64", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "65", "gt_label": "suitcase", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "66", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "67", "gt_label": "coffee machine", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "69", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "70", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "71", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "76", "gt_label": "stove", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "77", "gt_label": "oven", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "78", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "79", "gt_label": "cutting board", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "80", "gt_label": "paper towel", "match_pred_node_id": "397", "raw_match_pred_node_id": "397", "raw_confidence": 0.98}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "81", "gt_label": "bag", "match_pred_node_id": "394", "raw_match_pred_node_id": "394", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "82", "gt_label": "bag", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "83", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "84", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "86", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "87", "gt_label": "clothes", "match_pred_node_id": "132", "raw_match_pred_node_id": "132", "raw_confidence": 0.95}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "88", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "89", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "38770ca1-86d7-27b8-8619-ab66f67d9adf", "gt_obj_id": "90", "gt_label": "bottle", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "2", "gt_label": "armchair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "3", "gt_label": "armchair", "match_pred_node_id": "129", "raw_match_pred_node_id": "129", "raw_confidence": 0.98}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "4", "gt_label": "ottoman", "match_pred_node_id": "226", "raw_match_pred_node_id": "226", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "5", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "6", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "8", "gt_label": "books", "match_pred_node_id": "309", "raw_match_pred_node_id": "309", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "9", "gt_label": "side table", "match_pred_node_id": "224", "raw_match_pred_node_id": "224", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "12", "gt_label": "fireplace", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.98}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "13", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "15", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "16", "gt_label": "shelf", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "21", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "22", "gt_label": "bookshelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "24", "gt_label": "organizer", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "25", "gt_label": "pillow", "match_pred_node_id": "81", "raw_match_pred_node_id": "81", "raw_confidence": 0.98}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "26", "gt_label": "pillow", "match_pred_node_id": "143", "raw_match_pred_node_id": "143", "raw_confidence": 0.95}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "27", "gt_label": "pillow", "match_pred_node_id": "86", "raw_match_pred_node_id": "86", "raw_confidence": 0.98}
+{"scan_id": "4138582f-a238-2435-8332-6902542c2823", "gt_obj_id": "33", "gt_label": "bin", "match_pred_node_id": "125", "raw_match_pred_node_id": "125", "raw_confidence": 0.95}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "5", "gt_label": "window", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "6", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "8", "gt_label": "ceiling", "match_pred_node_id": "ID 30", "raw_match_pred_node_id": "ID 30", "raw_confidence": 0.95}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "9", "gt_label": "window", "match_pred_node_id": "29", "raw_match_pred_node_id": "29", "raw_confidence": 0.95}
+{"scan_id": "422885b1-192d-25fc-868c-110216f86479", "gt_obj_id": "17", "gt_label": "floor", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "1", "gt_label": "wall", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.98}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "2", "gt_label": "window", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 0.98}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "3", "gt_label": "table", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.95}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "4", "gt_label": "garbage bin", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.98}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "5", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "6", "gt_label": "plant", "match_pred_node_id": "16", "raw_match_pred_node_id": "16", "raw_confidence": 0.95}
+{"scan_id": "43b8caf1-6678-2e38-9ab4-0bdde7337aac", "gt_obj_id": "10", "gt_label": "pot", "match_pred_node_id": "17", "raw_match_pred_node_id": "17", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "2", "gt_label": "nightstand", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "4", "gt_label": "picture", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "6", "gt_label": "bag", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "7", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "8", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "9", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "10", "gt_label": "wardrobe", "match_pred_node_id": "ID 10", "raw_match_pred_node_id": "ID 10", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "12", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "13", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "14", "gt_label": "window", "match_pred_node_id": "14", "raw_match_pred_node_id": "14", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "15", "gt_label": "chair", "match_pred_node_id": "102", "raw_match_pred_node_id": "102", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "16", "gt_label": "clothes", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "17", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "19", "gt_label": "backpack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "20", "gt_label": "bed", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "21", "gt_label": "shoes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "22", "gt_label": "shoes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "23", "gt_label": "desk", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "24", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "25", "gt_label": "showcase", "match_pred_node_id": "25", "raw_match_pred_node_id": "25", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "27", "gt_label": "commode", "match_pred_node_id": "27", "raw_match_pred_node_id": "27", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "28", "gt_label": "pillow", "match_pred_node_id": "ID 2", "raw_match_pred_node_id": "ID 2", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "29", "gt_label": "tv stand", "match_pred_node_id": "29", "raw_match_pred_node_id": "29", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "30", "gt_label": "tv", "match_pred_node_id": "66", "raw_match_pred_node_id": "66", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "31", "gt_label": "blanket", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.98}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "32", "gt_label": "socket", "match_pred_node_id": "72", "raw_match_pred_node_id": "72", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "33", "gt_label": "bag", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "34", "gt_label": "box", "match_pred_node_id": "28", "raw_match_pred_node_id": "28", "raw_confidence": 0.95}
+{"scan_id": "4a9a43e0-7736-2874-87ac-c589da4d0f00", "gt_obj_id": "35", "gt_label": "bag", "match_pred_node_id": "244", "raw_match_pred_node_id": "244", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "5", "gt_label": "bed", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "6", "gt_label": "nightstand", "match_pred_node_id": "12", "raw_match_pred_node_id": "12", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "7", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "8", "gt_label": "curtain", "match_pred_node_id": "ID 22", "raw_match_pred_node_id": "ID 22", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "9", "gt_label": "wall", "match_pred_node_id": "27", "raw_match_pred_node_id": "27", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "11", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "12", "gt_label": "chair", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "13", "gt_label": "desk", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "19", "gt_label": "nightstand", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "20", "gt_label": "wall", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "22", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "23", "gt_label": "cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "24", "gt_label": "object", "match_pred_node_id": "52", "raw_match_pred_node_id": "52", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "25", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "26", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "33", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "34", "gt_label": "clothes", "match_pred_node_id": "28", "raw_match_pred_node_id": "28", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "35", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "36", "gt_label": "tv", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "38", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "39", "gt_label": "heater", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "40", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "41", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "42", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "43", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "44", "gt_label": "blanket", "match_pred_node_id": "10", "raw_match_pred_node_id": "10", "raw_confidence": 0.95}
+{"scan_id": "4e858c89-fd93-2cb4-8459-7542184fd2ad", "gt_obj_id": "45", "gt_label": "blanket", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "2", "gt_label": "bed", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "3", "gt_label": "blanket", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "4", "gt_label": "wardrobe", "match_pred_node_id": "42", "raw_match_pred_node_id": "42", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "6", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "13", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "15", "gt_label": "pillow", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "17", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "19", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "20", "gt_label": "pillow", "match_pred_node_id": "4", "raw_match_pred_node_id": "4", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "21", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "22", "gt_label": "pillow", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "26", "gt_label": "curtain", "match_pred_node_id": "31", "raw_match_pred_node_id": "31", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "27", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "28", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "29", "gt_label": "box", "match_pred_node_id": "32", "raw_match_pred_node_id": "32", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "31", "gt_label": "picture", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "32", "gt_label": "picture", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "34", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "35", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "7272e17c-a01b-20f6-8b2f-e659331ae41a", "gt_obj_id": "56", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "20", "raw_match_pred_node_id": "20", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "3", "gt_label": "radiator", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "5", "gt_label": "tube", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "6", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "7", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "8", "gt_label": "window", "match_pred_node_id": "163", "raw_match_pred_node_id": "163", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "9", "gt_label": "window", "match_pred_node_id": "167", "raw_match_pred_node_id": "167", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "11", "gt_label": "washing machine", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "12", "gt_label": "drying machine", "match_pred_node_id": "100", "raw_match_pred_node_id": "100", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "13", "gt_label": "drying machine", "match_pred_node_id": "16", "raw_match_pred_node_id": "16", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "15", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "16", "gt_label": "washing machine", "match_pred_node_id": "101", "raw_match_pred_node_id": "101", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "17", "gt_label": "washing machine", "match_pred_node_id": "13", "raw_match_pred_node_id": "13", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "18", "gt_label": "washing machine", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "19", "gt_label": "washing machine", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "20", "gt_label": "washing machine", "match_pred_node_id": "109", "raw_match_pred_node_id": "109", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "21", "gt_label": "wall", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.98}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "22", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "26", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "27", "gt_label": "clothes", "match_pred_node_id": "ID 10", "raw_match_pred_node_id": "ID 10", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "28", "gt_label": "pipe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "31", "gt_label": "machine", "match_pred_node_id": "111", "raw_match_pred_node_id": "111", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "32", "gt_label": "bag", "match_pred_node_id": "17", "raw_match_pred_node_id": "17", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "34", "gt_label": "trash can", "match_pred_node_id": "34", "raw_match_pred_node_id": "34", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "35", "gt_label": "bag", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "37", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "40", "gt_label": "pipe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "41", "gt_label": "clutter", "match_pred_node_id": "ID 102", "raw_match_pred_node_id": "ID 102", "raw_confidence": 0.95}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "42", "gt_label": "bucket", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "752cc589-920c-26f5-8ffe-8166547078c1", "gt_obj_id": "43", "gt_label": "bag", "match_pred_node_id": "102", "raw_match_pred_node_id": "102", "raw_confidence": 0.95}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "2", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "3", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "4", "gt_label": "chair", "match_pred_node_id": "26", "raw_match_pred_node_id": "26", "raw_confidence": 0.95}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "5", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "6", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "7", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "77361fc8-d054-2a22-8868-c3de4283fff7", "gt_obj_id": "17", "gt_label": "plant", "match_pred_node_id": "23", "raw_match_pred_node_id": "23", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "60", "raw_match_pred_node_id": "60", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "6", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "8", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "9", "gt_label": "bathtub", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "10", "gt_label": "bath cabinet", "match_pred_node_id": "113", "raw_match_pred_node_id": "113", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "11", "gt_label": "sink", "match_pred_node_id": "11", "raw_match_pred_node_id": "11", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "12", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "15", "gt_label": "sink", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "16", "gt_label": "cabinet", "match_pred_node_id": "36", "raw_match_pred_node_id": "36", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "17", "gt_label": "shower curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "18", "gt_label": "toilet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "29", "gt_label": "light", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "34", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "35", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "37", "gt_label": "towel", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "38", "gt_label": "towel", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "39", "gt_label": "window", "match_pred_node_id": "83", "raw_match_pred_node_id": "83", "raw_confidence": 0.95}
+{"scan_id": "95be45dd-a558-22da-9de4-002d61e13deb", "gt_obj_id": "41", "gt_label": "towel", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.98}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "4", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.95}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "17", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "18", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "29", "gt_label": "stool", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "34", "gt_label": "fireplace", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "36", "gt_label": "basket", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "43", "gt_label": "commode", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "50", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "51", "gt_label": "doorframe", "match_pred_node_id": "16", "raw_match_pred_node_id": "16", "raw_confidence": 0.95}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "52", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "54", "gt_label": "vase", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "ad408cab-84db-2095-89c7-4a7d5aead447", "gt_obj_id": "55", "gt_label": "decoration", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.98}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "3", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "4", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "6", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "23", "raw_match_pred_node_id": "23", "raw_confidence": 0.98}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "8", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "9", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "10", "gt_label": "window", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "11", "gt_label": "plant", "match_pred_node_id": "ID 77", "raw_match_pred_node_id": "ID 77", "raw_confidence": 0.95}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "13", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "16", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "18", "gt_label": "doorframe", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "19", "gt_label": "frame", "match_pred_node_id": "55", "raw_match_pred_node_id": "55", "raw_confidence": 0.95}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "22", "gt_label": "grass", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "23", "gt_label": "light", "match_pred_node_id": "80", "raw_match_pred_node_id": "80", "raw_confidence": 0.95}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "24", "gt_label": "flower", "match_pred_node_id": "24", "raw_match_pred_node_id": "24", "raw_confidence": 0.98}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "25", "gt_label": "flower", "match_pred_node_id": "21", "raw_match_pred_node_id": "21", "raw_confidence": 0.95}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "26", "gt_label": "vase", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "27", "gt_label": "vase", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "28", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "bf9a3da2-45a5-2e80-8219-1f0a216399fe", "gt_obj_id": "100", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "6", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "8", "gt_label": "door", "match_pred_node_id": "17", "raw_match_pred_node_id": "17", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "9", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "10", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "11", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "12", "gt_label": "light", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "13", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "15", "raw_match_pred_node_id": "15", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "15", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "16", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "17", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "18", "gt_label": "shelf", "match_pred_node_id": "25", "raw_match_pred_node_id": "25", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "20", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "21", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "22", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "23", "gt_label": "sofa chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "24", "gt_label": "ottoman", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "25", "gt_label": "coffee table", "match_pred_node_id": "25", "raw_match_pred_node_id": "25", "raw_confidence": 0.98}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "26", "gt_label": "couch", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "30", "gt_label": "plant", "match_pred_node_id": "30", "raw_match_pred_node_id": "30", "raw_confidence": 0.98}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "31", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "32", "gt_label": "plant", "match_pred_node_id": "38", "raw_match_pred_node_id": "38", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "33", "gt_label": "radiator", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "35", "gt_label": "plant", "match_pred_node_id": "35", "raw_match_pred_node_id": "35", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "36", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "37", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "40", "gt_label": "windowsill", "match_pred_node_id": "42", "raw_match_pred_node_id": "42", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "41", "gt_label": "plant", "match_pred_node_id": "ID 41", "raw_match_pred_node_id": "ID 41", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "42", "gt_label": "plant", "match_pred_node_id": "ID 42", "raw_match_pred_node_id": "ID 42", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "43", "gt_label": "plant", "match_pred_node_id": "43", "raw_match_pred_node_id": "43", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "44", "gt_label": "plant", "match_pred_node_id": "44", "raw_match_pred_node_id": "44", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "45", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "46", "gt_label": "plant", "match_pred_node_id": "46", "raw_match_pred_node_id": "46", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "47", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "49", "gt_label": "window", "match_pred_node_id": "49", "raw_match_pred_node_id": "49", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "53", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "54", "gt_label": "radiator", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "56", "gt_label": "windowsill", "match_pred_node_id": "56", "raw_match_pred_node_id": "56", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "61", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "63", "gt_label": "dining table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "64", "gt_label": "couch", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "66", "gt_label": "dining chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "67", "gt_label": "dining chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "68", "gt_label": "object", "match_pred_node_id": "68", "raw_match_pred_node_id": "68", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "69", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "70", "gt_label": "object", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "71", "gt_label": "tv", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "72", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "75", "gt_label": "tv stand", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "77", "gt_label": "tv stand", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "78", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "79", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "82", "gt_label": "object", "match_pred_node_id": "82", "raw_match_pred_node_id": "82", "raw_confidence": 0.95}
+{"scan_id": "c54c6eff-7124-2bf6-88ba-a46f4e2e76b1", "gt_obj_id": "92", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "4", "gt_label": "shelf", "match_pred_node_id": "221", "raw_match_pred_node_id": "221", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "5", "gt_label": "window", "match_pred_node_id": "27", "raw_match_pred_node_id": "27", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "6", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "7", "gt_label": "shelf", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "8", "gt_label": "wall", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "9", "gt_label": "door", "match_pred_node_id": "184", "raw_match_pred_node_id": "184", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "10", "gt_label": "heater", "match_pred_node_id": "65", "raw_match_pred_node_id": "65", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "12", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "13", "gt_label": "light", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "15", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "16", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "17", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "18", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "19", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "20", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "21", "gt_label": "box", "match_pred_node_id": "ID 2", "raw_match_pred_node_id": "ID 2", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "22", "gt_label": "box", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "23", "gt_label": "windowsill", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "24", "gt_label": "box", "match_pred_node_id": "ID 2", "raw_match_pred_node_id": "ID 2", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "25", "gt_label": "box", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "26", "gt_label": "box", "match_pred_node_id": "26", "raw_match_pred_node_id": "26", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "27", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "28", "gt_label": "box", "match_pred_node_id": "28", "raw_match_pred_node_id": "28", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "29", "gt_label": "trash can", "match_pred_node_id": "29", "raw_match_pred_node_id": "29", "raw_confidence": 0.98}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "30", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "31", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "32", "gt_label": "box", "match_pred_node_id": "32", "raw_match_pred_node_id": "32", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "33", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "35", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "36", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "37", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "38", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "39", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "40", "gt_label": "printer", "match_pred_node_id": "66", "raw_match_pred_node_id": "66", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "41", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "42", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "43", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "44", "gt_label": "ladder", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "46", "gt_label": "box", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "c92fb58e-f771-2064-85ec-a3446ebee692", "gt_obj_id": "47", "gt_label": "laptop", "match_pred_node_id": "47", "raw_match_pred_node_id": "47", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "2", "gt_label": "table", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "3", "gt_label": "chair", "match_pred_node_id": "ID 11", "raw_match_pred_node_id": "ID 11", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "4", "gt_label": "chair", "match_pred_node_id": "19", "raw_match_pred_node_id": "19", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "5", "gt_label": "chair", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "6", "gt_label": "chair", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "7", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "8", "gt_label": "bench", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "9", "gt_label": "bench", "match_pred_node_id": "20", "raw_match_pred_node_id": "20", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "10", "gt_label": "bench", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "11", "gt_label": "bench", "match_pred_node_id": "ID 11", "raw_match_pred_node_id": "ID 11", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "12", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "13", "gt_label": "chair", "match_pred_node_id": "ID 9", "raw_match_pred_node_id": "ID 9", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "14", "gt_label": "bench", "match_pred_node_id": "14", "raw_match_pred_node_id": "14", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "15", "gt_label": "bench", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "16", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "17", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "18", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "19", "gt_label": "window", "match_pred_node_id": "40", "raw_match_pred_node_id": "40", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "20", "gt_label": "window", "match_pred_node_id": "12", "raw_match_pred_node_id": "12", "raw_confidence": 0.95}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "21", "gt_label": "bench", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "dc42b378-8d5c-2d2a-8477-c1f077da4e56", "gt_obj_id": "22", "gt_label": "window", "match_pred_node_id": "31", "raw_match_pred_node_id": "31", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "18", "raw_match_pred_node_id": "18", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "5", "gt_label": "wall", "match_pred_node_id": "71", "raw_match_pred_node_id": "71", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "6", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "8", "gt_label": "curtain", "match_pred_node_id": "12", "raw_match_pred_node_id": "12", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "9", "gt_label": "window", "match_pred_node_id": "13", "raw_match_pred_node_id": "13", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "10", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "11", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "12", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "13", "gt_label": "radiator", "match_pred_node_id": "22", "raw_match_pred_node_id": "22", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "14", "gt_label": "side table", "match_pred_node_id": "14", "raw_match_pred_node_id": "14", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "15", "gt_label": "stool", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "17", "gt_label": "tv", "match_pred_node_id": "24", "raw_match_pred_node_id": "24", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "18", "gt_label": "picture", "match_pred_node_id": "66", "raw_match_pred_node_id": "66", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "19", "gt_label": "computer desk", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "20", "gt_label": "cabinet", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "22", "gt_label": "object", "match_pred_node_id": "ID 10", "raw_match_pred_node_id": "ID 10", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "24", "gt_label": "printer", "match_pred_node_id": "26", "raw_match_pred_node_id": "26", "raw_confidence": 0.95}
+{"scan_id": "5630cfd1-12bf-2860-86b2-e7a96bc32c19", "gt_obj_id": "28", "gt_label": "door", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "9", "raw_match_pred_node_id": "9", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "3", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "4", "gt_label": "sofa", "match_pred_node_id": "37", "raw_match_pred_node_id": "37", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "5", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "6", "gt_label": "window", "match_pred_node_id": "27", "raw_match_pred_node_id": "27", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "9", "gt_label": "tv stand", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "11", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "12", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "14", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "15", "gt_label": "box", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "16", "gt_label": "plant", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "18", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "19", "gt_label": "plant", "match_pred_node_id": "26", "raw_match_pred_node_id": "26", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "20", "gt_label": "pot", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "21", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "25", "gt_label": "clothes", "match_pred_node_id": "36", "raw_match_pred_node_id": "36", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "26", "gt_label": "blanket", "match_pred_node_id": "38", "raw_match_pred_node_id": "38", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "27", "gt_label": "pillow", "match_pred_node_id": "40", "raw_match_pred_node_id": "40", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "28", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "29", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "30", "gt_label": "pillow", "match_pred_node_id": "41", "raw_match_pred_node_id": "41", "raw_confidence": 0.95}
+{"scan_id": "68bae75f-3567-2f7c-829d-7422117729f3", "gt_obj_id": "31", "gt_label": "tv", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "ID 1", "raw_match_pred_node_id": "ID 1", "raw_confidence": 0.98}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "13", "raw_match_pred_node_id": "13", "raw_confidence": 0.95}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "3", "gt_label": "cabinet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "4", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "5", "gt_label": "vase", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "6", "gt_label": "pot", "match_pred_node_id": "34", "raw_match_pred_node_id": "34", "raw_confidence": 0.98}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "7", "gt_label": "pot", "match_pred_node_id": "38", "raw_match_pred_node_id": "38", "raw_confidence": 0.95}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "8", "gt_label": "plant", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "9", "gt_label": "pot", "match_pred_node_id": "46", "raw_match_pred_node_id": "46", "raw_confidence": 0.95}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "10", "gt_label": "plant", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.95}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "11", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "13", "gt_label": "item", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "14", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "15", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "16", "gt_label": "chair", "match_pred_node_id": "41", "raw_match_pred_node_id": "41", "raw_confidence": 0.95}
+{"scan_id": "68bae76e-3567-2f7c-82bd-a09641695364", "gt_obj_id": "22", "gt_label": "window", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.98}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "2", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "3", "gt_label": "chair", "match_pred_node_id": "68", "raw_match_pred_node_id": "68", "raw_confidence": 0.95}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "4", "gt_label": "bar", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "5", "gt_label": "trash can", "match_pred_node_id": "5", "raw_match_pred_node_id": "5", "raw_confidence": 0.0}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "6", "gt_label": "stool", "match_pred_node_id": "1", "raw_match_pred_node_id": "1", "raw_confidence": 0.98}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "7", "gt_label": "stool", "match_pred_node_id": "2", "raw_match_pred_node_id": "2", "raw_confidence": 0.98}
+{"scan_id": "6bde6055-9162-246f-8f44-e3efc21c9e14", "gt_obj_id": "15", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "1", "gt_label": "floor", "match_pred_node_id": "8", "raw_match_pred_node_id": "8", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "2", "gt_label": "wall", "match_pred_node_id": "6", "raw_match_pred_node_id": "6", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "3", "gt_label": "armchair", "match_pred_node_id": "7", "raw_match_pred_node_id": "7", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "4", "gt_label": "wall", "match_pred_node_id": "4", "raw_match_pred_node_id": "4", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "5", "gt_label": "bed", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "6", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "7", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "8", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "9", "gt_label": "shower wall", "match_pred_node_id": "183", "raw_match_pred_node_id": "183", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "10", "gt_label": "towel", "match_pred_node_id": "183", "raw_match_pred_node_id": "183", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "11", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "12", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "13", "gt_label": "shelf", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "14", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "15", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "16", "gt_label": "toilet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "17", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "18", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "19", "gt_label": "toilet", "match_pred_node_id": "154", "raw_match_pred_node_id": "154", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "20", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "21", "gt_label": "door", "match_pred_node_id": "122", "raw_match_pred_node_id": "122", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "22", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "23", "gt_label": "closet", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "24", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "25", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "26", "gt_label": "curtain", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "28", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "29", "gt_label": "towel", "match_pred_node_id": "189", "raw_match_pred_node_id": "189", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "30", "gt_label": "towel", "match_pred_node_id": "178", "raw_match_pred_node_id": "178", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "31", "gt_label": "table", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "32", "gt_label": "ceiling", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "33", "gt_label": "desk", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "34", "gt_label": "backpack", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "35", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "37", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "39", "gt_label": "nightstand", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "40", "gt_label": "laptop", "match_pred_node_id": "80", "raw_match_pred_node_id": "80", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "41", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "42", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "43", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "45", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "46", "gt_label": "nightstand", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "48", "gt_label": "telephone", "match_pred_node_id": "3", "raw_match_pred_node_id": "3", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "50", "gt_label": "lamp", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "53", "gt_label": "pillow", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "55", "gt_label": "chair", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "56", "gt_label": "box", "match_pred_node_id": "56", "raw_match_pred_node_id": "56", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "57", "gt_label": "book", "match_pred_node_id": "30", "raw_match_pred_node_id": "30", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "58", "gt_label": "bag", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "59", "gt_label": "trash can", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "60", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "61", "gt_label": "toilet brush", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "62", "gt_label": "telephone", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "63", "gt_label": "toilet paper", "match_pred_node_id": "100", "raw_match_pred_node_id": "100", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "65", "gt_label": "towel", "match_pred_node_id": "183", "raw_match_pred_node_id": "183", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "66", "gt_label": "towel", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "67", "gt_label": "towel", "match_pred_node_id": "182", "raw_match_pred_node_id": "182", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "69", "gt_label": "shower", "match_pred_node_id": "197", "raw_match_pred_node_id": "197", "raw_confidence": 0.98}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "72", "gt_label": "shower floor", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "75", "gt_label": "bag", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "76", "gt_label": "bag", "match_pred_node_id": "68", "raw_match_pred_node_id": "68", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "77", "gt_label": "clothes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "91", "gt_label": "shoes", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "92", "gt_label": "wall", "match_pred_node_id": "none", "raw_match_pred_node_id": "none", "raw_confidence": 0.0}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "95", "gt_label": "trash can", "match_pred_node_id": "94", "raw_match_pred_node_id": "94", "raw_confidence": 0.95}
+{"scan_id": "6bde60e6-9162-246f-8d7f-823d12b5e358", "gt_obj_id": "96", "gt_label": "coffee table", "match_pred_node_id": "20", "raw_match_pred_node_id": "20", "raw_confidence": 0.95}
