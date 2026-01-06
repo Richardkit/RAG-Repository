@@ -6,8 +6,9 @@ RAG_Rexplore_Qwen3/**/__pycache__/
 RAG_baseline_Qwen3/temporary_img_qwen_judge_1/
 RAG_baseline_Qwen3/**/logs/
 RAG_Rexplore_Qwen3/**/logs/
+RAG_Rexplore_Qwen3/temp_images/
 
 # evaluation artifacts (adjust if you want to keep some)
 RAG_baseline_Qwen3/evaluate/**/*.jsonl
-RAG_baseline_Qwen3/evaluate/evaluate_result/
 RAG_baseline_Qwen3/evaluate/*scan_result/
+
