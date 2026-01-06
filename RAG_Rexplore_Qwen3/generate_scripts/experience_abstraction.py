@@ -8,6 +8,7 @@ import glob
 import base64
 import dashscope
 import pickle
+import shutil
 import colorsys
 from typing import List, Dict, Any, Tuple, Optional
 from collections import defaultdict, Counter
@@ -191,13 +192,15 @@ def prepare_images_with_selection(scan_id, window_level_gt_sg_path, window,
             label_boxes.append((tx1, ty1, tx2, ty2))
             draw.text((tx1 + 2, ty1), text, fill=color, font=font)
 
-        temp_image_path = os.path.join(TEMP_IMAGE_DIR, f"{scan_id}_frame_{frame_id:06d}.jpg")
+        temp_image_path = os.path.join(temp_img_dir, f"{scan_id}_frame_{frame_id:06d}.jpg")
         
         # Ensure parent directory exists before saving
         os.makedirs(os.path.dirname(temp_image_path), exist_ok=True)
         
         print(f"Saving annotated image to {temp_image_path}")
         img.save(temp_image_path)
+
+    return [os.path.join(temp_img_dir, f"{scan_id}_frame_{frame_id:06d}.jpg") for frame_id in range(window[0], window[1])]
 
 # =========================
 # vllm Prepare & Run
@@ -527,7 +530,7 @@ def generate_experience_abstraction(window: List[int],
         {
           "scan_id": "...",
           "window_index": int,
-          "abstraction": "<20-30句英文段落>"
+          "guide": "<4-8句英文段落>"
         }
       - 同时保存原始 LLM 输出到 window_{win_idx}_abstraction_raw.txt
       - 函数返回 parsed dict（或 None）
@@ -622,10 +625,6 @@ def generate_experience_abstraction(window: List[int],
         if os.path.exists(img_path):
             annotated_rgbs.append(img_path)
 
-    # 为了控制 token，可以只给前 2 张；如果你想全部用就去掉 [:2]
-    if len(annotated_rgbs) > 2:
-        annotated_rgbs = annotated_rgbs[:2]
-
     # ---------- 4) 构造 CoT 风格的 Reflection + Abstraction prompt ----------
     content: List[Dict[str, Any]] = []
     for p in annotated_rgbs:
@@ -719,8 +718,6 @@ FINAL OUTPUT FORMAT (MANDATORY)
 You MUST output ONLY ONE JSON object with the following keys:
 
 {{
-  "scan_id": "<string>",
-  "window_index": <int>,
   "reflection": {{
     "success_cases": "<2-4 sentences, may mention ids+names>",
     "failure_cases": "<2-4 sentences, may mention ids+names>",
@@ -803,7 +800,8 @@ def main():
     # load all knowledge base scans
     all_scans = os.listdir(ORINAL_DATASET_PATH)
     base_scans = [scan_id for scan_id in all_scans if scan_id not in valid_scans]
-
+    qwen_proc = AutoProcessor.from_pretrained(QWEN_MODEL_NAME)
+    
     for scan_id in sorted(base_scans):
 
         print(f"Processing scan:{scan_id}")
@@ -847,13 +845,11 @@ def main():
                 continue
 
             load_window_level_gt_sg(scan_id, window, win_idx=win_idx)
-            prepare_images_with_selection(scan_id,
+            annotated_paths = prepare_images_with_selection(scan_id,
                                           os.path.join(out_dir, "gt_sg", f"window_{win_idx}_gt_sg.json"),
                                           window,
                                           TEMP_IMAGE_DIR,
                                           min_area=1000)
-            
-            qwen_proc = AutoProcessor.from_pretrained(QWEN_MODEL_NAME)
 
             generate_local_scene_graph(window,
                                        scan_id,
@@ -862,6 +858,12 @@ def main():
             
             generate_experience_abstraction(window, scan_id, qwen_proc, win_idx)
 
+            for p in annotated_paths:
+                try:
+                    if p and os.path.exists(p):
+                        os.remove(p)
+                except Exception as e:
+                    print(f"[Warn] failed to remove temp image: {p} err={e}")
 if __name__ == "__main__":
     main()
 
