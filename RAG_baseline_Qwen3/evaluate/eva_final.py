@@ -23,16 +23,16 @@ from predicates_judge import judge_predicate_equivalence_for_pair, get_vlm_engin
 # ===================== 路径配置（请按实际情况修改） =====================
 
 GT_SG_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
-PRED_SG_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/1.0"
-GT2PRED_RESULT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/evaluate/ablation_kb_100/obj_match_results.jsonl"
+PRED_SG_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/RAG_Qwen3/RAG_end2end_CoT"
+GT2PRED_RESULT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/CoT_rag_result/obj_match_results.jsonl"
 TMP_IMG_SAVE = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/tmp_img_save"
 MODEL_NAME = "Qwen/Qwen3-VL-32B-Instruct"
 # 如果想额外输出某个 scan 的详细 edge 命中情况，在这里填 scan_id；
 # 不需要就设为 "" 或 None
 SINGLE_SCAN_ID = None # 例如 "0cf75f4b-564d-23f5-899f-ff97701d3f3b"
 
-GLOBAL_OUT_JSON = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/evaluate/ablation_kb_100/eva_final_results.json"
-SINGLE_SCAN_RECORD_SAVE = os.path.join("/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/evaluate/ablation_kb_100")  # 单 scan 输出：edge_eval_<scan_id>.json
+GLOBAL_OUT_JSON = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/CoT_rag_result/eva_final_results.json"
+SINGLE_SCAN_RECORD_SAVE = os.path.join("/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/CoT_rag_result")  # 单 scan 输出：edge_eval_<scan_id>.json
 
 # =======================================================================
 

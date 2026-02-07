@@ -1357,7 +1357,7 @@ def run_scan_with_rag_merge(
     # 所有 window 跑完，写最终 global
     atomic_write_json(final_path, global_graph)
     print(f"\n✅ Done. Final global graph saved to: {final_path}")
-
+    
 # =========================
 # Batch driver
 # =========================
