@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../data"
+		},
+		{
+			"path": "../../RAG_agentic"
+		},
+		{
+			"path": "../../3DSSG"
+		},
+		{
+			"path": ".."
+		}
+	]
+}

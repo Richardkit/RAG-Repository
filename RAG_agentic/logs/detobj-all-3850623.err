@@ -1,0 +1,79 @@
+[W207 13:45:40.485044873 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+[2026-02-07 13:45:53] INFO loader.py:133: Loading faiss.
+[2026-02-07 13:45:53] INFO loader.py:135: Successfully loaded faiss.
+[2026-02-07 13:45:53] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:01<00:22,  1.76s/it]Loading checkpoint shards:  14%|█▍        | 2/14 [00:03<00:20,  1.74s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [00:05<00:19,  1.77s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:07<00:17,  1.76s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:08<00:15,  1.76s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:10<00:14,  1.75s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:12<00:12,  1.75s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:14<00:10,  1.75s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:15<00:08,  1.75s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:17<00:06,  1.75s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:19<00:05,  1.76s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:21<00:03,  1.76s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:22<00:01,  1.76s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:24<00:00,  1.60s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:24<00:00,  1.72s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 4488.29it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.41s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+2026-02-07 13:46:34,889 | INFO | [START] scan=095821f7-e2c2-2de1-9568-b9ce59920e29
+2026-02-07 13:46:34,889 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,890 | INFO | [START] scan=0988ea72-eb32-2e61-8344-99e2283c2728
+2026-02-07 13:46:34,890 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,891 | INFO | [START] scan=0cac7540-8d6f-2d13-8eee-36ba2a428e3f
+2026-02-07 13:46:34,891 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,892 | INFO | [START] scan=0cac7584-8d6f-2d13-8df8-c05e4307b418
+2026-02-07 13:46:34,892 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,892 | INFO | [START] scan=0cac75dc-8d6f-2d13-8d08-9c497bd6acdc
+2026-02-07 13:46:34,892 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,892 | INFO | [START] scan=0cac7676-8d6f-2d13-8f3a-d7bf7f03e721
+2026-02-07 13:46:34,892 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,893 | INFO | [START] scan=10b17940-3938-2467-8a7a-958300ba83d3
+2026-02-07 13:46:34,893 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,893 | INFO | [START] scan=137a8158-1db5-2cc0-8003-31c12610471e
+2026-02-07 13:46:34,893 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,895 | INFO | [START] scan=1d233fe8-e280-2b1a-8fac-c3646a1cd64a
+2026-02-07 13:46:34,895 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,895 | INFO | [START] scan=1d234022-e280-2b1a-8cec-e9787bb0d7b2
+2026-02-07 13:46:34,895 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,896 | INFO | [START] scan=20c993b7-698f-29c5-847d-c8cb8a685f5a
+2026-02-07 13:46:34,896 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,896 | INFO | [START] scan=280d8ebb-6cc6-2788-9153-98959a2da801
+2026-02-07 13:46:34,896 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,896 | INFO | [START] scan=321c8680-a5a8-2a84-85c2-816a26d59516
+2026-02-07 13:46:34,896 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,897 | INFO | [START] scan=38770ca1-86d7-27b8-8619-ab66f67d9adf
+2026-02-07 13:46:34,897 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,897 | INFO | [START] scan=4138582f-a238-2435-8332-6902542c2823
+2026-02-07 13:46:34,897 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,897 | INFO | [START] scan=422885b3-192d-25fc-84c9-9b80eea1752d
+2026-02-07 13:46:34,897 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,898 | INFO | [START] scan=4238490c-60a7-271e-9f38-3c651e3b3912
+2026-02-07 13:46:34,898 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,898 | INFO | [START] scan=43b8cae1-6678-2e38-9865-c19c07c25015
+2026-02-07 13:46:34,898 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,898 | INFO | [START] scan=4a9a43d2-7736-2874-874d-d0fad0570e19
+2026-02-07 13:46:34,898 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,898 | INFO | [START] scan=4d3d82b0-8cf4-2e04-80a8-c955ea964c2f
+2026-02-07 13:46:34,898 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,899 | INFO | [START] scan=4fbad31e-465b-2a5d-84b7-c0ddea978db4
+2026-02-07 13:46:34,899 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,899 | INFO | [START] scan=5341b79f-8a66-2cdd-84d5-6dba6525dd75
+2026-02-07 13:46:34,899 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,899 | INFO | [START] scan=5341b7e3-8a66-2cdd-8709-66a2159f0017
+2026-02-07 13:46:34,899 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,900 | INFO | [START] scan=5630cfcf-12bf-2860-8784-83d28a611a83
+2026-02-07 13:46:34,900 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,900 | INFO | [START] scan=6bde6081-9162-246f-8c4e-ffaf709d17b1
+2026-02-07 13:46:34,900 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,900 | INFO | [START] scan=6bde60cb-9162-246f-8cf5-d04f7426e56f
+2026-02-07 13:46:34,900 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,900 | INFO | [START] scan=742e8f15-be0a-294e-9ebb-6c72dbcb9662
+2026-02-07 13:46:34,900 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,901 | INFO | [START] scan=75c25975-9ca2-2844-9769-84677f46d4cf
+2026-02-07 13:46:34,901 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 13:46:34,904 | INFO | [WIN_START] win=000 range=[0,6)
+2026-02-07 13:46:34,904 | INFO | [JUDGE] skipped (win_idx=0). query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000000.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000001.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000002.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000003.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000004.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000005.color.jpg']
+/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py:632: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+2026-02-07 13:48:54,184 | INFO | [TIMER] 75c25975-9ca2-2844-9769-84677f46d4cf | win=000 [0..{'src': 6, 'tgt': 1, 'c_edge': ['supported by', 'close by', 'below']}) | total_window_time=139.280s
+2026-02-07 13:48:54,184 | INFO | [WIN_START] win=001 range=[4,10)
+2026-02-07 13:48:54,184 | INFO | [JUDGE] skipped (win_idx=0). query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000004.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000005.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000006.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000007.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000008.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/75c25975-9ca2-2844-9769-84677f46d4cf/sequence/frame-000009.color.jpg']
+Traceback (most recent call last):
+  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 1383, in <module>
+    run_scan_with_rag_merge(
+  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 1280, in run_scan_with_rag_merge
+    with open(raw_txt_path, "w", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/75c25975-9ca2-2844-9769-84677f46d4cf/75c25975-9ca2-2844-9769-84677f46d4cf_local_win001.raw.txt'
+[W207 13:50:04.602955444 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

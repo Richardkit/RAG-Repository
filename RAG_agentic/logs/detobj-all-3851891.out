@@ -1,0 +1,2727 @@
+[INFO] Host: hkn1963.localdomain
+[INFO] CUDA_VISIBLE_DEVICES=0,1,2,3
+[INFO] SLURM_CPUS_PER_TASK=8
+===== DIAG =====
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) unlimited
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 3094770
+max locked memory           (kbytes, -l) unlimited
+max memory size             (kbytes, -m) 786432000
+open files                          (-n) 131072
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) unlimited
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 3094770
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+CUDA_VISIBLE_DEVICES=0,1,2,3
+Sat Feb  7 14:17:37 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:06:00.0 Off |                    0 |
+| N/A   43C    P0             78W /  700W |      27MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H200                    On  |   00000000:26:00.0 Off |                    0 |
+| N/A   42C    P0             77W /  700W |      27MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA H200                    On  |   00000000:A6:00.0 Off |                    0 |
+| N/A   43C    P0             78W /  700W |      27MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA H200                    On  |   00000000:C6:00.0 Off |                    0 |
+| N/A   43C    P0             79W /  700W |      27MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3690      G   /usr/libexec/Xorg                        17MiB |
+|    1   N/A  N/A            3690      G   /usr/libexec/Xorg                        17MiB |
+|    2   N/A  N/A            3690      G   /usr/libexec/Xorg                        17MiB |
+|    3   N/A  N/A            3690      G   /usr/libexec/Xorg                        17MiB |
++-----------------------------------------------------------------------------------------+
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           378G  1.7M  378G   1% /dev/shm
+torch 2.9.0+cu128
+cuda 12.8
+gpus 4
+===============
+[Load] SigLIP encoder ...
+[Load] Qwen model ...
+[Skip] 095821f7-e2c2-2de1-9568-b9ce59920e29 already has final global graph.
+[Info] 0988ea72-eb32-2e61-8344-99e2283c2728: 521 frames
+[Resume] 0988ea72-eb32-2e61-8344-99e2283c2728: found existing global up to window #5, loading /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_global_win005.json
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win006.json
+[vLLM] Initializing Qwen3-VL-32B engine once ...
+INFO 02-07 14:18:25 [utils.py:253] non-default args: {'tensor_parallel_size': 4, 'gpu_memory_utilization': 0.6, 'disable_log_stats': True, 'enforce_eager': True, 'mm_encoder_tp_mode': 'data', 'model': 'Qwen/Qwen3-VL-32B-Instruct'}
+INFO 02-07 14:18:26 [model.py:631] Resolved architecture: Qwen3VLForConditionalGeneration
+INFO 02-07 14:18:26 [model.py:1745] Using max model len 262144
+INFO 02-07 14:18:26 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 02-07 14:18:26 [vllm.py:500] Cudagraph is disabled under eager mode
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:18:35 [core.py:93] Initializing a V1 LLM engine (v0.11.2) with config: model='Qwen/Qwen3-VL-32B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen3-VL-32B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=262144, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-VL-32B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': None, 'compile_mm_encoder': False, 'use_inductor': None, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {}, 'max_cudagraph_capture_size': 0, 'local_cache_dir': None}
+INFO 02-07 14:18:46 [parallel_state.py:1208] world_size=4 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:39117 backend=nccl
+INFO 02-07 14:18:46 [parallel_state.py:1208] world_size=4 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:39117 backend=nccl
+INFO 02-07 14:18:46 [parallel_state.py:1208] world_size=4 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:39117 backend=nccl
+INFO 02-07 14:18:46 [parallel_state.py:1208] world_size=4 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:39117 backend=nccl
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 02-07 14:18:47 [pynccl.py:111] vLLM is using nccl==2.27.5
+WARNING 02-07 14:18:49 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+WARNING 02-07 14:18:49 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+WARNING 02-07 14:18:49 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+WARNING 02-07 14:18:49 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 02-07 14:18:50 [parallel_state.py:1394] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+INFO 02-07 14:18:50 [parallel_state.py:1394] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+INFO 02-07 14:18:50 [parallel_state.py:1394] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 02-07 14:18:50 [parallel_state.py:1394] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:01 [gpu_model_runner.py:3259] Starting to load model Qwen/Qwen3-VL-32B-Instruct...
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:02 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:02 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP3 pid=3080919)[0;0m INFO 02-07 14:19:02 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[1;36m(Worker_TP3 pid=3080919)[0;0m INFO 02-07 14:19:02 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP1 pid=3080917)[0;0m INFO 02-07 14:19:02 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[1;36m(Worker_TP1 pid=3080917)[0;0m INFO 02-07 14:19:02 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP2 pid=3080918)[0;0m INFO 02-07 14:19:02 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[1;36m(Worker_TP2 pid=3080918)[0;0m INFO 02-07 14:19:02 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:13 [default_loader.py:314] Loading weights took 10.50 seconds
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:14 [gpu_model_runner.py:3338] Model loading took 17.0848 GiB memory and 11.626604 seconds
+[1;36m(Worker_TP3 pid=3080919)[0;0m INFO 02-07 14:19:15 [gpu_model_runner.py:4088] Encoder cache will be initialized with a budget of 153600 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:15 [gpu_model_runner.py:4088] Encoder cache will be initialized with a budget of 153600 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(Worker_TP1 pid=3080917)[0;0m INFO 02-07 14:19:15 [gpu_model_runner.py:4088] Encoder cache will be initialized with a budget of 153600 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(Worker_TP2 pid=3080918)[0;0m INFO 02-07 14:19:15 [gpu_model_runner.py:4088] Encoder cache will be initialized with a budget of 153600 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 14:19:32 [gpu_worker.py:359] Available KV cache memory: 53.06 GiB
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:32 [kv_cache_utils.py:1229] GPU KV cache size: 869,328 tokens
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:32 [kv_cache_utils.py:1234] Maximum concurrency for 262,144 tokens per request: 3.32x
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:32 [kv_cache_utils.py:1234] Maximum concurrency for 262,144 tokens per request: 3.32x
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:32 [kv_cache_utils.py:1234] Maximum concurrency for 262,144 tokens per request: 3.32x
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:32 [kv_cache_utils.py:1234] Maximum concurrency for 262,144 tokens per request: 3.32x
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:35 [core.py:250] init engine (profile, create kv cache, warmup model) took 19.51 seconds
+[1;36m(EngineCore_DP0 pid=3080905)[0;0m INFO 02-07 14:19:52 [vllm.py:500] Cudagraph is disabled under eager mode
+INFO 02-07 14:19:53 [llm.py:352] Supported tasks: ['generate']
+[OK] Window #6 merged. Global nodes=15, edges=54
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #7 [28..34) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #8 [32..38) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #9 [36..42) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win009.json
+[OK] Window #9 merged. Global nodes=19, edges=76
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #10 [40..46) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #11 [44..50) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #12 [48..54) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #13 [52..58) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win014.json
+[OK] Window #14 merged. Global nodes=23, edges=98
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #15 [60..66) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win015.json
+[OK] Window #15 merged. Global nodes=25, edges=129
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #16 [64..70) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #17 [68..74) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #18 [72..78) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win019.json
+[OK] Window #19 merged. Global nodes=30, edges=146
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #20 [80..86) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #21 [84..90) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #22 [88..94) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win022.json
+[OK] Window #22 merged. Global nodes=30, edges=146
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #23 [92..98) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #24 [96..102) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #25 [100..106) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #26 [104..110) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #27 [108..114) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #28 [112..118) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #29 [116..122) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #30 [120..126) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #31 [124..130) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = def7fbc1-48c2-2895-91d9-cb5e6f3e3589
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win031.json
+[OK] Window #31 merged. Global nodes=37, edges=189
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #32 [128..134) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = def7fbc1-48c2-2895-91d9-cb5e6f3e3589
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win032.json
+[OK] Window #32 merged. Global nodes=41, edges=250
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #33 [132..138) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #34 [136..142) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #35 [140..146) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #36 [144..150) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win036.json
+[OK] Window #36 merged. Global nodes=43, edges=266
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #37 [148..154) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win037.json
+[OK] Window #37 merged. Global nodes=43, edges=267
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #38 [152..158) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win038.json
+[OK] Window #38 merged. Global nodes=45, edges=290
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #39 [156..162) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #40 [160..166) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #41 [164..170) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #42 [168..174) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win042.json
+[OK] Window #42 merged. Global nodes=49, edges=316
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #43 [172..178) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #44 [176..182) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #45 [180..186) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #46 [184..190) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #47 [188..194) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #48 [192..198) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #49 [196..202) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #50 [200..206) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #51 [204..210) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #52 [208..214) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #53 [212..218) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #54 [216..222) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win054.json
+[OK] Window #54 merged. Global nodes=54, edges=335
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #55 [220..226) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win055.json
+[OK] Window #55 merged. Global nodes=54, edges=335
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #56 [224..230) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win056.json
+[OK] Window #56 merged. Global nodes=57, edges=357
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #57 [228..234) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #58 [232..238) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #59 [236..242) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #60 [240..246) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #61 [244..250) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #62 [248..254) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #63 [252..258) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #64 [256..262) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win064.json
+[OK] Window #64 merged. Global nodes=58, edges=367
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #65 [260..266) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win065.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #65 merged. Global nodes=78, edges=367
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #66 [264..270) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win066.json
+[OK] Window #66 merged. Global nodes=78, edges=493
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #67 [268..274) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win067.json
+[OK] Window #67 merged. Global nodes=78, edges=493
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #68 [272..278) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win068.json
+[OK] Window #68 merged. Global nodes=81, edges=513
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #69 [276..282) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win069.json
+[OK] Window #69 merged. Global nodes=84, edges=546
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #70 [280..286) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win070.json
+[OK] Window #70 merged. Global nodes=84, edges=546
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #71 [284..290) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #72 [288..294) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win072.json
+[OK] Window #72 merged. Global nodes=85, edges=556
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #73 [292..298) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win073.json
+[OK] Window #73 merged. Global nodes=86, edges=566
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #74 [296..302) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #75 [300..306) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #76 [304..310) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #77 [308..314) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #78 [312..318) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #79 [316..322) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #80 [320..326) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #81 [324..330) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #82 [328..334) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #83 [332..338) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #84 [336..342) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win084.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #84 merged. Global nodes=106, edges=566
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #85 [340..346) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #86 [344..350) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #87 [348..354) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #88 [352..358) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #89 [356..362) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #90 [360..366) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #91 [364..370) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win091.json
+[OK] Window #91 merged. Global nodes=108, edges=583
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #92 [368..374) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win092.json
+[OK] Window #92 merged. Global nodes=111, edges=646
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #93 [372..378) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #94 [376..382) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbe5-6321-2e2f-8040-4e5b7a5d8ba1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win094.json
+[OK] Window #94 merged. Global nodes=115, edges=699
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #95 [380..386) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #96 [384..390) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #97 [388..394) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #98 [392..398) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win098.json
+[OK] Window #98 merged. Global nodes=115, edges=711
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #99 [396..402) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #100 [400..406) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #101 [404..410) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #102 [408..414) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 752cc57f-920c-26f5-8e8d-1f9d567cffd7
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win102.json
+[OK] Window #102 merged. Global nodes=115, edges=711
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #103 [412..418) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 752cc57f-920c-26f5-8e8d-1f9d567cffd7
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win103.json
+[OK] Window #103 merged. Global nodes=115, edges=711
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #104 [416..422) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #105 [420..426) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #106 [424..430) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win106.json
+[OK] Window #106 merged. Global nodes=116, edges=723
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #107 [428..434) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win107.json
+[OK] Window #107 merged. Global nodes=116, edges=723
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #108 [432..438) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #109 [436..442) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win109.json
+[OK] Window #109 merged. Global nodes=117, edges=735
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #110 [440..446) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win110.json
+[OK] Window #110 merged. Global nodes=117, edges=739
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #111 [444..450) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #112 [448..454) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win112.json
+[OK] Window #112 merged. Global nodes=118, edges=753
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #113 [452..458) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #114 [456..462) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #115 [460..466) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #116 [464..470) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #117 [468..474) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #118 [472..478) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #119 [476..482) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #120 [480..486) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #121 [484..490) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_rag_win121.json
+[OK] Window #121 merged. Global nodes=120, edges=773
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #122 [488..494) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #123 [492..498) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #124 [496..502) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #125 [500..506) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #126 [504..510) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #127 [508..514) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #128 [512..518) | 6 images ===
+
+=== 0988ea72-eb32-2e61-8344-99e2283c2728 | Window #129 [516..521) | 5 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0988ea72-eb32-2e61-8344-99e2283c2728/0988ea72-eb32-2e61-8344-99e2283c2728_global_graph_final.json
+[Info] 0cac7540-8d6f-2d13-8eee-36ba2a428e3f: 299 frames
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win000.json
+[OK] Window #0 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753c-8d6f-2d13-8e27-e0664fc33bb9
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win001.json
+[OK] Window #1 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #2 [8..14) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #3 [12..18) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7534-8d6f-2d13-8de7-8a915ed90050
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win003.json
+[OK] Window #3 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win004.json
+[OK] Window #4 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #5 [20..26) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #6 [24..30) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #7 [28..34) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #8 [32..38) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #9 [36..42) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #10 [40..46) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753a-8d6f-2d13-8f04-2073b87af440
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win011.json
+[OK] Window #11 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #12 [48..54) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753a-8d6f-2d13-8f04-2073b87af440
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win012.json
+[OK] Window #12 merged. Global nodes=4, edges=9
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win013.json
+[OK] Window #13 merged. Global nodes=7, edges=21
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde6043-9162-246f-8e11-613aba0df55c
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win014.json
+[OK] Window #14 merged. Global nodes=7, edges=21
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #15 [60..66) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde6043-9162-246f-8e11-613aba0df55c
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win015.json
+[OK] Window #15 merged. Global nodes=7, edges=22
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #16 [64..70) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win016.json
+[OK] Window #16 merged. Global nodes=7, edges=22
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win017.json
+[OK] Window #17 merged. Global nodes=8, edges=31
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #18 [72..78) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #19 [76..82) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #20 [80..86) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #21 [84..90) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #22 [88..94) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #23 [92..98) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #24 [96..102) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #25 [100..106) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #26 [104..110) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #27 [108..114) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #28 [112..118) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #29 [116..122) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #30 [120..126) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win030.json
+[OK] Window #30 merged. Global nodes=8, edges=31
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #31 [124..130) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753c-8d6f-2d13-8e27-e0664fc33bb9
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win031.json
+[OK] Window #31 merged. Global nodes=8, edges=31
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #32 [128..134) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #33 [132..138) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #34 [136..142) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #35 [140..146) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #36 [144..150) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win036.json
+[OK] Window #36 merged. Global nodes=8, edges=31
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #37 [148..154) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win037.json
+[OK] Window #37 merged. Global nodes=8, edges=31
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #38 [152..158) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #39 [156..162) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win039.json
+[OK] Window #39 merged. Global nodes=8, edges=32
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #40 [160..166) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win040.json
+[OK] Window #40 merged. Global nodes=8, edges=32
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #41 [164..170) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7534-8d6f-2d13-8de7-8a915ed90050
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win041.json
+[OK] Window #41 merged. Global nodes=8, edges=32
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #42 [168..174) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #43 [172..178) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #44 [176..182) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #45 [180..186) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #46 [184..190) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #47 [188..194) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #48 [192..198) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #49 [196..202) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #50 [200..206) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #51 [204..210) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #52 [208..214) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #53 [212..218) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #54 [216..222) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #55 [220..226) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #56 [224..230) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #57 [228..234) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #58 [232..238) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #59 [236..242) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #60 [240..246) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #61 [244..250) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #62 [248..254) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #63 [252..258) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #64 [256..262) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #65 [260..266) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #66 [264..270) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #67 [268..274) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7532-8d6f-2d13-8cea-1e70d5ae4856
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win067.json
+[OK] Window #67 merged. Global nodes=8, edges=36
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #68 [272..278) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #69 [276..282) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #70 [280..286) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #71 [284..290) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #72 [288..294) | 6 images ===
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #73 [292..298) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753a-8d6f-2d13-8f04-2073b87af440
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win073.json
+[OK] Window #73 merged. Global nodes=8, edges=36
+
+=== 0cac7540-8d6f-2d13-8eee-36ba2a428e3f | Window #74 [296..299) | 3 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac753a-8d6f-2d13-8f04-2073b87af440
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_rag_win074.json
+[OK] Window #74 merged. Global nodes=8, edges=36
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7540-8d6f-2d13-8eee-36ba2a428e3f/0cac7540-8d6f-2d13-8eee-36ba2a428e3f_global_graph_final.json
+[Info] 0cac7584-8d6f-2d13-8df8-c05e4307b418: 199 frames
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win000.json
+[OK] Window #0 merged. Global nodes=5, edges=10
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win001.json
+[OK] Window #1 merged. Global nodes=5, edges=10
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #2 [8..14) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #3 [12..18) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #4 [16..22) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #5 [20..26) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7664-8d6f-2d13-8e1d-b97c9ab20b12
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win006.json
+[OK] Window #6 merged. Global nodes=7, edges=21
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #7 [28..34) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7664-8d6f-2d13-8e1d-b97c9ab20b12
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win007.json
+[OK] Window #7 merged. Global nodes=7, edges=21
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #8 [32..38) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #9 [36..42) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #10 [40..46) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #11 [44..50) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #12 [48..54) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win013.json
+[OK] Window #13 merged. Global nodes=7, edges=21
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win014.json
+[OK] Window #14 merged. Global nodes=7, edges=21
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #15 [60..66) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #16 [64..70) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #17 [68..74) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #18 [72..78) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win018.json
+[OK] Window #18 merged. Global nodes=10, edges=30
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win019.json
+[OK] Window #19 merged. Global nodes=13, edges=46
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #20 [80..86) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #21 [84..90) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ddc737b1-765b-241a-9c21-a4e2674b2853
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win021.json
+[OK] Window #21 merged. Global nodes=13, edges=47
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #22 [88..94) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #23 [92..98) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4fbad32b-465b-2a5d-8499-85100e88f454
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win023.json
+[OK] Window #23 merged. Global nodes=18, edges=70
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #24 [96..102) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #25 [100..106) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #26 [104..110) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #27 [108..114) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 5341b7e1-8a66-2cdd-87a3-02aad508ff86
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win027.json
+[OK] Window #27 merged. Global nodes=18, edges=70
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #28 [112..118) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 5341b7e1-8a66-2cdd-87a3-02aad508ff86
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win028.json
+[OK] Window #28 merged. Global nodes=24, edges=102
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #29 [116..122) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #30 [120..126) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #31 [124..130) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #32 [128..134) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #33 [132..138) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #34 [136..142) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #35 [140..146) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7582-8d6f-2d13-8d4b-e4041cb166c4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win035.json
+[OK] Window #35 merged. Global nodes=29, edges=139
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #36 [144..150) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #37 [148..154) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #38 [152..158) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 35788e22-696e-2374-8898-bc5d06109906
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win038.json
+[OK] Window #38 merged. Global nodes=29, edges=139
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #39 [156..162) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 35788e22-696e-2374-8898-bc5d06109906
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_rag_win039.json
+[OK] Window #39 merged. Global nodes=35, edges=193
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #40 [160..166) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #41 [164..170) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #42 [168..174) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #43 [172..178) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #44 [176..182) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #45 [180..186) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #46 [184..190) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #47 [188..194) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #48 [192..198) | 6 images ===
+
+=== 0cac7584-8d6f-2d13-8df8-c05e4307b418 | Window #49 [196..199) | 3 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7584-8d6f-2d13-8df8-c05e4307b418/0cac7584-8d6f-2d13-8df8-c05e4307b418_global_graph_final.json
+[Info] 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc: 128 frames
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win000.json
+[OK] Window #0 merged. Global nodes=6, edges=15
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win001.json
+[OK] Window #1 merged. Global nodes=6, edges=15
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #2 [8..14) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win002.json
+[OK] Window #2 merged. Global nodes=10, edges=26
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #3 [12..18) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win003.json
+[OK] Window #3 merged. Global nodes=14, edges=54
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win004.json
+[OK] Window #4 merged. Global nodes=19, edges=91
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #5 [20..26) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win005.json
+[OK] Window #5 merged. Global nodes=19, edges=91
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac75de-8d6f-2d13-8e1a-b574569c3885
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win006.json
+[OK] Window #6 merged. Global nodes=21, edges=115
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #7 [28..34) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #8 [32..38) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #9 [36..42) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #10 [40..46) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #11 [44..50) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #12 [48..54) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #13 [52..58) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c7895f39-339c-2d13-81c3-261003fc3b01
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win014.json
+[OK] Window #14 merged. Global nodes=24, edges=148
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #15 [60..66) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c7895f39-339c-2d13-81c3-261003fc3b01
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win015.json
+[OK] Window #15 merged. Global nodes=26, edges=164
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #16 [64..70) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c7895f33-339c-2d13-83d1-720cfdc0c4b1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_rag_win017.json
+[OK] Window #17 merged. Global nodes=26, edges=164
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #18 [72..78) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #19 [76..82) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #20 [80..86) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #21 [84..90) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #22 [88..94) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #23 [92..98) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #24 [96..102) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #25 [100..106) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #26 [104..110) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #27 [108..114) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #28 [112..118) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #29 [116..122) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #30 [120..126) | 6 images ===
+
+=== 0cac75dc-8d6f-2d13-8d08-9c497bd6acdc | Window #31 [124..128) | 4 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc/0cac75dc-8d6f-2d13-8d08-9c497bd6acdc_global_graph_final.json
+[Info] 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721: 222 frames
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 754e884e-ea24-2175-88bf-5fd89d996e36
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win000.json
+[OK] Window #0 merged. Global nodes=7, edges=21
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde606a-9162-246f-8d00-6f12f032e27d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win001.json
+[OK] Window #1 merged. Global nodes=7, edges=21
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #2 [8..14) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #3 [12..18) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f851e-d757-207c-8c3f-db6373d91f11
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win003.json
+[OK] Window #3 merged. Global nodes=11, edges=38
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde6043-9162-246f-8e11-613aba0df55c
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win004.json
+[OK] Window #4 merged. Global nodes=13, edges=59
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #5 [20..26) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde6043-9162-246f-8e11-613aba0df55c
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win005.json
+[OK] Window #5 merged. Global nodes=16, edges=77
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #6 [24..30) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #7 [28..34) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7272e17c-a01b-20f6-8b2f-e659331ae41a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win007.json
+[OK] Window #7 merged. Global nodes=18, edges=87
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #8 [32..38) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #9 [36..42) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #10 [40..46) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = aa20278e-8bc8-2c5b-9cfe-01db71781ed4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win011.json
+[OK] Window #11 merged. Global nodes=21, edges=107
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #12 [48..54) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win013.json
+[OK] Window #13 merged. Global nodes=22, edges=114
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #14 [56..62) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #15 [60..66) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #16 [64..70) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7272e17c-a01b-20f6-8b2f-e659331ae41a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win016.json
+[OK] Window #16 merged. Global nodes=25, edges=135
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7272e17c-a01b-20f6-8b2f-e659331ae41a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win017.json
+[OK] Window #17 merged. Global nodes=26, edges=142
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #18 [72..78) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ddc737a3-765b-241a-9c99-f98a3c126686
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win019.json
+[OK] Window #19 merged. Global nodes=27, edges=168
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #20 [80..86) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #21 [84..90) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #22 [88..94) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #23 [92..98) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #24 [96..102) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #25 [100..106) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #26 [104..110) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff08-0021-28f6-8e08-ba2eeb945e09
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_rag_win026.json
+[OK] Window #26 merged. Global nodes=29, edges=188
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #27 [108..114) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #28 [112..118) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #29 [116..122) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #30 [120..126) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #31 [124..130) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #32 [128..134) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #33 [132..138) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #34 [136..142) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #35 [140..146) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #36 [144..150) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #37 [148..154) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #38 [152..158) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #39 [156..162) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #40 [160..166) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #41 [164..170) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #42 [168..174) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #43 [172..178) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #44 [176..182) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #45 [180..186) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #46 [184..190) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #47 [188..194) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #48 [192..198) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #49 [196..202) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #50 [200..206) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #51 [204..210) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #52 [208..214) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #53 [212..218) | 6 images ===
+
+=== 0cac7676-8d6f-2d13-8f3a-d7bf7f03e721 | Window #54 [216..222) | 6 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721/0cac7676-8d6f-2d13-8f3a-d7bf7f03e721_global_graph_final.json
+[Info] 10b17940-3938-2467-8a7a-958300ba83d3: 120 frames
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = cdcaf5bf-ddd8-2ed6-971c-d8e07f06e98f
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win000.json
+[OK] Window #0 merged. Global nodes=5, edges=11
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = cdcaf5bf-ddd8-2ed6-971c-d8e07f06e98f
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win001.json
+[OK] Window #1 merged. Global nodes=5, edges=11
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #2 [8..14) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #3 [12..18) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde60c4-9162-246f-8c1e-b0c518544104
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win003.json
+[OK] Window #3 merged. Global nodes=8, edges=31
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 6bde60c4-9162-246f-8c1e-b0c518544104
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win004.json
+[OK] Window #4 merged. Global nodes=8, edges=31
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #5 [20..26) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #6 [24..30) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #7 [28..34) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #8 [32..38) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #9 [36..42) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #10 [40..46) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = cdcaf5c1-ddd8-2ed6-9553-bcaa06ad43da
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win010.json
+[OK] Window #10 merged. Global nodes=11, edges=43
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = cdcaf5c1-ddd8-2ed6-9553-bcaa06ad43da
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_rag_win011.json
+[OK] Window #11 merged. Global nodes=11, edges=43
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #12 [48..54) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #13 [52..58) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #14 [56..62) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #15 [60..66) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #16 [64..70) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #17 [68..74) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #18 [72..78) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #19 [76..82) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #20 [80..86) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #21 [84..90) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #22 [88..94) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #23 [92..98) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #24 [96..102) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #25 [100..106) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #26 [104..110) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #27 [108..114) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #28 [112..118) | 6 images ===
+
+=== 10b17940-3938-2467-8a7a-958300ba83d3 | Window #29 [116..120) | 4 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/10b17940-3938-2467-8a7a-958300ba83d3/10b17940-3938-2467-8a7a-958300ba83d3_global_graph_final.json
+[Info] 137a8158-1db5-2cc0-8003-31c12610471e: 776 frames
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win000.json
+[OK] Window #0 merged. Global nodes=7, edges=12
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win001.json
+[OK] Window #1 merged. Global nodes=7, edges=12
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #2 [8..14) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5af-f771-2064-8476-871572e38970
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win002.json
+[OK] Window #2 merged. Global nodes=7, edges=12
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #3 [12..18) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #4 [16..22) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #5 [20..26) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #6 [24..30) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #7 [28..34) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #8 [32..38) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win008.json
+[OK] Window #8 merged. Global nodes=7, edges=12
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #9 [36..42) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #10 [40..46) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #11 [44..50) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #12 [48..54) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win013.json
+[OK] Window #13 merged. Global nodes=8, edges=16
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe7-2239-29d0-84f5-144c30fd7451
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win014.json
+[OK] Window #14 merged. Global nodes=8, edges=16
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #15 [60..66) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #16 [64..70) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win017.json
+[OK] Window #17 merged. Global nodes=10, edges=24
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #18 [72..78) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win019.json
+[OK] Window #19 merged. Global nodes=10, edges=26
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #20 [80..86) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #21 [84..90) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #22 [88..94) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #23 [92..98) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76ff1-2239-29d0-87f5-8a0346584384
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win023.json
+[OK] Window #23 merged. Global nodes=11, edges=38
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #24 [96..102) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win024.json
+[OK] Window #24 merged. Global nodes=17, edges=57
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #25 [100..106) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 198aaa76-0ba3-26f6-84de-6c13263a60bc
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win025.json
+[OK] Window #25 merged. Global nodes=20, edges=98
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #26 [104..110) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 198aaa76-0ba3-26f6-84de-6c13263a60bc
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win026.json
+[OK] Window #26 merged. Global nodes=20, edges=98
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #27 [108..114) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 422885e0-192d-25fc-844a-62e395291839
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win027.json
+[OK] Window #27 merged. Global nodes=20, edges=98
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #28 [112..118) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #29 [116..122) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770c99-86d7-27b8-85c7-2a09ba38e105
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win029.json
+[OK] Window #29 merged. Global nodes=23, edges=140
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #30 [120..126) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #31 [124..130) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #32 [128..134) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 2e4a395e-d452-21a0-9e17-3e0b72d47337
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win032.json
+[OK] Window #32 merged. Global nodes=24, edges=164
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #33 [132..138) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win033.json
+[OK] Window #33 merged. Global nodes=26, edges=174
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #34 [136..142) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win034.json
+[OK] Window #34 merged. Global nodes=26, edges=174
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #35 [140..146) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #36 [144..150) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #37 [148..154) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1792a-3938-2467-8b4e-a93da27a0985
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win037.json
+[OK] Window #37 merged. Global nodes=26, edges=174
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #38 [152..158) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1792a-3938-2467-8b4e-a93da27a0985
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win038.json
+[OK] Window #38 merged. Global nodes=26, edges=180
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #39 [156..162) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #40 [160..166) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #41 [164..170) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #42 [168..174) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #43 [172..178) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #44 [176..182) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win044.json
+[OK] Window #44 merged. Global nodes=27, edges=216
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #45 [180..186) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #46 [184..190) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #47 [188..194) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win047.json
+[OK] Window #47 merged. Global nodes=27, edges=221
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #48 [192..198) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win048.json
+[OK] Window #48 merged. Global nodes=28, edges=228
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #49 [196..202) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #50 [200..206) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #51 [204..210) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #52 [208..214) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win052.json
+[OK] Window #52 merged. Global nodes=28, edges=234
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #53 [212..218) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win053.json
+[OK] Window #53 merged. Global nodes=31, edges=254
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #54 [216..222) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #55 [220..226) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #56 [224..230) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #57 [228..234) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #58 [232..238) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #59 [236..242) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win059.json
+[OK] Window #59 merged. Global nodes=31, edges=257
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #60 [240..246) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win060.json
+[OK] Window #60 merged. Global nodes=32, edges=265
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #61 [244..250) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win061.json
+[OK] Window #61 merged. Global nodes=34, edges=277
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #62 [248..254) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win062.json
+[OK] Window #62 merged. Global nodes=36, edges=292
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #63 [252..258) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1792a-3938-2467-8b4e-a93da27a0985
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win063.json
+[OK] Window #63 merged. Global nodes=37, edges=304
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #64 [256..262) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #65 [260..266) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #66 [264..270) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #67 [268..274) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #68 [272..278) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win068.json
+[OK] Window #68 merged. Global nodes=39, edges=315
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #69 [276..282) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #70 [280..286) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #71 [284..290) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #72 [288..294) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win072.json
+[OK] Window #72 merged. Global nodes=46, edges=352
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #73 [292..298) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #74 [296..302) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe7-2239-29d0-84f5-144c30fd7451
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win074.json
+[OK] Window #74 merged. Global nodes=51, edges=392
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #75 [300..306) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #76 [304..310) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1792a-3938-2467-8b4e-a93da27a0985
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win076.json
+[OK] Window #76 merged. Global nodes=53, edges=420
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #77 [308..314) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe7-2239-29d0-84f5-144c30fd7451
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win077.json
+[OK] Window #77 merged. Global nodes=60, edges=485
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #78 [312..318) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #79 [316..322) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #80 [320..326) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #81 [324..330) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #82 [328..334) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4fbad314-465b-2a5d-8445-9d021f278c1e
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win082.json
+[OK] Window #82 merged. Global nodes=62, edges=655
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #83 [332..338) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4fbad314-465b-2a5d-8445-9d021f278c1e
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win083.json
+[OK] Window #83 merged. Global nodes=62, edges=655
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #84 [336..342) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #85 [340..346) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #86 [344..350) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #87 [348..354) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #88 [352..358) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win088.json
+[OK] Window #88 merged. Global nodes=70, edges=709
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #89 [356..362) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #90 [360..366) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1792a-3938-2467-8b4e-a93da27a0985
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win090.json
+[OK] Window #90 merged. Global nodes=86, edges=764
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #91 [364..370) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #92 [368..374) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #93 [372..378) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f8512-d757-207c-8c76-9ce179890827
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win093.json
+[OK] Window #93 merged. Global nodes=89, edges=774
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #94 [376..382) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f8512-d757-207c-8c76-9ce179890827
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win094.json
+[OK] Window #94 merged. Global nodes=93, edges=805
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #95 [380..386) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win095.json
+[OK] Window #95 merged. Global nodes=97, edges=847
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #96 [384..390) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #97 [388..394) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #98 [392..398) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe5-2239-29d0-8593-1a2555125595
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win098.json
+[OK] Window #98 merged. Global nodes=109, edges=969
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #99 [396..402) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #100 [400..406) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe7-2239-29d0-84f5-144c30fd7451
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win100.json
+[OK] Window #100 merged. Global nodes=109, edges=973
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #101 [404..410) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76fe7-2239-29d0-84f5-144c30fd7451
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win101.json
+[OK] Window #101 merged. Global nodes=109, edges=973
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #102 [408..414) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #103 [412..418) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #104 [416..422) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76ff1-2239-29d0-87f5-8a0346584384
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win104.json
+[OK] Window #104 merged. Global nodes=109, edges=992
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #105 [420..426) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #106 [424..430) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #107 [428..434) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win107.json
+[OK] Window #107 merged. Global nodes=112, edges=1016
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #108 [432..438) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #109 [436..442) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #110 [440..446) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #111 [444..450) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f851e-d757-207c-8c3f-db6373d91f11
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win111.json
+[OK] Window #111 merged. Global nodes=114, edges=1026
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #112 [448..454) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win112.json
+[OK] Window #112 merged. Global nodes=115, edges=1048
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #113 [452..458) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win113.json
+[OK] Window #113 merged. Global nodes=115, edges=1048
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #114 [456..462) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #115 [460..466) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win115.json
+[OK] Window #115 merged. Global nodes=116, edges=1142
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #116 [464..470) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = d04eb40f-1d53-27ea-8a41-47892bde7017
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win116.json
+[OK] Window #116 merged. Global nodes=121, edges=1167
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #117 [468..474) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #118 [472..478) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #119 [476..482) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #120 [480..486) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #121 [484..490) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #122 [488..494) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #123 [492..498) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #124 [496..502) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #125 [500..506) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #126 [504..510) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #127 [508..514) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #128 [512..518) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #129 [516..522) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #130 [520..526) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #131 [524..530) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #132 [528..534) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #133 [532..538) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #134 [536..542) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #135 [540..546) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #136 [544..550) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #137 [548..554) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #138 [552..558) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = f2c76feb-2239-29d0-8418-72b6051fc144
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win138.json
+[OK] Window #138 merged. Global nodes=121, edges=1167
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #139 [556..562) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win139.json
+[OK] Window #139 merged. Global nodes=123, edges=1178
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #140 [560..566) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #141 [564..570) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #142 [568..574) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #143 [572..578) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #144 [576..582) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #145 [580..586) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #146 [584..590) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7747a4ee-9431-24e8-87be-433088b665c2
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win146.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #147 [588..594) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7747a4ee-9431-24e8-87be-433088b665c2
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win147.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #148 [592..598) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #149 [596..602) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win149.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #149 merged. Global nodes=143, edges=1178
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #150 [600..606) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win150.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #151 [604..610) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb5b7-f771-2064-87a9-31c819832405
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win151.json
+[OK] Window #151 merged. Global nodes=143, edges=1193
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #152 [608..614) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #153 [612..618) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #154 [616..622) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #155 [620..626) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fee-e280-2b1a-8e0d-1dc297439839
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win155.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #155 merged. Global nodes=163, edges=1193
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #156 [624..630) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fee-e280-2b1a-8e0d-1dc297439839
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win156.json
+[OK] Window #156 merged. Global nodes=169, edges=1217
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #157 [628..634) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #158 [632..638) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #159 [636..642) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #160 [640..646) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #161 [644..650) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7637-8d6f-2d13-8e6f-f79dce250314
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win161.json
+[OK] Window #161 merged. Global nodes=169, edges=1217
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #162 [648..654) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7637-8d6f-2d13-8e6f-f79dce250314
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win162.json
+[OK] Window #162 merged. Global nodes=169, edges=1225
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #163 [652..658) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 7747a502-9431-24e8-8456-5c6bc3e2eea3
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win163.json
+[OK] Window #163 merged. Global nodes=169, edges=1225
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #164 [656..662) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #165 [660..666) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #166 [664..670) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #167 [668..674) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #168 [672..678) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #169 [676..682) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #170 [680..686) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #171 [684..690) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #172 [688..694) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #173 [692..698) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #174 [696..702) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #175 [700..706) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #176 [704..710) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #177 [708..714) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #178 [712..718) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #179 [716..722) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #180 [720..726) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #181 [724..730) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #182 [728..734) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #183 [732..738) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #184 [736..742) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #185 [740..746) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #186 [744..750) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #187 [748..754) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #188 [752..758) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #189 [756..762) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #190 [760..766) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 18d4d922-7eb5-280e-87bb-af3229fb1f13
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win190.json
+[OK] Window #190 merged. Global nodes=172, edges=1372
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #191 [764..770) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c6707941-2ecb-2de2-8236-13d2d850cf65
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_rag_win191.json
+[OK] Window #191 merged. Global nodes=172, edges=1372
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #192 [768..774) | 6 images ===
+
+=== 137a8158-1db5-2cc0-8003-31c12610471e | Window #193 [772..776) | 4 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/137a8158-1db5-2cc0-8003-31c12610471e/137a8158-1db5-2cc0-8003-31c12610471e_global_graph_final.json
+[Info] 1d233fe8-e280-2b1a-8fac-c3646a1cd64a: 191 frames
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4d3d82ae-8cf4-2e04-80de-20f96c814d9c
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win000.json
+[OK] Window #0 merged. Global nodes=5, edges=10
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fe6-e280-2b1a-8caf-eb0d13a59ad6
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win001.json
+[OK] Window #1 merged. Global nodes=5, edges=17
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #2 [8..14) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #3 [12..18) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #4 [16..22) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #5 [20..26) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #6 [24..30) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #7 [28..34) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #8 [32..38) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #9 [36..42) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fe6-e280-2b1a-8caf-eb0d13a59ad6
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win009.json
+[OK] Window #9 merged. Global nodes=7, edges=36
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #10 [40..46) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c7895f0f-339c-2d13-807d-cb2e7fe646fd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win011.json
+[OK] Window #11 merged. Global nodes=7, edges=36
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #12 [48..54) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fe6-e280-2b1a-8caf-eb0d13a59ad6
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win012.json
+[OK] Window #12 merged. Global nodes=11, edges=64
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #13 [52..58) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #14 [56..62) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #15 [60..66) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #16 [64..70) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff08-0021-28f6-8e08-ba2eeb945e09
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win016.json
+[OK] Window #16 merged. Global nodes=13, edges=82
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #17 [68..74) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #18 [72..78) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #19 [76..82) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #20 [80..86) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #21 [84..90) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #22 [88..94) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #23 [92..98) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #24 [96..102) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #25 [100..106) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #26 [104..110) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #27 [108..114) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #28 [112..118) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #29 [116..122) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #30 [120..126) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #31 [124..130) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #32 [128..134) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #33 [132..138) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234006-e280-2b1a-8e34-b2f670259e8d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win033.json
+[OK] Window #33 merged. Global nodes=15, edges=111
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #34 [136..142) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #35 [140..146) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #36 [144..150) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #37 [148..154) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d233fe6-e280-2b1a-8caf-eb0d13a59ad6
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win037.json
+[OK] Window #37 merged. Global nodes=16, edges=121
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #38 [152..158) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #39 [156..162) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #40 [160..166) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #41 [164..170) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #42 [168..174) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = b1d87fb2-e72e-2c8c-9f82-ce7e4b3808e2
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win042.json
+[OK] Window #42 merged. Global nodes=16, edges=121
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #43 [172..178) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234008-e280-2b1a-8cc9-c573097cd272
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win043.json
+[OK] Window #43 merged. Global nodes=16, edges=121
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #44 [176..182) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234008-e280-2b1a-8cc9-c573097cd272
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_rag_win044.json
+[OK] Window #44 merged. Global nodes=16, edges=121
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #45 [180..186) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #46 [184..190) | 6 images ===
+
+=== 1d233fe8-e280-2b1a-8fac-c3646a1cd64a | Window #47 [188..191) | 3 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d233fe8-e280-2b1a-8fac-c3646a1cd64a/1d233fe8-e280-2b1a-8fac-c3646a1cd64a_global_graph_final.json
+[Info] 1d234022-e280-2b1a-8cec-e9787bb0d7b2: 121 frames
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234026-e280-2b1a-8fe1-713e28269f4d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_rag_win000.json
+[OK] Window #0 merged. Global nodes=5, edges=12
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234024-e280-2b1a-8c28-2743fefed020
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_rag_win001.json
+[OK] Window #1 merged. Global nodes=5, edges=12
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #2 [8..14) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #3 [12..18) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f851a-d757-207c-8faa-3625b6dda1e5
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_rag_win004.json
+[OK] Window #4 merged. Global nodes=6, edges=22
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #5 [20..26) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #6 [24..30) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #7 [28..34) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #8 [32..38) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #9 [36..42) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #10 [40..46) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234026-e280-2b1a-8fe1-713e28269f4d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_rag_win010.json
+[OK] Window #10 merged. Global nodes=8, edges=30
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d234026-e280-2b1a-8fe1-713e28269f4d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_rag_win011.json
+[OK] Window #11 merged. Global nodes=9, edges=34
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #12 [48..54) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #13 [52..58) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #14 [56..62) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #15 [60..66) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #16 [64..70) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #17 [68..74) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #18 [72..78) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #19 [76..82) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #20 [80..86) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #21 [84..90) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #22 [88..94) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #23 [92..98) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #24 [96..102) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #25 [100..106) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #26 [104..110) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #27 [108..114) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #28 [112..118) | 6 images ===
+
+=== 1d234022-e280-2b1a-8cec-e9787bb0d7b2 | Window #29 [116..121) | 5 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/1d234022-e280-2b1a-8cec-e9787bb0d7b2/1d234022-e280-2b1a-8cec-e9787bb0d7b2_global_graph_final.json
+[Info] 20c993b7-698f-29c5-847d-c8cb8a685f5a: 63 frames
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 28298cd1-15b5-24be-8a19-49c0bf7c55b3
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/20c993b7-698f-29c5-847d-c8cb8a685f5a/20c993b7-698f-29c5-847d-c8cb8a685f5a_rag_win000.json
+[OK] Window #0 merged. Global nodes=6, edges=16
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c7895f0f-339c-2d13-807d-cb2e7fe646fd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/20c993b7-698f-29c5-847d-c8cb8a685f5a/20c993b7-698f-29c5-847d-c8cb8a685f5a_rag_win001.json
+[OK] Window #1 merged. Global nodes=9, edges=39
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #2 [8..14) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #3 [12..18) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #4 [16..22) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #5 [20..26) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 20c993c1-698f-29c5-86b8-50a2a0907e2b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/20c993b7-698f-29c5-847d-c8cb8a685f5a/20c993b7-698f-29c5-847d-c8cb8a685f5a_rag_win006.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #6 merged. Global nodes=29, edges=45
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #7 [28..34) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #8 [32..38) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #9 [36..42) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #10 [40..46) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #11 [44..50) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #12 [48..54) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #13 [52..58) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #14 [56..62) | 6 images ===
+
+=== 20c993b7-698f-29c5-847d-c8cb8a685f5a | Window #15 [60..63) | 3 images ===
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/20c993b7-698f-29c5-847d-c8cb8a685f5a/20c993b7-698f-29c5-847d-c8cb8a685f5a_global_graph_final.json
+[Info] 280d8ebb-6cc6-2788-9153-98959a2da801: 536 frames
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win000.json
+[OK] Window #0 merged. Global nodes=8, edges=28
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win001.json
+[OK] Window #1 merged. Global nodes=11, edges=52
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #2 [8..14) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #3 [12..18) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ea318260-0a4c-2749-9389-4c16c782c4b1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win004.json
+[OK] Window #4 merged. Global nodes=14, edges=79
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #5 [20..26) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win005.json
+[OK] Window #5 merged. Global nodes=14, edges=79
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #6 [24..30) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #7 [28..34) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #8 [32..38) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win008.json
+[OK] Window #8 merged. Global nodes=19, edges=119
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #9 [36..42) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #10 [40..46) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win010.json
+[OK] Window #10 merged. Global nodes=19, edges=119
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win011.json
+[OK] Window #11 merged. Global nodes=19, edges=119
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #12 [48..54) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #13 [52..58) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #14 [56..62) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ea318260-0a4c-2749-9389-4c16c782c4b1
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win014.json
+[OK] Window #14 merged. Global nodes=21, edges=139
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #15 [60..66) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #16 [64..70) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #17 [68..74) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #18 [72..78) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #19 [76..82) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #20 [80..86) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #21 [84..90) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #22 [88..94) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win022.json
+[OK] Window #22 merged. Global nodes=21, edges=139
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #23 [92..98) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win023.json
+[OK] Window #23 merged. Global nodes=23, edges=148
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #24 [96..102) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #25 [100..106) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #26 [104..110) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #27 [108..114) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win027.json
+[OK] Window #27 merged. Global nodes=25, edges=161
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #28 [112..118) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #29 [116..122) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #30 [120..126) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win030.json
+[OK] Window #30 merged. Global nodes=28, edges=180
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #31 [124..130) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #32 [128..134) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #33 [132..138) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win033.json
+[OK] Window #33 merged. Global nodes=31, edges=201
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #34 [136..142) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #35 [140..146) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win035.json
+[OK] Window #35 merged. Global nodes=36, edges=226
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #36 [144..150) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #37 [148..154) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #38 [152..158) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #39 [156..162) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #40 [160..166) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #41 [164..170) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win041.json
+[OK] Window #41 merged. Global nodes=40, edges=242
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #42 [168..174) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win042.json
+[OK] Window #42 merged. Global nodes=46, edges=299
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #43 [172..178) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #44 [176..182) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #45 [180..186) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #46 [184..190) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4731976c-f9f7-2a1a-95cc-31c4d1751d0b
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win046.json
+[OK] Window #46 merged. Global nodes=57, edges=388
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #47 [188..194) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #48 [192..198) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #49 [196..202) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 1d2f850c-d757-207c-8fba-60b90a7d4691
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win049.json
+[OK] Window #49 merged. Global nodes=62, edges=420
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #50 [200..206) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #51 [204..210) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #52 [208..214) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win052.json
+[OK] Window #52 merged. Global nodes=64, edges=440
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #53 [212..218) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #54 [216..222) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #55 [220..226) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #56 [224..230) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #57 [228..234) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #58 [232..238) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #59 [236..242) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #60 [240..246) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #61 [244..250) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #62 [248..254) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win062.json
+[OK] Window #62 merged. Global nodes=75, edges=537
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #63 [252..258) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win063.json
+[OK] Window #63 merged. Global nodes=86, edges=636
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #64 [256..262) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #65 [260..266) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #66 [264..270) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win066.json
+[OK] Window #66 merged. Global nodes=96, edges=706
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #67 [268..274) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #68 [272..278) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #69 [276..282) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win069.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #69 merged. Global nodes=116, edges=706
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #70 [280..286) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #71 [284..290) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1795f-3938-2467-8aa6-c985377d32fb
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win071.json
+[OK] Window #71 merged. Global nodes=118, edges=719
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #72 [288..294) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b1795f-3938-2467-8aa6-c985377d32fb
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win072.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #72 merged. Global nodes=138, edges=719
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #73 [292..298) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #74 [296..302) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #75 [300..306) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #76 [304..310) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #77 [308..314) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = baf673ae-8e94-22f8-82be-ce30b52711a4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win077.json
+[OK] Window #77 merged. Global nodes=138, edges=719
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #78 [312..318) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7536-8d6f-2d13-8dc2-2f9d7aa62dc4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win078.json
+[OK] Window #78 merged. Global nodes=140, edges=734
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #79 [316..322) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 0cac7536-8d6f-2d13-8dc2-2f9d7aa62dc4
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win079.json
+[OK] Window #79 merged. Global nodes=140, edges=734
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #80 [320..326) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #81 [324..330) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #82 [328..334) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #83 [332..338) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #84 [336..342) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #85 [340..346) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #86 [344..350) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #87 [348..354) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #88 [352..358) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #89 [356..362) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #90 [360..366) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #91 [364..370) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #92 [368..374) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #93 [372..378) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #94 [376..382) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #95 [380..386) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #96 [384..390) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #97 [388..394) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #98 [392..398) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #99 [396..402) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #100 [400..406) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #101 [404..410) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #102 [408..414) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #103 [412..418) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #104 [416..422) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #105 [420..426) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #106 [424..430) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #107 [428..434) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff08-0021-28f6-8e08-ba2eeb945e09
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win107.json
+[OK] Window #107 merged. Global nodes=141, edges=748
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #108 [432..438) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff08-0021-28f6-8e08-ba2eeb945e09
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win108.json
+[OK] Window #108 merged. Global nodes=143, edges=762
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #109 [436..442) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #110 [440..446) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #111 [444..450) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #112 [448..454) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #113 [452..458) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #114 [456..462) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #115 [460..466) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 05c6ede7-2e69-23b1-8b27-c1cb868f1938
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win115.json
+[OK] Window #115 merged. Global nodes=146, edges=811
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #116 [464..470) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 05c6ede7-2e69-23b1-8b27-c1cb868f1938
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win116.json
+[OK] Window #116 merged. Global nodes=147, edges=815
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #117 [468..474) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #118 [472..478) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #119 [476..482) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #120 [480..486) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #121 [484..490) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #122 [488..494) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #123 [492..498) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #124 [496..502) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #125 [500..506) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #126 [504..510) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #127 [508..514) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #128 [512..518) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win128.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #128 merged. Global nodes=166, edges=815
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #129 [516..522) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 10b17957-3938-2467-88a5-9e9254930dad
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win129.json
+[OK] Window #129 merged. Global nodes=166, edges=816
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #130 [520..526) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #131 [524..530) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #132 [528..534) | 6 images ===
+
+=== 280d8ebb-6cc6-2788-9153-98959a2da801 | Window #133 [532..536) | 4 images ===
+[RAG-MaxSim] winning_kb_scan_id = baf673ac-8e94-22f8-83d4-31a21cc201af
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_rag_win133.json
+[OK] Window #133 merged. Global nodes=167, edges=828
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/280d8ebb-6cc6-2788-9153-98959a2da801/280d8ebb-6cc6-2788-9153-98959a2da801_global_graph_final.json
+[Info] 321c8680-a5a8-2a84-85c2-816a26d59516: 210 frames
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ee527b51-0df9-2dae-829e-a0543a6e4074
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win000.json
+[OK] Window #0 merged. Global nodes=16, edges=53
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = ee527b51-0df9-2dae-829e-a0543a6e4074
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win001.json
+[OK] Window #1 merged. Global nodes=16, edges=53
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #2 [8..14) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #3 [12..18) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #4 [16..22) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #5 [20..26) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff06-0021-28f6-8ce2-e13a4801e5a8
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win005.json
+[OK] Window #5 merged. Global nodes=23, edges=108
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff06-0021-28f6-8ce2-e13a4801e5a8
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win006.json
+[OK] Window #6 merged. Global nodes=23, edges=114
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #7 [28..34) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 787ed58c-9d98-2c97-83b9-b48a609ace15
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win007.json
+[OK] Window #7 merged. Global nodes=25, edges=126
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #8 [32..38) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win008.json
+[OK] Window #8 merged. Global nodes=34, edges=192
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #9 [36..42) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win009.json
+[OK] Window #9 merged. Global nodes=34, edges=192
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #10 [40..46) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #11 [44..50) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #12 [48..54) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 4a9a43d4-7736-2874-87a6-0c3089281af8
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win013.json
+[OK] Window #13 merged. Global nodes=38, edges=230
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #14 [56..62) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #15 [60..66) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf7-6321-2e2f-81e1-2b46533c64dd
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win015.json
+[OK] Window #15 merged. Global nodes=38, edges=230
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #16 [64..70) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff04-0021-28f6-8d49-e51826f43468
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win017.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #17 merged. Global nodes=50, edges=242
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #18 [72..78) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 531cff04-0021-28f6-8d49-e51826f43468
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win018.json
+[OK] Window #18 merged. Global nodes=50, edges=255
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = c92fb596-f771-2064-86ba-d429f869e52f
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win019.json
+[OK] Window #19 merged. Global nodes=50, edges=255
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #20 [80..86) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #21 [84..90) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #22 [88..94) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #23 [92..98) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win023.json
+[OK] Window #23 merged. Global nodes=57, edges=327
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #24 [96..102) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #25 [100..106) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #26 [104..110) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #27 [108..114) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #28 [112..118) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #29 [116..122) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #30 [120..126) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #31 [124..130) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #32 [128..134) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #33 [132..138) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #34 [136..142) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #35 [140..146) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #36 [144..150) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #37 [148..154) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #38 [152..158) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #39 [156..162) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #40 [160..166) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #41 [164..170) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #42 [168..174) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #43 [172..178) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #44 [176..182) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #45 [180..186) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #46 [184..190) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #47 [188..194) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #48 [192..198) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 2a7f9476-080c-26f9-86e9-c7ce1c76fc07
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win048.json
+[OK] Window #48 merged. Global nodes=58, edges=339
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #49 [196..202) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 2a7f9476-080c-26f9-86e9-c7ce1c76fc07
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win049.json
+[OK] Window #49 merged. Global nodes=58, edges=339
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #50 [200..206) | 6 images ===
+
+=== 321c8680-a5a8-2a84-85c2-816a26d59516 | Window #51 [204..210) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 9766cbf5-6321-2e2f-8131-78c4e204635d
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_rag_win051.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #51 merged. Global nodes=78, edges=339
+
+✅ Done. Final global graph saved to: /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/321c8680-a5a8-2a84-85c2-816a26d59516/321c8680-a5a8-2a84-85c2-816a26d59516_global_graph_final.json
+[Info] 38770ca1-86d7-27b8-8619-ab66f67d9adf: 844 frames
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #0 [0..6) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win000.json
+[OK] Window #0 merged. Global nodes=26, edges=50
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #1 [4..10) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win001.json
+[OK] Window #1 merged. Global nodes=26, edges=50
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #2 [8..14) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #3 [12..18) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #4 [16..22) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win004.json
+[OK] Window #4 merged. Global nodes=26, edges=50
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #5 [20..26) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win005.json
+[OK] Window #5 merged. Global nodes=29, edges=81
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #6 [24..30) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win006.json
+[OK] Window #6 merged. Global nodes=34, edges=113
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #7 [28..34) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #8 [32..38) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win008.json
+[OK] Window #8 merged. Global nodes=37, edges=118
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #9 [36..42) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #10 [40..46) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #11 [44..50) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win011.json
+[OK] Window #11 merged. Global nodes=40, edges=134
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #12 [48..54) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #13 [52..58) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win013.json
+[OK] Window #13 merged. Global nodes=40, edges=140
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #14 [56..62) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #15 [60..66) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #16 [64..70) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #17 [68..74) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win017.json
+[OK] Window #17 merged. Global nodes=41, edges=151
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #18 [72..78) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win018.json
+[OK] Window #18 merged. Global nodes=41, edges=151
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #19 [76..82) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win019.json
+[OK] Window #19 merged. Global nodes=41, edges=151
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #20 [80..86) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #21 [84..90) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #22 [88..94) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #23 [92..98) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win023.json
+[OK] Window #23 merged. Global nodes=42, edges=170
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #24 [96..102) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #25 [100..106) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win025.json
+[OK] Window #25 merged. Global nodes=43, edges=199
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #26 [104..110) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win026.json
+[OK] Window #26 merged. Global nodes=47, edges=239
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #27 [108..114) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #28 [112..118) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win028.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+[OK] Window #28 merged. Global nodes=67, edges=239
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #29 [116..122) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win029.json
+[WARN] Model did not return valid JSON. Saving raw output and attempting salvage...
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #30 [120..126) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #31 [124..130) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #32 [128..134) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #33 [132..138) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #34 [136..142) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #35 [140..146) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #36 [144..150) | 6 images ===
+[RAG-MaxSim] winning_kb_scan_id = 38770ca3-86d7-27b8-85a7-7d840ffdec6a
+[RAG-MaxSim] saved -> /hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/ablation_for_scale_of_knowledge_base/0.75/38770ca1-86d7-27b8-8619-ab66f67d9adf/38770ca1-86d7-27b8-8619-ab66f67d9adf_rag_win036.json
+[OK] Window #36 merged. Global nodes=87, edges=413
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #37 [148..154) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #38 [152..158) | 6 images ===
+
+=== 38770ca1-86d7-27b8-8619-ab66f67d9adf | Window #39 [156..162) | 6 images ===
+[1;36m(Worker_TP2 pid=3080918)[0;0m INFO 02-07 21:13:06 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP1 pid=3080917)[0;0m INFO 02-07 21:13:06 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP0 pid=3080916)[0;0m INFO 02-07 21:13:06 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP3 pid=3080919)[0;0m INFO 02-07 21:13:06 [multiproc_executor.py:702] Parent process exited, terminating worker
+
+============================= JOB FEEDBACK =============================
+
+Job ID: 3851891
+Cluster: hk
+User/Group: rg5174/hk-project-pai00053
+Account: hk-project-pai00054
+State: CANCELLED (exit code 0)
+Partition: accelerated-h200
+Nodes: 1
+Cores per node: 8
+Nodelist: hkn1963
+CPU Utilized: 1-10:29:13
+CPU Efficiency: 62.18% of 2-07:27:44 core-walltime
+Job Wall-clock time: 06:55:58
+Starttime: Sat Feb  7 14:17:08 2026
+Endtime: Sat Feb  7 21:13:06 2026
+Memory Utilized: 27.51 GB
+Memory Efficiency: 3.67% of 750.00 GB (750.00 GB/node)
+Energy Consumed: 34256644 Joule / 9515.73444444444 Watthours
+Average node power draw: 1372.57168042311 Watt

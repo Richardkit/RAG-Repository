@@ -1,0 +1,701 @@
+{
+  "scan_id": "1d234022-e280-2b1a-8cec-e9787bb0d7b2",
+  "num_gt_obj": 25,
+  "num_pred_obj": 8,
+  "obj_recall": 0.36,
+  "num_gt_edge_all": 46,
+  "num_gt_edge_both_true": 11,
+  "num_matched_edge": 6,
+  "edge_recall": 0.13043478260869565,
+  "both_true_edge_recall": 0.5454545454545454,
+  "edge_per_rel_total": {
+    "belonging to": 1,
+    "attached to": 4,
+    "standing on": 3,
+    "connected to": 1,
+    "right": 1,
+    "left": 1
+  },
+  "edge_per_rel_hit": {
+    "standing on": 2,
+    "attached to": 2,
+    "right": 1,
+    "left": 1
+  },
+  "edge_match_details": [
+    {
+      "src_gt_id_and_label": "2,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "4,garbage bin",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "standing on"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "5,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "6,counter",
+      "tgt_gt_id_and_label": "16,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "7,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "8,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "9,door",
+      "tgt_gt_id_and_label": "32,doorframe",
+      "gt_predicates": [
+        "belonging to"
+      ],
+      "src_pred_id_and_label": "5,shelf",
+      "tgt_pred_id_and_label": "1,bathtub",
+      "pred_predicates_norm": [
+        "close by",
+        "higher than",
+        "right"
+      ],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "10,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "10,unknown",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "11,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "12,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "13,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "13,unknown",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "14,toilet",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "standing on"
+      ],
+      "src_pred_id_and_label": "6,toilet",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [
+        "close by",
+        "standing on",
+        "supported by"
+      ],
+      "predicate_hit_predicates_norm": [
+        "standing on"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    },
+    {
+      "src_gt_id_and_label": "15,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "3,wall",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [
+        "attached to",
+        "higher than",
+        "standing on"
+      ],
+      "predicate_hit_predicates_norm": [
+        "attached to"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    },
+    {
+      "src_gt_id_and_label": "16,wall",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "17,lamp",
+      "tgt_gt_id_and_label": "16,wall",
+      "gt_predicates": [
+        "hanging on"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "18,ceiling",
+      "tgt_gt_id_and_label": "2,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "18,ceiling",
+      "tgt_gt_id_and_label": "7,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "18,ceiling",
+      "tgt_gt_id_and_label": "8,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "18,ceiling",
+      "tgt_gt_id_and_label": "10,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "10,unknown",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "22,heater",
+      "tgt_gt_id_and_label": "10,wall",
+      "gt_predicates": [
+        "connected to"
+      ],
+      "src_pred_id_and_label": "2,radiator",
+      "tgt_pred_id_and_label": "10,unknown",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "23,toilet paper",
+      "tgt_gt_id_and_label": "22,heater",
+      "gt_predicates": [
+        "standing on"
+      ],
+      "src_pred_id_and_label": "7,toilet paper dispenser",
+      "tgt_pred_id_and_label": "2,radiator",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "24,toilet paper",
+      "tgt_gt_id_and_label": "10,wall",
+      "gt_predicates": [
+        "hanging on"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "10,unknown",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "25,lamp",
+      "tgt_gt_id_and_label": "10,wall",
+      "gt_predicates": [
+        "hanging on"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "10,unknown",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "26,sink",
+      "tgt_gt_id_and_label": "6,counter",
+      "gt_predicates": [
+        "build in"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "29,hand dryer",
+      "tgt_gt_id_and_label": "8,wall",
+      "gt_predicates": [
+        "hanging on"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "32,doorframe",
+      "tgt_gt_id_and_label": "1,floor",
+      "gt_predicates": [
+        "standing on"
+      ],
+      "src_pred_id_and_label": "1,bathtub",
+      "tgt_pred_id_and_label": "4,floor",
+      "pred_predicates_norm": [
+        "attached to",
+        "close by",
+        "standing on"
+      ],
+      "predicate_hit_predicates_norm": [
+        "standing on"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    },
+    {
+      "src_gt_id_and_label": "32,doorframe",
+      "tgt_gt_id_and_label": "15,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "1,bathtub",
+      "tgt_pred_id_and_label": "3,wall",
+      "pred_predicates_norm": [
+        "attached to",
+        "close by",
+        "leaning against"
+      ],
+      "predicate_hit_predicates_norm": [
+        "attached to"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    },
+    {
+      "src_gt_id_and_label": "18,ceiling",
+      "tgt_gt_id_and_label": "11,wall",
+      "gt_predicates": [
+        "attached to"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "4,garbage bin",
+      "tgt_gt_id_and_label": "14,toilet",
+      "gt_predicates": [
+        "left"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "6,toilet",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "4,garbage bin",
+      "tgt_gt_id_and_label": "32,doorframe",
+      "gt_predicates": [
+        "right"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "1,bathtub",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "6,counter",
+      "tgt_gt_id_and_label": "17,lamp",
+      "gt_predicates": [
+        "left"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "14,toilet",
+      "tgt_gt_id_and_label": "4,garbage bin",
+      "gt_predicates": [
+        "right"
+      ],
+      "src_pred_id_and_label": "6,toilet",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "14,toilet",
+      "tgt_gt_id_and_label": "32,doorframe",
+      "gt_predicates": [
+        "right"
+      ],
+      "src_pred_id_and_label": "6,toilet",
+      "tgt_pred_id_and_label": "1,bathtub",
+      "pred_predicates_norm": [
+        "close by",
+        "higher than",
+        "right"
+      ],
+      "predicate_hit_predicates_norm": [
+        "right"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    },
+    {
+      "src_gt_id_and_label": "17,lamp",
+      "tgt_gt_id_and_label": "6,counter",
+      "gt_predicates": [
+        "right"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "22,heater",
+      "tgt_gt_id_and_label": "24,toilet paper",
+      "gt_predicates": [
+        "left"
+      ],
+      "src_pred_id_and_label": "2,radiator",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "22,heater",
+      "tgt_gt_id_and_label": "25,lamp",
+      "gt_predicates": [
+        "behind",
+        "left"
+      ],
+      "src_pred_id_and_label": "2,radiator",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "24,toilet paper",
+      "tgt_gt_id_and_label": "22,heater",
+      "gt_predicates": [
+        "right"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "2,radiator",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "24,toilet paper",
+      "tgt_gt_id_and_label": "25,lamp",
+      "gt_predicates": [
+        "right",
+        "front"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "25,lamp",
+      "tgt_gt_id_and_label": "22,heater",
+      "gt_predicates": [
+        "front",
+        "right"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "2,radiator",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": true,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "25,lamp",
+      "tgt_gt_id_and_label": "24,toilet paper",
+      "gt_predicates": [
+        "behind",
+        "left"
+      ],
+      "src_pred_id_and_label": "none,none",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": false,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "32,doorframe",
+      "tgt_gt_id_and_label": "4,garbage bin",
+      "gt_predicates": [
+        "left"
+      ],
+      "src_pred_id_and_label": "1,bathtub",
+      "tgt_pred_id_and_label": "none,none",
+      "pred_predicates_norm": [],
+      "predicate_hit_predicates_norm": [],
+      "src_hit": true,
+      "tgt_hit": false,
+      "predicate_hit": false,
+      "edge_hit": false
+    },
+    {
+      "src_gt_id_and_label": "32,doorframe",
+      "tgt_gt_id_and_label": "14,toilet",
+      "gt_predicates": [
+        "left"
+      ],
+      "src_pred_id_and_label": "1,bathtub",
+      "tgt_pred_id_and_label": "6,toilet",
+      "pred_predicates_norm": [
+        "close by",
+        "left",
+        "lower than"
+      ],
+      "predicate_hit_predicates_norm": [
+        "left"
+      ],
+      "src_hit": true,
+      "tgt_hit": true,
+      "predicate_hit": true,
+      "edge_hit": true
+    }
+  ]
+}

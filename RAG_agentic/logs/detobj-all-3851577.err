@@ -1,0 +1,5 @@
+[W207 13:58:40.378878935 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+[2026-02-07 13:58:51] INFO loader.py:133: Loading faiss.
+[2026-02-07 13:58:51] INFO loader.py:135: Successfully loaded faiss.
+[2026-02-07 13:58:51] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
+slurmstepd: error: *** JOB 3851577 ON hkn1963 CANCELLED AT 2026-02-07T13:58:57 ***

@@ -20,8 +20,8 @@ def generate_gt_bboxes(scan_dir, valid_scans_path, relationship_h5_path, output_
         output_path (str): Path to save the generated gt_bboxes.json file.
     """
     # Load valid scans
-    # with open(valid_scans_path, "r") as f:
-        # valid_scans = set(line.strip() for line in f.readlines())
+    with open(valid_scans_path, "r") as f:
+        valid_scans = set(line.strip() for line in f.readlines())
 
     scan_list = os.listdir(scan_dir)
 
@@ -30,7 +30,8 @@ def generate_gt_bboxes(scan_dir, valid_scans_path, relationship_h5_path, output_
 
     # Process each valid scan
     # for scan_id in valid_scans:
-    for scan_id in tqdm(sorted(scan_list), desc="Processing scans"):
+    for scan_id in tqdm(sorted(valid_scans), desc="Processing scans"):
+
         gt_bboxes = {}
         scan_path = os.path.join(scan_dir, scan_id, "sequence")
         if not os.path.exists(scan_path):
@@ -88,7 +89,7 @@ def generate_gt_bboxes(scan_dir, valid_scans_path, relationship_h5_path, output_
 if __name__ == "__main__":
     # Define file paths
     scan_dir = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
-    valid_scans_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_subset_20pct.txt"
+    valid_scans_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     relationship_h5_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/data_GT/3RScan_3RScan160/relationships.h5"
     output_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/RAG_baseline_Qwen3/evaluate/gt_bboxes.json"
 

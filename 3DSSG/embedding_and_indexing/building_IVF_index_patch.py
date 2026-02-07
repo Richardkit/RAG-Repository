@@ -1,0 +1,81 @@
+# building_IVF_index_patch.py (示例：建 IVF index)
+import os, pickle
+import numpy as np
+import faiss
+from tqdm import tqdm
+
+# ========= 你要改的路径 =========
+IN_DIR  = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_patch_embeddings_without_validset_siglip2_global"
+OUT_DIR = IN_DIR
+
+X_NPY   = os.path.join(IN_DIR, "all_patch_embs.npy")
+KEYS_PKL= os.path.join(IN_DIR, "all_patch_keys.pkl")
+
+OUT_INDEX = os.path.join(OUT_DIR, "patch_index.ivfflat")
+# 如果你想保留一个 flat 备份，也可以：
+OUT_INDEX_FLAT = os.path.join(OUT_DIR, "patch_index.flatip")
+
+D = 768
+
+# IVF 参数：按数据量调
+NLIST = 4096     # 聚类中心数（常用 1k~16k）
+NPROBE = 16      # 查询时探测几个倒排桶
+TRAIN_MAX = 300000  # 训练最多采样多少 patch
+
+def l2_normalize(x: np.ndarray, eps=1e-12):
+    n = np.linalg.norm(x, axis=1, keepdims=True)
+    return x / np.maximum(n, eps)
+
+def main():
+    X = np.load(X_NPY)  # (N,D) float32/float16
+    if X.ndim != 2 or X.shape[1] != D:
+        raise RuntimeError(f"X shape 不对: {X.shape}")
+
+    # FAISS 建议 float32
+    X = X.astype(np.float32)
+
+    # 用 IP 做 cosine：先 L2 normalize
+    X = l2_normalize(X)
+
+    N = X.shape[0]
+    print("[INFO] N =", N, "D =", D)
+
+    # -------- 可选：先建一个 FlatIP（最稳，但大库会慢）---------
+    # flat = faiss.IndexFlatIP(D)
+    # flat.add(X)
+    # faiss.write_index(flat, OUT_INDEX_FLAT)
+    # print("[SAVE]", OUT_INDEX_FLAT)
+
+    # -------- IVF Flat (IP) ----------
+    quantizer = faiss.IndexFlatIP(D)
+    index = faiss.IndexIVFFlat(quantizer, D, NLIST, faiss.METRIC_INNER_PRODUCT)
+
+    # train
+    if not index.is_trained:
+        if N > TRAIN_MAX:
+            rnd = np.random.RandomState(0)
+            idx = rnd.choice(N, size=TRAIN_MAX, replace=False)
+            X_train = X[idx]
+        else:
+            X_train = X
+        print("[TRAIN] X_train =", X_train.shape)
+        index.train(X_train)
+
+    # add
+    print("[ADD] ...")
+    index.add(X)
+
+    # set nprobe（查询时也可以再设）
+    index.nprobe = NPROBE
+
+    faiss.write_index(index, OUT_INDEX)
+    print("[SAVE]", OUT_INDEX)
+
+    # keys 文件只是引用一下，确认长度一致即可
+    with open(KEYS_PKL, "rb") as f:
+        keys = pickle.load(f)
+    assert len(keys) == N, f"keys({len(keys)}) != N({N})"
+    print("[OK] keys length matched.")
+
+if __name__ == "__main__":
+    main()

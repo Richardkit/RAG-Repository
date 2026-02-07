@@ -33,15 +33,15 @@ import numpy as np
 from PIL import Image
 import faiss
 import torch
-from transformers import SiglipImageProcessor, SiglipVisionModel
+from transformers import SiglipImageProcessor, SiglipModel
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
 
 # =========================
 # Config
 # =========================
-CLASSES_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/data_GT/3RScan_3RScan160/classes.txt"
-RELATIONS_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/data_GT/3RScan_3RScan160/relationships.txt"
+CLASSES_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/data_GT/3RScan_3RScan160/classes.txt"
+RELATIONS_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/data_GT/3RScan_3RScan160/relationships.txt"
 QWEN_MODEL_NAME = "Qwen/Qwen3-VL-32B-Instruct"
 
 WINDOW_SIZE = 6
@@ -373,8 +373,12 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
 
     # merge
     for e in local_edges:
-        src_g = id_map[str(e["src"])]
-        tgt_g = id_map[str(e["tgt"])]
+        src_g = id_map[str(e["src"]) if e["src"] is not None else ""]
+        tgt_g = id_map[str(e["tgt"]) if e["tgt"] is not None else ""]
+
+        if src_g == "" or tgt_g == "":
+            continue
+        
         preds = e["c_edge"]
 
         key = (src_g, tgt_g)
@@ -450,11 +454,13 @@ def prepare_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
 # =========================
 # RAG: SigLIP index -> reference edges
 # =========================
-def load_siglip(model_name: str = "google/siglip-base-patch16-224"):
+def load_siglip(model_name: str = "google/siglip2-base-patch16-224", device: str = None):
+    device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     processor = SiglipImageProcessor.from_pretrained(model_name)
-    model = SiglipVisionModel.from_pretrained(model_name)
+    model = SiglipModel.from_pretrained(model_name).to(device)
     model.eval()
-    return processor, model
+    return processor, model, device
+
 
 def embed_image(model_bundle, image: Image.Image):
     processor, model = model_bundle
@@ -568,8 +574,8 @@ def run_rag_for_window(
 ) -> List[Dict[str, Any]]:
     if not query_rgbs:
         raise FileNotFoundError(f"No query RGBs provided for {sequence_dir}")
-
-    processor, model = model_bundle
+    
+    processor, model, device = model_bundle
 
     faiss_index = faiss.read_index(embedding_index_path)
     with open(rgb_keys_path, "rb") as f:
@@ -579,15 +585,26 @@ def run_rag_for_window(
     embs = []
     for p in query_rgbs:
         img = Image.open(p).convert("RGB")
+        inputs = processor(images=img, return_tensors="pt")
+        pixel_values = inputs["pixel_values"].to(device)
+
         with torch.no_grad():
-            inputs = processor(images=img, return_tensors="pt")
-            outputs = model(**inputs)
-            embs.append(outputs.pooler_output[0].numpy().astype(np.float32))
-    embs = np.stack(embs, axis=0)
+            feat = model.get_image_features(pixel_values=pixel_values, normalize=True)  # [1, D]
+        embs.append(feat.detach().cpu().numpy().astype(np.float32)[0])
+
+    embs = np.stack(embs, axis=0).astype(np.float32)
 
     cands = []
     per_query_top5 = []
     for qi, e in enumerate(embs):
+
+        print("type(e)=", type(e))
+        try:
+            print("is ndarray?", isinstance(e, np.ndarray), "dtype=", getattr(e, "dtype", None), "shape=", getattr(e, "shape", None))
+        except Exception as _:
+            pass
+        print("is torch?", torch.is_tensor(e))
+
         D, I = faiss_index.search(e.reshape(1, -1), faiss_topk)
         qlist = []
         for rank in range(faiss_topk):
@@ -781,7 +798,7 @@ STEP 2 — RELATION PREDICTION
 In this step, you must do:
     - First, carefully read the <REF_EDGES>, it includes all edges from a visually similar scan, you need to consider which src-tgt pairs have potential edges and what predicates they have.
     - Second, remember all existing edges from <PREV_GRAPH> and newly detected nodes from Step 1.
-    - Third, based on the images and the nodes generated from Step 1, decide which (src, tgt) pairs have visually or logically supported relations, considering the experience you learned from <REF_EDGES>. However, DO NOT copy edges blindly from <REF_EDGES>.
+    - Third, based on the images and the nodes generated from Step 1, decide which (src, tgt) pairs have visually or logically supported relations as many as possible, considering the experience you learned from <REF_EDGES>. However, DO NOT copy edges blindly from <REF_EDGES>.
     - Fourth, choose possible predicates for each (src, tgt) pair, strictly from the <ALLOWED_PREDICATES>, also consider edges between nodes from <PREV_GRAPH> and newly detected nodes.
 Rules:
   - Use ONLY predicates from <ALLOWED_PREDICATES>.
@@ -822,8 +839,8 @@ Return ONLY the JSON object. After the finish the json, print a newline and then
     content.append({"type": "text", "text": guide})
 
     # --- append tagged blocks (variable content) ---
-    content.append({"type": "text", "text": f"<PREV_GRAPH_JSON>\n{prev_str}\n</PREV_GRAPH_JSON>"})
-    content.append({"type": "text", "text": f"<REF_EDGES_JSON>\n{refs_str}\n</REF_EDGES_JSON>"})
+    content.append({"type": "text", "text": f"<PREV_GRAPH>\n{prev_str}\n</PREV_GRAPH>"})
+    content.append({"type": "text", "text": f"<REF_EDGES>\n{refs_str}\n</REF_EDGES>"})
     content.append({"type": "text", "text": f"<ALLOWED_PREDICATES>\n{relations_txt}\n</ALLOWED_PREDICATES>"})
     content.append({"type": "text", "text": f"<ALLOWED_CLASSES>\n{classes_txt}\n</ALLOWED_CLASSES>"})
     # (Optional) keep classes list if you want it visible to model later; currently not required for edges
@@ -1221,16 +1238,16 @@ def get_scan_ids(test_list_path: str) -> List[str]:
 
 if __name__ == "__main__":
     # 这些路径你可以按需改
-    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
-    sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
-    out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_baseline_Qwen3/RAG_end2end_CoT"
-    embedding_index_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset/rgb_index.ivfflat"
-    rgb_keys_path        = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset/all_keys.pkl"
-    kb_scan_root         = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
+    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
+    sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
+    out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/RAG_baseline_Qwen3/RAG_end2end_CoT_siglip2_faiss"
+    embedding_index_path = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_embeddings_without_validset_siglip2/rgb_index.ivfflat"
+    rgb_keys_path        = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_embeddings_without_validset_siglip2/all_keys.pkl"
+    kb_scan_root         = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
     os.makedirs(out_root, exist_ok=True)
 
     print("[Load] SigLIP encoder ...")
-    siglip_bundle = load_siglip()
+    siglip_bundle = load_siglip("google/siglip2-base-patch16-224")
 
 
     print("[Load] Qwen model ...")

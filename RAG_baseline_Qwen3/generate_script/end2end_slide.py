@@ -5,6 +5,24 @@
 # - Sliding window over RGB frames; resume from last completed window if interrupted.
 
 import os
+from pathlib import Path
+
+job_id = os.environ.get("SLURM_JOB_ID", "manual")
+tmpdir = Path(f"/scratch/{os.environ.get('USER', 'user')}/tmp_{job_id}")
+tmpdir.mkdir(parents=True, exist_ok=True, mode=0o700)
+os.environ["TMPDIR"] = str(tmpdir)
+os.environ["SLURM_TMPDIR"] = str(tmpdir)
+os.environ.pop("TMP", None)
+os.environ.pop("TEMP", None)
+os.environ.pop("XDG_RUNTIME_DIR", None)
+
+# Pin torch compile caches to the per-job tmpdir to avoid stale paths
+torch_cache = tmpdir / "torchinductor_cache"
+torch_cache.mkdir(parents=True, exist_ok=True, mode=0o700)
+os.environ["TORCHINDUCTOR_CACHE_DIR"] = str(torch_cache)
+os.environ["TORCH_COMPILE_CACHE_DIR"] = str(torch_cache)
+
+
 import re
 import json, re
 import glob
@@ -20,19 +38,15 @@ import re as _re, json as _json
 # =========================
 # Config
 # =========================
-CLASSES_TXT = "/hkfs/work/workspace/scratch/rg5174-myspace/3DSSG/data_GT/3RScan_3RScan160/classes.txt"
-RELATIONS_TXT = "/hkfs/work/workspace/scratch/rg5174-myspace/3DSSG/data_GT/3RScan_3RScan160/relationships.txt"
-MODEL_NAME = "Qwen/Qwen3-VL-32B-Instruct"
-DEVICE     = "cuda" if torch.cuda.is_available() else "cpu"
+CLASSES_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/data_GT/3RScan_3RScan160/classes.txt"
+RELATIONS_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/data_GT/3RScan_3RScan160/relationships.txt"
+MODEL_NAME = "/hkfs/work/workspace/scratch/rg5174-ragspace/models/Qwen3-VL-32B-Instruct"
+# DEVICE     = "cuda" if torch.cuda.is_available() else "cpu"
 
 WINDOW_SIZE = 6
 STRIDE      = 4  # overlap = WINDOW_SIZE - STRIDE = 2
 
-NAME_WEIGHT = 0.6
-DESC_WEIGHT = 0.4
-SIM_THRESHOLD = 0.62
-
-IF_vLLM = True  # whether to use vllm for inference
+IF_vLLM = False  # whether to use vllm for inference
 
 # ---- Global LLM cache for vLLM ----
 _GLOBAL_VLLM = None
@@ -104,8 +118,6 @@ def jaccard_token_sim(a: str, b: str) -> float:
     union = len(A | B)
     return inter / max(1, union)
 
-def mixed_similarity(name_a: str, desc_a: str, name_b: str, desc_b: str) -> float:
-    return NAME_WEIGHT * jaccard_token_sim(name_a, name_b) + DESC_WEIGHT * jaccard_token_sim(desc_a, desc_b)
 
 def _extract_array_objects(raw, key):
     # 在 raw 里找到 "key": [ ... ] 的片段，返回每个完整的 {...} 文本（尽量多）
@@ -227,7 +239,8 @@ def get_qwen_vllm():
             mm_encoder_tp_mode="data",
             tensor_parallel_size=max(torch.cuda.device_count(), 1),
             enable_expert_parallel=False,    # 单卡禁止 EP
-            gpu_memory_utilization=0.75,     # 避免 OOM
+            gpu_memory_utilization=0.9,     # 避免 OOM
+            max_model_len=100000,              # 需要处理长上下文
             enforce_eager=True,              # 之前讨论过，关掉 torch.compile/cudagraph
             # executor="uniproc",            # 如果你现在用这个，也可以保留
         )
@@ -254,82 +267,6 @@ def build_prompt_for_window(window_rgbs, classes_list, relations_list, prev_grap
             "edges": prev_graph.get("edges", []),
         }
         prev_graph_txt = _json.dumps(prev_min, ensure_ascii=False, separators=(",", ":"))
-
-#     guide = f"""You will see a contiguous sequence of RGB images from the same scan (no geometry), a previous built scene graph for same scene is also provided (may be empty).
-# Return **ONLY** one JSON object (no extra text). 
-# Critically, **nodes and edges are independent top-level arrays**. 
-
-# OUTPUT SCHEMA (nodes/edges are independent):
-
-# {{
-#   "nodes": [
-#     {{
-#       "id": "<GLOBAL_ID>",
-#       "name": "<short noun phrase>",
-#       "description": "<rich disambiguating description>"
-#     }},
-#     ...
-#   ],
-#   "edges": [
-#     {{
-#       "src": "<GLOBAL_ID>",
-#       "tgt": "<GLOBAL_ID>",
-#       "c_edge": ["<predicate_1>", "<predicate_2>", "<predicate_3>"]
-#     }},
-#     ...
-#   ]
-# }}
-
-# INTERPRETATION OF c_edge:
-# - "c_edge" is a **list of 3 predicates** for the same (src, tgt) pair.
-# - You MUST output 3 predicates from the RELATIONS list below for each "src"-"tgt" pair.
-
-# STRONG RULES:
-# - Output **as many nodes and relations as visible**.
-# - Floors, walls, ceilings and curtains are also objects; include them if visible, if there are large furniture, then there are usually walls where they are leaning against, and the wall is not always white.
-# - Output all edges which you think are visually or logically supported.
-# - The Number of edges should be at least larger than 3x the number of nodes.
-
-# EDGE RULES:
-# The relation predicate MUST be chosen **exactly** from the following RELATIONS list:
-# RELATIONS = [{relations_txt}]
-# - Each edge represents one ordered pair of objects (src -> tgt).
-# - For each (src, tgt) pair, you MUST use a **single edge object** with "c_edge" as a list of predicates,
-#   instead of creating multiple separate edges with the same src/tgt.
-# - "edges" MUST reference only IDs existing in "nodes" for this window (or reused from PREVIOUS GRAPH).
-# - Edges are **directed**: src -> tgt. For symmetric relations, you may output edges in both directions,
-#   each with its own "c_edge" list.
-# - The predicates in "c_edge" MUST be chosen exactly from RELATIONS (case-sensitive string match).
-# - For each (src, tgt) pair:
-#   - If there is at least one clear relation, you MUST output **at least 1** predicate in "c_edge".
-#   - If multiple relations are visually supported (e.g., "standing on" and "supported by"), you MUST include **all of them**
-#     in "c_edge", up to 3 predicates in total.
-# - If you see two objects are "close by", a single predicate "close by" is DEFINITELY NOT enough:
-#   you MUST also add at least one more spatial relation between them in the same "c_edge" list
-#   (e.g., "left" / "right" / "front" / "behind" / "higher than" / "lower than").
-# - Some spatial relations need multiple predicates to represent clearly, for example:
-#   if A is left-front to B, you should output both "front" and "left" in A's "c_edge" toward B.
-# - objects on the floor should have "standing on" relation to the floor object.
-# - objects whose surface is touching the wall or other surface should have "attached to" or "hanging on" or "supported by" relation to the other surface or wall, wall should have "attached to" relation with ceiling or floor.
-# - Do NOT invent new predicates and do NOT use single prepositional words (e.g., "on", "in", "at") as predicates,
-#   because they are NOT included in RELATIONS.
-
-# NODE WRITING GUIDE:
-# - "name": short noun phrase (e.g., "white sofa", "wooden dining table").
-# - "description": rich cues (color, material, shape, parts, text/logo, location in the room,
-#   relation to surrounding objects) that help distinguish between multiple similar objects.
-# - Output all objects as nodes, even if you are not sure about their class or they are partially visible.
-
-
-# PREVIOUS GRAPH (may be empty; reuse IDs if you are sure it is the same physical object):
-# {prev_graph_txt}
-
-# Before you output the final JSON, carefully check that:
-# - All predicate strings in every "c_edge" list are exactly from RELATIONS.
-# - Each "c_edge" list has 3 predicates, multiple predicates help to describe the relation more clearly.
-# - You can check if all objects are included as nodes by considering the following questions:
-#     1) Are all pixels in the image covered by at least one object?
-# """
 
     # --------- main guide (uses tags, no huge inline text) ----------
     guide = f"""
@@ -732,8 +669,22 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
 
     # merge
     for e in local_edges:
-        src_g = id_map[str(e["src"])]
-        tgt_g = id_map[str(e["tgt"])]
+        
+        src_key = str(e.get("src", "")).strip()
+        tgt_key = str(e.get("tgt", "")).strip()
+
+        src_g = id_map.get(src_key, "")
+        tgt_g = id_map.get(tgt_key, "")
+
+        # 如果模型把 id 写成了 "wall"/"floor"/"sofa" 这类字符串，直接跳过，避免 KeyError
+        if not src_g or not tgt_g:
+            # 可选：只打印前几条，便于你定位是哪条输出有问题
+            # print(f"[WARN] skip edge with unknown endpoint: src={src_key}, tgt={tgt_key}")
+            continue
+
+
+        if src_g == "" or tgt_g == "":
+            continue
         preds = e["c_edge"]
 
         key = (src_g, tgt_g)
@@ -765,11 +716,11 @@ def window_paths(out_dir: str, scan_id: str, win_idx: int) -> Dict[str, str]:
     base = os.path.join(out_dir, f"{scan_id}")
     return {
         "lock":   f"{base}_win{win_idx:03d}.lock",
-        "localW": f"{base}_local_sg_win{win_idx:03d}.work",
-        "globalW":f"{base}_global_sg_win{win_idx:03d}.work",
-        "local":  f"{base}_local_sg_win{win_idx:03d}.json",
-        "global": f"{base}_global_sg_win{win_idx:03d}.json",
-        "raw":    f"{base}_local_sg_win{win_idx:03d}.raw.txt",
+        "localW": f"{base}_local_win{win_idx:03d}.work",
+        "globalW":f"{base}_global_win{win_idx:03d}.work",
+        "local":  f"{base}_local_win{win_idx:03d}.json",
+        "global": f"{base}_global_win{win_idx:03d}.json",
+        "raw":    f"{base}_local_win{win_idx:03d}.raw.txt",
     }
 
 def find_last_completed_window(out_dir: str, scan_id: str) -> int:
@@ -823,10 +774,10 @@ def main_stream(sequence_dir: str,
     relations_list = load_vocab_list(RELATIONS_TXT)
 
     # load model
-    qwen_proc = AutoProcessor.from_pretrained(MODEL_NAME)
+    qwen_proc = AutoProcessor.from_pretrained(MODEL_NAME, local_files_only=True)
     if not IF_vLLM:
         print("[Load] Qwen model ...")
-        qwen_model = AutoModelForImageTextToText.from_pretrained(MODEL_NAME, dtype=torch.bfloat16, device_map="auto")
+        qwen_model = AutoModelForImageTextToText.from_pretrained(MODEL_NAME, dtype=torch.bfloat16, device_map="auto", local_files_only=True)
 
 
     # initialize / resume global graph
@@ -936,10 +887,10 @@ def main_stream(sequence_dir: str,
                 "edges": new_edges,
             }
 
-        atomic_write_json(local_json_path, local_graph)
+        atomic_write_json(paths['local'], local_graph)
 
         global_graph = merge_graphs(global_graph, local_graph)
-        atomic_write_json(global_json_path, global_graph)
+        atomic_write_json(paths['global'], global_graph)
 
         print(f"[OK] Window #{win_idx} merged. Global nodes={len(global_graph.get('nodes',[]))}, edges={len(global_graph.get('edges',[]))}")
 
@@ -955,8 +906,8 @@ if __name__ == "__main__":
         with open(test_list_path, "r") as f:
             return [line.strip() for line in f if line.strip()]
 
-    test_list_path = "/hkfs/work/workspace/scratch/rg5174-myspace/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
-    out_root = "/hkfs/work/workspace/scratch/rg5174-myspace/data/end2end_slide_new"
+    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
+    out_root = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/RAG_Qwen3/end2end_slide_new"
     os.makedirs(out_root, exist_ok=True)
 
     scan_ids = sorted(get_scan_ids(test_list_path))
@@ -964,7 +915,7 @@ if __name__ == "__main__":
         out_dir = os.path.join(out_root, scan_id)
         if not os.path.exists(out_dir):
             os.makedirs(out_dir, exist_ok=True)
-        sequence_dir = os.path.join("/hkfs/work/workspace/scratch/rg5174-myspace/data/3RScan", scan_id, "sequence")
+        sequence_dir = os.path.join("/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan", scan_id, "sequence")
         main_stream(sequence_dir=sequence_dir,
                     scan_id=scan_id,
                     out_dir=out_dir,

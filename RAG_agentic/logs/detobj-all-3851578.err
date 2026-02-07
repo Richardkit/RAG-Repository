@@ -1,0 +1,88 @@
+[W207 14:00:40.061659276 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+[2026-02-07 14:00:48] INFO loader.py:133: Loading faiss.
+[2026-02-07 14:00:48] INFO loader.py:135: Successfully loaded faiss.
+[2026-02-07 14:00:48] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:01<00:23,  1.82s/it]Loading checkpoint shards:  14%|█▍        | 2/14 [00:03<00:21,  1.76s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [00:05<00:20,  1.83s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:07<00:18,  1.83s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:09<00:16,  1.84s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:10<00:14,  1.84s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:12<00:12,  1.84s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:14<00:11,  1.84s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:16<00:09,  1.84s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:18<00:07,  1.84s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:20<00:05,  1.84s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:22<00:03,  1.84s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:23<00:01,  1.84s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:25<00:00,  1.66s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:25<00:00,  1.80s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 3597.17it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.97s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.45s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+2026-02-07 14:01:30,552 | INFO | [START] scan=095821f7-e2c2-2de1-9568-b9ce59920e29
+2026-02-07 14:01:30,552 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 14:01:30,552 | INFO | [START] scan=0988ea72-eb32-2e61-8344-99e2283c2728
+2026-02-07 14:01:30,552 | INFO | [CFG] IF_vLLM=False window_size=6 stride=4
+2026-02-07 14:01:30,559 | INFO | [WIN_START] win=000 range=[0,6)
+2026-02-07 14:01:30,559 | INFO | [JUDGE] skipped (win_idx=0). query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000000.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000001.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000002.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000003.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000004.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000005.color.jpg']
+/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py:632: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+2026-02-07 14:04:02,597 | INFO | [TIMER] 0988ea72-eb32-2e61-8344-99e2283c2728 | win=000 [0..{'src': 5, 'tgt': 4, 'c_edge': ['left', 'behind', 'close by']}) | total_window_time=152.038s
+2026-02-07 14:04:02,599 | INFO | [WIN_START] win=001 range=[4,10)
+2026-02-07 14:04:02,599 | INFO | [JUDGE] skipped (win_idx=0). query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000004.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000005.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000006.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000007.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000008.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000009.color.jpg']
+2026-02-07 14:06:05,124 | INFO | [TIMER] 0988ea72-eb32-2e61-8344-99e2283c2728 | win=001 [4..{'src': 11, 'tgt': 2, 'c_edge': ['attached to', 'close by', 'standing on']}) | total_window_time=122.525s
+2026-02-07 14:06:05,128 | INFO | [WIN_START] win=002 range=[8,14)
+[2026-02-07 14:06:06] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:06] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:07] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:07] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:08] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:09] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:06:09,074 | WARNING | [WIN_SKIP] win=002 no new images
+2026-02-07 14:06:09,074 | INFO | [TIMER] win002 repeat_judge: 3.946s
+2026-02-07 14:06:09,074 | INFO | [WIN_START] win=003 range=[12,18)
+[2026-02-07 14:06:09] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:06:10] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:06:10,605 | INFO | [TIMER] win003 repeat_judge: 1.531s
+2026-02-07 14:06:10,605 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000014.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000015.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000016.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000017.color.jpg']
+2026-02-07 14:07:47,118 | INFO | [TIMER] 0988ea72-eb32-2e61-8344-99e2283c2728 | win=003 [12..{'src': 13, 'tgt': 6, 'c_edge': ['below', 'close by', 'attached to']}) | total_window_time=98.044s
+2026-02-07 14:07:47,120 | INFO | [WIN_START] win=004 range=[16,22)
+[2026-02-07 14:07:48] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:48] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:49] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:50] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:50] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:51] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:07:51,351 | WARNING | [WIN_SKIP] win=004 no new images
+2026-02-07 14:07:51,351 | INFO | [TIMER] win004 repeat_judge: 4.231s
+2026-02-07 14:07:51,351 | INFO | [WIN_START] win=005 range=[20,26)
+[2026-02-07 14:07:51] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:52] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:52] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:53] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:07:54] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:07:54,604 | INFO | [TIMER] win005 repeat_judge: 3.253s
+2026-02-07 14:07:54,604 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000022.color.jpg']
+2026-02-07 14:09:43,570 | INFO | [TIMER] 0988ea72-eb32-2e61-8344-99e2283c2728 | win=005 [20..{'src': 15, 'tgt': 14, 'c_edge': ['right', 'close by', 'lower than']}) | total_window_time=112.220s
+2026-02-07 14:09:43,574 | INFO | [WIN_START] win=006 range=[24,30)
+[2026-02-07 14:09:44] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:45] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:46] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:47] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:48] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:49] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:09:49,722 | WARNING | [WIN_SKIP] win=006 no new images
+2026-02-07 14:09:49,722 | INFO | [TIMER] win006 repeat_judge: 6.148s
+2026-02-07 14:09:49,722 | INFO | [WIN_START] win=007 range=[28,34)
+[2026-02-07 14:09:50] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:51] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:52] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:53] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:54] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:55] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:09:55,857 | WARNING | [WIN_SKIP] win=007 no new images
+2026-02-07 14:09:55,857 | INFO | [TIMER] win007 repeat_judge: 6.135s
+2026-02-07 14:09:55,857 | INFO | [WIN_START] win=008 range=[32,38)
+[2026-02-07 14:09:57] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:58] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:58] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:09:59] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:10:00] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:10:01] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:10:01,547 | WARNING | [WIN_SKIP] win=008 no new images
+2026-02-07 14:10:01,547 | INFO | [TIMER] win008 repeat_judge: 5.690s
+2026-02-07 14:10:01,547 | INFO | [WIN_START] win=009 range=[36,42)
+[2026-02-07 14:10:02] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:10:03] INFO torch_utils.py:29: Using device: cuda:0
+[2026-02-07 14:10:04] INFO torch_utils.py:29: Using device: cuda:0
+2026-02-07 14:10:04,241 | INFO | [TIMER] win009 repeat_judge: 2.694s
+2026-02-07 14:10:04,241 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000038.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000039.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000041.color.jpg']
+slurmstepd: error: *** JOB 3851578 ON hkn1963 CANCELLED AT 2026-02-07T14:10:59 ***

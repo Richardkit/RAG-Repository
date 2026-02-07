@@ -1184,7 +1184,7 @@ def get_scan_ids(test_list_path: str) -> List[str]:
 
 if __name__ == "__main__":
     # 这些路径你可以按需改
-    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_subset_20pct.txt"
+    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
     # out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_end2end_slide_new"
     out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_sg_split_new/aggregate"

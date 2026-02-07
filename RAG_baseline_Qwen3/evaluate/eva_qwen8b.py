@@ -1,4 +1,19 @@
 import os
+from pathlib import Path
+job_id = os.environ.get("SLURM_JOB_ID", "manual")
+tmpdir = Path(f"/scratch/{os.environ.get('USER', 'user')}/tmp_{job_id}")
+tmpdir.mkdir(parents=True, exist_ok=True, mode=0o700)
+os.environ["TMPDIR"] = str(tmpdir)
+os.environ["SLURM_TMPDIR"] = str(tmpdir)
+os.environ.pop("TMP", None)
+os.environ.pop("TEMP", None)
+os.environ.pop("XDG_RUNTIME_DIR", None)
+
+# Pin torch compile caches to the per-job tmpdir to avoid stale paths
+torch_cache = tmpdir / "torchinductor_cache"
+torch_cache.mkdir(parents=True, exist_ok=True, mode=0o700)
+os.environ["TORCHINDUCTOR_CACHE_DIR"] = str(torch_cache)
+os.environ["TORCH_COMPILE_CACHE_DIR"] = str(torch_cache)
 import json
 import glob
 import random
@@ -10,32 +25,39 @@ import torch
 from transformers import AutoModelForImageTextToText, AutoProcessor
 from qwen_vl_utils import process_vision_info
 
+from collections import defaultdict, Counter
+from vllm import LLM, SamplingParams
+import re as _re, json as _json
+
 # ================== 配置区域 ==================
 
 # 使用 8B 模型（当前脚本配置）
 MODEL_NAME = "Qwen/Qwen3-VL-32B-Instruct"
 
 # GT bbox 信息，与 gt_description_generate.py 保持一致
-GT_BBOXES_PATH = "/hkfs/work/workspace/scratch/rg5174-ragspace2/RAG_baseline_Qwen3/evaluate/gt_bboxes.json"
+GT_BBOXES_PATH = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/gt_bboxes.json"
 
 # 3RScan GT 场景目录（包含 {scan_id}_scan_sg.json 和 sequence/*.color.jpg）
-SCAN_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
+SCAN_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
 
 # 验证集 scan 列表
-VALID_SCANS_PATH = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
+VALID_SCANS_PATH = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
 
 # Predicted 全局 scene graph 根目录
-PRED_SG_ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_baseline_Qwen3/RAG_end2end_CoT"
+PRED_SG_ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/RAG_Qwen3/RAG_end2end_CoT"
 
 # 临时可视化 bbox 图像目录
-TEMP_IMG_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace2/RAG_baseline_Qwen3/temporary_img_qwen_judge"
+TEMP_IMG_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/temporary_img_qwen_judge"
 
 # 输出结果：每行一个 JSON
-OUT_JSONL = "/hkfs/work/workspace/scratch/rg5174-ragspace2/RAG_baseline_Qwen3/evaluate/CoT_rag_obj_match_results.jsonl"
+OUT_JSONL = "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_baseline_Qwen3/evaluate/CoT_rag_result/obj_match_results.jsonl"
 
 # 单个 GT obj 最多选几帧做判断
 MAX_IMAGES_PER_OBJ = 5
 MIN_BBOX_AREA = 1000  # 与原脚本一致
+
+# ---- Global LLM cache for vLLM ----
+_GLOBAL_VLLM = None
 
 # =========================================================
 # 工具函数：加载 scan 列表、bbox 图像等
@@ -46,13 +68,13 @@ def load_valid_scans(valid_scans_path):
         return [line.strip() for line in f if line.strip()]
 
 
-def prepare_images_with_selection(scan_id, object_id, gt_object_name, gt_bboxes_path, scan_dir,
+def prepare_images_with_selection(scan_id, object_id, gt_object_name, scan_dir,
                                   temp_img_dir, max_images=6, min_area=400):
     """
     为某个 GT obj 选出若干帧并画 bbox。
     返回临时图片路径列表。
     """
-    with open(gt_bboxes_path, "r") as f:
+    with open(os.path.join(scan_dir, scan_id, f"{scan_id}_gt_bboxes.json"), "r") as f:
         gt_bboxes = json.load(f)
 
     if scan_id not in gt_bboxes:
@@ -138,18 +160,97 @@ def load_pred_global_sg(scan_id):
         return None
     with open(path, "r") as f:
         return json.load(f)
+
+# ==========================================================
+# vllm inference
+# ==========================================================
+def get_qwen_vllm():
+    """
+    Lazily create a single vLLM LLM instance and reuse it
+    across all windows / scans within this python process.
+    """
+    global _GLOBAL_VLLM
+    if _GLOBAL_VLLM is None:
+        print("[vLLM] Initializing Qwen3-VL-32B engine once ...")
+        _GLOBAL_VLLM = LLM(
+            model=MODEL_NAME,
+            mm_encoder_tp_mode="data",
+            tensor_parallel_size=max(torch.cuda.device_count(), 1),
+            enable_expert_parallel=False,    # 单卡禁止 EP
+            gpu_memory_utilization=0.75,     # 避免 OOM
+            enforce_eager=False,              # Temporarily True to avoid compile timeout
+            # executor="uniproc",            # 如果你现在用这个，也可以保留
+        )
+    return _GLOBAL_VLLM
+
+def prepare_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
+    from qwen_vl_utils import process_vision_info
+    import re as _re, json as _json
+
+    # === 构建输入 ===
+    text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    try:
+        text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
+        text_tokens = len(text_token_ids)
+    except Exception:
+        text_tokens = -1
+
+    image_inputs, video_inputs, video_kwargs = process_vision_info(
+        messages, image_patch_size=16,
+        return_video_kwargs=True, return_video_metadata=True
+    )
+
+    mm_data = {}
+    if image_inputs is not None:
+        mm_data["image"] = image_inputs
+    if video_inputs is not None:
+        mm_data["video"] = video_inputs
+
+    return {
+        "prompt": text,
+        "multi_modal_data": mm_data,
+        "mm_processor_kwargs": video_kwargs
+    },text_tokens
+
+def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
+
+        request, in_tokens = prepare_qwen_vllm(messages, qwen_proc, max_new_tokens)
+
+        # ★ 不再 new LLM，而是拿全局单例
+        llm = get_qwen_vllm()
+
+        sampling_params = SamplingParams(
+            temperature=0.0,
+            max_tokens=max_new_tokens,
+            top_k=-1,
+        )
+
+        outputs = llm.generate([request], sampling_params)
+
+        out = outputs[0].outputs[0]
+        out_text = out.text
+        out_tokens = len(out.token_ids)
+
+        m = _re.search(r"\{[\s\S]*\}", out_text)
+        if not m:
+            return None, out_text  # ← 保留原始输出
+        try:
+            return _json.loads(m.group(0)), out_text
+        except Exception:
+            return None, out_text
+
 # ==========================================================
 # Clean function: 1. Main Process for pred-vs-gt object matching
 # ==========================================================
 
-def pred_vs_gt(scan_level_out, total_matched_pred_ids, full_candidates, qwen_model, qwen_proc):
+def pred_vs_gt(scan_level_out, total_matched_pred_ids, full_candidates, qwen_proc):
 
     used_pred_ids = []
     used_gt_ids = []
     best_match_gt2pred = {f"{item['gt_obj_id']}": "none" for item in scan_level_out['nodes_mapping']}
 
     def iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, 
-                                        qwen_model, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, iterate_time):
+                                        qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, iterate_time):
         """
         Iterate over matched predicted node ids to find the best matching GT object for each predicted node.
         Updates the best_match_gt2pred dictionary with the best matches.
@@ -209,7 +310,7 @@ def pred_vs_gt(scan_level_out, total_matched_pred_ids, full_candidates, qwen_mod
                 for gt_node in best_matched_gt_nodes:
                     gt_obj_id = gt_node['gt_obj_id']
                     gt_label = gt_node['gt_label']
-                    img_paths = prepare_images_with_selection(gt_node['scan_id'], gt_obj_id, gt_label, GT_BBOXES_PATH, SCAN_DIR,TEMP_IMG_DIR, max_images=2, min_area=MIN_BBOX_AREA)
+                    img_paths = prepare_images_with_selection(gt_node['scan_id'], gt_obj_id, gt_label, SCAN_DIR, TEMP_IMG_DIR, max_images=2, min_area=MIN_BBOX_AREA)
 
                     if not img_paths:
                         continue 
@@ -219,8 +320,8 @@ def pred_vs_gt(scan_level_out, total_matched_pred_ids, full_candidates, qwen_mod
                 if not gt_candidate_imgs:
                     continue
                                 
-                best_gt_obj_id, raw_output = run_qwen_pred_vs_gt_inference(build_prompt_for_pred_vs_gt(gt_candidate_imgs, pred_node_id, pred_label, pred_description), qwen_model, qwen_proc)
-
+                best_gt_obj_id, raw_output = run_qwen_pred_vs_gt_inference(build_prompt_for_pred_vs_gt(gt_candidate_imgs, pred_node_id, pred_label, pred_description), qwen_proc)
+            
                 if (not best_gt_obj_id) or (str(best_gt_obj_id).lower() == "none"):
                     continue
 
@@ -235,9 +336,9 @@ def pred_vs_gt(scan_level_out, total_matched_pred_ids, full_candidates, qwen_mod
 
                 delete_temporary_images(TEMP_IMG_DIR)
 
-    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_model, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 1)
-    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_model, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 2)
-    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_model, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 3)
+    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 1)
+    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 2)
+    iterate_over_matched_pred_nodes(scan_level_out, total_matched_pred_ids, full_candidates, qwen_proc, used_pred_ids, used_gt_ids, best_match_gt2pred, 3)
 
 
     return best_match_gt2pred
@@ -273,36 +374,13 @@ def build_prompt_for_pred_vs_gt(gt_candidate_imgs, pred_node_id, pred_label, pre
 
     return [{"role": "user", "content": content}]
 
-def run_qwen_pred_vs_gt_inference(prompt, qwen_model, qwen_proc):
+def run_qwen_pred_vs_gt_inference(prompt, qwen_proc):
     """
     Call Qwen to match predicted node with unique GT object among all GT candidates.
     Returns: best_matching_gt_obj_id (str), raw_output_text
     """
-    text = qwen_proc.apply_chat_template(prompt, tokenize=False, add_generation_prompt=True)
-    image_inputs, video_inputs, video_kwargs = process_vision_info(
-        prompt, image_patch_size=16, return_video_kwargs=True, return_video_metadata=True
-    )
 
-    inputs = qwen_proc(
-        text=[text],
-        images=image_inputs,
-        videos=video_inputs,
-        padding=True,
-        return_tensors="pt",
-    ).to("cuda")
-
-    num_tokens = int(inputs.input_ids.numel()) if hasattr(inputs, "input_ids") else -1
-    print(f"📝 input tokens: {num_tokens}")
-
-    out_ids = qwen_model.generate(**inputs, max_new_tokens=512)
-    generated_ids_trimmed = [
-        out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, out_ids)
-    ]
-    output_text = qwen_proc.batch_decode(
-        generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-    )
-    if isinstance(output_text, list):
-        output_text = "\n".join(output_text)
+    parsed, output_text = run_qwen_vllm(prompt, qwen_proc, max_new_tokens=1024)
 
     best_matching_gt_obj_id = "none"
 
@@ -388,38 +466,13 @@ OUTPUT STRICTLY IN JSON, no extra text:
 
 
 @torch.no_grad()
-def run_qwen_match_inference(prompt, qwen_model, qwen_proc):
+def run_qwen_match_inference(prompt, qwen_proc):
     """
     调用 Qwen 进行匹配判断，
     返回: match_pred_node_id (str 或 'none'), confidence (float), raw_output_text
     """
-    text = qwen_proc.apply_chat_template(prompt, tokenize=False, add_generation_prompt=True)
-    image_inputs, video_inputs, video_kwargs = process_vision_info(
-        prompt, image_patch_size=16, return_video_kwargs=True, return_video_metadata=True
-    )
 
-    inputs = qwen_proc(
-        text=[text],
-        images=image_inputs,
-        videos=video_inputs,
-        padding=True,
-        return_tensors="pt",
-    ).to("cuda")
-
-    num_tokens = int(inputs.input_ids.numel()) if hasattr(inputs, "input_ids") else -1
-    print(f"📝 input tokens: {num_tokens}")
-
-    out_ids = qwen_model.generate(**inputs, max_new_tokens=512)
-    generated_ids_trimmed = [
-        out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, out_ids)
-    ]
-    output_text = qwen_proc.batch_decode(
-        generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-    )
-    if isinstance(output_text, list):
-        output_text = "\n".join(output_text)
-
-    print("\n🧠 Qwen raw output:\n", output_text)
+    parsed, output_text = run_qwen_vllm(prompt, qwen_proc, max_new_tokens=2048)
 
     match_id = "none"
     ids = []
@@ -582,9 +635,9 @@ def main():
     # 1. 加载模型
     # ============================================================
     print("[Load] Qwen3-VL-32B-Instruct model ...")
-    qwen_model = AutoModelForImageTextToText.from_pretrained(
-        MODEL_NAME, dtype=torch.bfloat16, device_map="auto"
-    )
+    # qwen_model = AutoModelForImageTextToText.from_pretrained(
+    #     MODEL_NAME, dtype=torch.bfloat16, device_map="auto"
+    # )
     qwen_proc = AutoProcessor.from_pretrained(MODEL_NAME)
 
     # ============================================================
@@ -671,7 +724,7 @@ def main():
             # ------------------------------------------------------------
             prepared_images = prepare_images_with_selection(
                 scan_id, gt_obj_id, gt_label,
-                GT_BBOXES_PATH, SCAN_DIR,
+                SCAN_DIR,
                 TEMP_IMG_DIR,
                 max_images=MAX_IMAGES_PER_OBJ,
                 min_area=MIN_BBOX_AREA
@@ -695,7 +748,7 @@ def main():
                     # --------------------------------------------------------
                     prompt = build_prompt_for_matching(prepared_images, gt_label, gt_obj_id, candidates)
                     match_ids, score_vals, raw_out = run_qwen_match_inference(
-                        prompt, qwen_model, qwen_proc
+                        prompt, qwen_proc
                     )  # match_ids: [id1, id2, id3], score_vals: [s1, s2, s3]
                     print(f"[RawMatch] → {match_ids}, scores={score_vals}")
 
@@ -737,7 +790,6 @@ def main():
                 scan_level_out,
                 list(total_matched_pred_nodes),
                 full_candidates,
-                qwen_model,
                 qwen_proc,
             )
         else:

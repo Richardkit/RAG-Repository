@@ -1100,9 +1100,9 @@ def get_scan_ids(test_list_path: str) -> List[str]:
 
 if __name__ == "__main__":
     # 这些路径你可以按需改
-    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_subset_20pct.txt"
+    test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
-    out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_end2end_slide_new"
+    out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_baseline_Qwen3/RAG_end2end_slide"
     embedding_index_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset/rgb_index.ivfflat"
     rgb_keys_path        = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset/all_keys.pkl"
     kb_scan_root         = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
