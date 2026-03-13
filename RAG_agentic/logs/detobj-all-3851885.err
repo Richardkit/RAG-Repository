@@ -1,139 +1,0 @@
-[W207 14:12:43.555041814 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-[2026-02-07 14:12:57] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:12:57] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:12:57] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-`torch_dtype` is deprecated! Use `dtype` instead!
-Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 5047.30it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.45s/it]
-The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
-2026-02-07 14:13:13,108 | INFO | [START] scan=095821f7-e2c2-2de1-9568-b9ce59920e29
-2026-02-07 14:13:13,108 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 14:13:13,108 | INFO | [START] scan=0988ea72-eb32-2e61-8344-99e2283c2728
-2026-02-07 14:13:13,108 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 14:13:13,115 | INFO | [WIN_START] win=006 range=[24,30)
-2026-02-07 14:13:13,405 | INFO | [TIMER] win006 repeat_judge: 0.290s
-2026-02-07 14:13:13,405 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000024.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000025.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000026.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000027.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000028.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/0988ea72-eb32-2e61-8344-99e2283c2728/sequence/frame-000029.color.jpg']
-/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py:629: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with torch.cuda.amp.autocast(dtype=torch.float16):
-[2026-02-07 14:13:46] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:13:46] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:13:46] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 14:13:54] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:13:54] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:13:54] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:13:54] INFO loader.py:133: Loading faiss.
-[2026-02-07 14:13:54] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:13:54] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:13:54] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:13:54] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 14:13:54] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 14:13:54] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 14:13:54] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 14:13:54] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:00<00:06,  1.90it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:01<00:06,  1.78it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:01<00:06,  1.77it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:02<00:06,  1.61it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  36% Completed | 5/14 [00:03<00:05,  1.61it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  43% Completed | 6/14 [00:03<00:05,  1.60it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  50% Completed | 7/14 [00:04<00:04,  1.60it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  57% Completed | 8/14 [00:04<00:03,  1.60it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  64% Completed | 9/14 [00:05<00:03,  1.59it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  71% Completed | 10/14 [00:06<00:02,  1.59it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  79% Completed | 11/14 [00:06<00:01,  1.59it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  86% Completed | 12/14 [00:07<00:01,  1.58it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards:  93% Completed | 13/14 [00:08<00:00,  1.60it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:08<00:00,  1.61it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:08<00:00,  1.62it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m 
-[1;36m(Worker_TP2 pid=3075515)[0;0m 2026-02-07 14:15:40,792 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP1 pid=3075514)[0;0m 2026-02-07 14:15:40,792 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP3 pid=3075516)[0;0m 2026-02-07 14:15:40,792 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP0 pid=3075513)[0;0m 2026-02-07 14:15:40,792 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP1 pid=3075514)[0;0m 2026-02-07 14:15:40,959 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP0 pid=3075513)[0;0m 2026-02-07 14:15:40,959 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP3 pid=3075516)[0;0m 2026-02-07 14:15:40,959 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP2 pid=3075515)[0;0m 2026-02-07 14:15:40,959 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP0 pid=3075513)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:00<00:42,  1.17it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:01<00:13,  3.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:01<00:07,  5.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:01<00:05,  7.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:01<00:04,  9.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:01<00:03, 10.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:01<00:03, 11.71it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:01<00:02, 12.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:01<00:02, 12.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:02<00:02, 12.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:02<00:02, 13.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:02<00:02, 13.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:02<00:01, 13.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:02<00:01, 13.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:02<00:01, 13.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:03<00:01, 13.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:03<00:01, 13.32it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:03<00:01, 13.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:03<00:01, 13.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:03<00:00, 12.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:03<00:00, 13.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:03<00:00, 13.28it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:04<00:00, 13.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:04<00:00, 13.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:04<00:00, 13.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:04<00:00, 13.61it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:04<00:00, 11.25it/s]
-[1;36m(Worker_TP0 pid=3075513)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   2%|▏         | 1/51 [00:00<00:12,  3.96it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 3/51 [00:00<00:06,  7.45it/s]Capturing CUDA graphs (decode, FULL):  10%|▉         | 5/51 [00:00<00:05,  8.87it/s]Capturing CUDA graphs (decode, FULL):  14%|█▎        | 7/51 [00:00<00:03, 11.03it/s]Capturing CUDA graphs (decode, FULL):  18%|█▊        | 9/51 [00:00<00:03, 12.57it/s]Capturing CUDA graphs (decode, FULL):  22%|██▏       | 11/51 [00:00<00:02, 13.61it/s]Capturing CUDA graphs (decode, FULL):  25%|██▌       | 13/51 [00:01<00:02, 14.41it/s]Capturing CUDA graphs (decode, FULL):  29%|██▉       | 15/51 [00:01<00:02, 14.97it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 17/51 [00:01<00:02, 15.35it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 19/51 [00:01<00:02, 15.66it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 21/51 [00:01<00:01, 15.95it/s]Capturing CUDA graphs (decode, FULL):  45%|████▌     | 23/51 [00:01<00:01, 16.06it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 25/51 [00:01<00:01, 16.18it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 27/51 [00:01<00:01, 16.25it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 29/51 [00:02<00:01, 16.27it/s]Capturing CUDA graphs (decode, FULL):  61%|██████    | 31/51 [00:02<00:01, 16.33it/s]Capturing CUDA graphs (decode, FULL):  65%|██████▍   | 33/51 [00:02<00:01, 16.28it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 35/51 [00:02<00:00, 16.24it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 37/51 [00:02<00:00, 16.31it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▋  | 39/51 [00:02<00:00, 16.27it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 41/51 [00:02<00:00, 16.15it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 43/51 [00:02<00:00, 16.19it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 45/51 [00:03<00:00, 16.23it/s]Capturing CUDA graphs (decode, FULL):  92%|█████████▏| 47/51 [00:03<00:00, 16.28it/s]Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 49/51 [00:03<00:00, 16.32it/s][rank2]:[W207 14:15:49.482855919 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:03<00:00, 16.39it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:03<00:00, 14.82it/s]
-[rank0]:[W207 14:15:49.534742493 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-[rank3]:[W207 14:15:49.719008582 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-[rank1]:[W207 14:15:49.775125451 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-[rank1]:[W207 14:15:49.902354018 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=76, addr=[localhost]:35780, remote=[localhost]:50609): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x14a79be23b80 in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libc10.so)
-frame #1: <unknown function> + 0x5ffd531 (0x14a7de22b531 in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
-frame #2: <unknown function> + 0x5ffe92d (0x14a7de22c92d in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
-frame #3: <unknown function> + 0x5fff4da (0x14a7de22d4da in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
-frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x14a7de2281fe in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
-frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x14a79cda66b8 in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
-frame #6: <unknown function> + 0xdf0e6 (0x14a7f3ca70e6 in /hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/bin/../lib/libstdc++.so.6)
-frame #7: <unknown function> + 0x89c0a (0x14a808e89c0a in /lib64/libc.so.6)
-frame #8: <unknown function> + 0x10ec60 (0x14a808f0ec60 in /lib64/libc.so.6)
-
-[rank1]:[W207 14:15:49.905617949 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m Process EngineCore_DP0:
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m Traceback (most recent call last):
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     self.run()
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/multiprocessing/process.py", line 108, in run
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     self._target(*self._args, **self._kwargs)
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 846, in run_engine_core
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     raise e
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 833, in run_engine_core
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 606, in __init__
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     super().__init__(
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 109, in __init__
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     num_gpu_blocks, num_cpu_blocks, kv_cache_config = self._initialize_kv_caches(
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 247, in _initialize_kv_caches
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     self.model_executor.initialize_from_config(kv_cache_configs)
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 116, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     self.collective_rpc("compile_or_warm_up_model")
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 358, in collective_rpc
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     return aggregate(get_response())
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 335, in get_response
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     status, result = mq.dequeue(
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 571, in dequeue
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     with self.acquire_read(timeout, cancel, indefinite) as buf:
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/contextlib.py", line 135, in __enter__
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     return next(self.gen)
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m   File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 490, in acquire_read
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m     raise RuntimeError("cancelled")
-[1;36m(EngineCore_DP0 pid=3075500)[0;0m RuntimeError: cancelled
-[W207 14:15:52.292869501 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-Traceback (most recent call last):
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 1354, in <module>
-    run_scan_with_rag_merge(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 1229, in run_scan_with_rag_merge
-    parsed, raw_text = run_qwen_vllm(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 1049, in run_qwen_vllm
-    llm = get_qwen_vllm()
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py", line 460, in get_qwen_vllm
-    _GLOBAL_VLLM = LLM(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
-    self.llm_engine = LLMEngine.from_engine_args(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 174, in from_engine_args
-    return cls(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 108, in __init__
-    self.engine_core = EngineCoreClient.make_client(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 93, in make_client
-    return SyncMPClient(vllm_config, executor_class, log_stats)
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 640, in __init__
-    super().__init__(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 469, in __init__
-    with launch_core_engines(vllm_config, executor_class, log_stats) as (
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/contextlib.py", line 142, in __exit__
-    next(self.gen)
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 907, in launch_core_engines
-    wait_for_engine_startup(
-  File "/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 964, in wait_for_engine_startup
-    raise RuntimeError(
-RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
-[W207 14:15:53.788805468 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 5 leaked shared_memory objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '

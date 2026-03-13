@@ -1,117 +1,0 @@
-[W207 21:12:43.952392543 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
-[2026-02-07 21:12:54] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:12:55] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:12:55] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-`torch_dtype` is deprecated! Use `dtype` instead!
-Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 3414.17it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.97s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.46s/it]
-The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
-2026-02-07 21:13:12,398 | INFO | [START] scan=095821f7-e2c2-2de1-9568-b9ce59920e29
-2026-02-07 21:13:12,398 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,400 | INFO | [START] scan=0988ea72-eb32-2e61-8344-99e2283c2728
-2026-02-07 21:13:12,400 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,401 | INFO | [START] scan=0cac7540-8d6f-2d13-8eee-36ba2a428e3f
-2026-02-07 21:13:12,401 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,402 | INFO | [START] scan=0cac7584-8d6f-2d13-8df8-c05e4307b418
-2026-02-07 21:13:12,402 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,403 | INFO | [START] scan=0cac75dc-8d6f-2d13-8d08-9c497bd6acdc
-2026-02-07 21:13:12,403 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,404 | INFO | [START] scan=0cac7676-8d6f-2d13-8f3a-d7bf7f03e721
-2026-02-07 21:13:12,404 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,405 | INFO | [START] scan=10b17940-3938-2467-8a7a-958300ba83d3
-2026-02-07 21:13:12,405 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,406 | INFO | [START] scan=137a8158-1db5-2cc0-8003-31c12610471e
-2026-02-07 21:13:12,406 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,406 | INFO | [START] scan=1d233fe8-e280-2b1a-8fac-c3646a1cd64a
-2026-02-07 21:13:12,406 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,407 | INFO | [START] scan=1d234022-e280-2b1a-8cec-e9787bb0d7b2
-2026-02-07 21:13:12,407 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,407 | INFO | [START] scan=20c993b7-698f-29c5-847d-c8cb8a685f5a
-2026-02-07 21:13:12,407 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,408 | INFO | [START] scan=280d8ebb-6cc6-2788-9153-98959a2da801
-2026-02-07 21:13:12,409 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,410 | INFO | [START] scan=321c8680-a5a8-2a84-85c2-816a26d59516
-2026-02-07 21:13:12,410 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,416 | INFO | [START] scan=38770ca1-86d7-27b8-8619-ab66f67d9adf
-2026-02-07 21:13:12,418 | INFO | [CFG] IF_vLLM=True window_size=6 stride=4
-2026-02-07 21:13:12,465 | INFO | [WIN_START] win=037 range=[148,154)
-2026-02-07 21:13:12,845 | INFO | [TIMER] win037 repeat_judge: 0.379s
-2026-02-07 21:13:12,845 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000148.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000149.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000150.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000151.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000152.color.jpg', '/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000153.color.jpg']
-/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py:653: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with torch.cuda.amp.autocast(dtype=torch.float16):
-[2026-02-07 21:13:30] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:13:30] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:13:30] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 21:13:36] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:13:36] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:13:36] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:13:36] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:13:36] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:13:36] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:13:36] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 21:13:36] INFO loader.py:133: Loading faiss.
-[2026-02-07 21:13:36] INFO loader.py:135: Successfully loaded faiss.
-[2026-02-07 21:13:36] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 21:13:36] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[2026-02-07 21:13:36] INFO processing_utils.py:14: FastPlaid is not installed.If you want to use it:Instal with `pip install --no-deps fast-plaid fastkmeans`
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:00<00:06,  1.95it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:01<00:06,  1.87it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:01<00:05,  1.90it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:02<00:05,  1.75it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  36% Completed | 5/14 [00:02<00:05,  1.78it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  43% Completed | 6/14 [00:03<00:04,  1.76it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  50% Completed | 7/14 [00:03<00:04,  1.74it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  57% Completed | 8/14 [00:04<00:03,  1.74it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  64% Completed | 9/14 [00:05<00:02,  1.74it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  71% Completed | 10/14 [00:05<00:02,  1.74it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  79% Completed | 11/14 [00:06<00:01,  1.77it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  86% Completed | 12/14 [00:06<00:01,  1.77it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards:  93% Completed | 13/14 [00:07<00:00,  1.78it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:07<00:00,  1.79it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:07<00:00,  1.78it/s]
-[1;36m(Worker_TP0 pid=3142332)[0;0m 
-[1;36m(Worker_TP3 pid=3142335)[0;0m 2026-02-07 21:14:32,124 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP1 pid=3142333)[0;0m 2026-02-07 21:14:32,124 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP2 pid=3142334)[0;0m 2026-02-07 21:14:32,124 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP0 pid=3142332)[0;0m 2026-02-07 21:14:32,124 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
-[1;36m(Worker_TP0 pid=3142332)[0;0m 2026-02-07 21:14:32,529 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP1 pid=3142333)[0;0m 2026-02-07 21:14:32,529 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP3 pid=3142335)[0;0m 2026-02-07 21:14:32,529 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-[1;36m(Worker_TP2 pid=3142334)[0;0m 2026-02-07 21:14:32,529 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
-Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]Adding requests: 100%|██████████| 1/1 [00:39<00:00, 39.17s/it]Adding requests: 100%|██████████| 1/1 [00:39<00:00, 39.17s/it]
-Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [06:30<00:00, 390.87s/it, est. speed input: 44.51 toks/s, output: 20.96 toks/s]Processed prompts: 100%|██████████| 1/1 [06:30<00:00, 390.87s/it, est. speed input: 44.51 toks/s, output: 20.96 toks/s]Processed prompts: 100%|██████████| 1/1 [06:30<00:00, 390.87s/it, est. speed input: 44.51 toks/s, output: 20.96 toks/s]
-2026-02-07 21:22:02,074 | INFO | [TIMER] 38770ca1-86d7-27b8-8619-ab66f67d9adf | win=037 [148..154) | total_window_time=529.608s
-2026-02-07 21:22:02,076 | INFO | [WIN_START] win=038 range=[152,158)
-[2026-02-07 21:22:05] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:07] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:08] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:09] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:11] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:12] INFO torch_utils.py:29: Using device: cuda:0
-2026-02-07 21:22:12,852 | WARNING | [WIN_SKIP] win=038 no new images
-2026-02-07 21:22:12,852 | INFO | [TIMER] win038 repeat_judge: 10.776s
-2026-02-07 21:22:12,852 | INFO | [WIN_START] win=039 range=[156,162)
-[2026-02-07 21:22:14] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:15] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:16] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:17] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:22:18] INFO torch_utils.py:29: Using device: cuda:0
-2026-02-07 21:22:18,737 | INFO | [TIMER] win039 repeat_judge: 5.885s
-2026-02-07 21:22:18,737 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000161.color.jpg']
-/hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/scripts0_only_add_colqwen/RAG_sg_predict_2nd_75.py:653: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with torch.cuda.amp.autocast(dtype=torch.float16):
-Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00,  2.96it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00,  2.95it/s]
-Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [06:51<00:00, 411.71s/it, est. speed input: 44.66 toks/s, output: 19.90 toks/s]Processed prompts: 100%|██████████| 1/1 [06:51<00:00, 411.71s/it, est. speed input: 44.66 toks/s, output: 19.90 toks/s]Processed prompts: 100%|██████████| 1/1 [06:51<00:00, 411.71s/it, est. speed input: 44.66 toks/s, output: 19.90 toks/s]
-2026-02-07 21:29:13,586 | INFO | [TIMER] 38770ca1-86d7-27b8-8619-ab66f67d9adf | win=039 [156..162) | total_window_time=420.734s
-2026-02-07 21:29:13,588 | INFO | [WIN_START] win=040 range=[160,166)
-[2026-02-07 21:29:15] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:29:15] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:29:15] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:29:16] INFO torch_utils.py:29: Using device: cuda:0
-[2026-02-07 21:29:16] INFO torch_utils.py:29: Using device: cuda:0
-2026-02-07 21:29:16,652 | INFO | [TIMER] win040 repeat_judge: 3.063s
-2026-02-07 21:29:16,652 | INFO | [JUDGE] kept_query_imgs=['/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/38770ca1-86d7-27b8-8619-ab66f67d9adf/sequence/frame-000161.color.jpg']
-Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00,  5.21it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s]
-Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]slurmstepd: error: *** JOB 3852822 ON hkn1957 CANCELLED AT 2026-02-07T21:32:26 ***
-Processed prompts:   0%|          | 0/1 [03:07<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]

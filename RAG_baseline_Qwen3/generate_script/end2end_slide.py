@@ -46,7 +46,7 @@ MODEL_NAME = "/hkfs/work/workspace/scratch/rg5174-ragspace/models/Qwen3-VL-32B-I
 WINDOW_SIZE = 6
 STRIDE      = 4  # overlap = WINDOW_SIZE - STRIDE = 2
 
-IF_vLLM = False  # whether to use vllm for inference
+IF_vLLM = True  # whether to use vllm for inference
 
 # ---- Global LLM cache for vLLM ----
 _GLOBAL_VLLM = None
@@ -241,7 +241,7 @@ def get_qwen_vllm():
             enable_expert_parallel=False,    # 单卡禁止 EP
             gpu_memory_utilization=0.9,     # 避免 OOM
             max_model_len=100000,              # 需要处理长上下文
-            enforce_eager=True,              # 之前讨论过，关掉 torch.compile/cudagraph
+            enforce_eager=False,              # 之前讨论过，关掉 torch.compile/cudagraph
             # executor="uniproc",            # 如果你现在用这个，也可以保留
         )
     return _GLOBAL_VLLM
