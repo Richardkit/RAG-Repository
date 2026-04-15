@@ -13,4 +13,4 @@ RAG_Rexplore_Qwen3/temp_images/
 RAG_baseline_Qwen3/evaluate/
 RAG_agentic/logs/
 RAG_agentic/**/evaluate/
-
+*.sh
