@@ -1,21 +1,21 @@
 #!/bin/bash
-#SBATCH -J detobj-all                    # 作业名
-#SBATCH -p accelerated-h200          # 分区（HoreKa）
-#SBATCH --gres=gpu:4                     # GPU 数量（如需指定卡型：--gres=gpu:h200:1）
+#SBATCH -J detobj-all                    # job name
+#SBATCH -p accelerated-h200          # partition (HoreKa)
+#SBATCH --gres=gpu:4                     # number of GPUs (to specify card type: --gres=gpu:h200:1)
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8                # 申请与 OMP/MKL 一致的 CPU 数
-#SBATCH --mem=768000mb                   # 内存
-#SBATCH --time=12:30:00                  # 最长时间
-#SBATCH --account=hk-project-pai00054    # 项目账户（不是 CPU 核数）
-#SBATCH -o /hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/logs/%x-%j.out                # 标准输出
-#SBATCH -e /hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/logs/%x-%j.err                # 标准错误
+#SBATCH --cpus-per-task=8                # request CPUs consistent with OMP/MKL
+#SBATCH --mem=768000mb                   # memory
+#SBATCH --time=12:30:00                  # maximum time
+#SBATCH --account=hk-project-pai00054    # project account (not CPU count)
+#SBATCH -o /hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/logs/%x-%j.out                # stdout log 标准输出
+#SBATCH -e /hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/logs/%x-%j.err                # stderr log 标准错误
 
 set -eo pipefail
 
-# ===== 环境设置 =====
+# ===== Environment Setup =====
 CONDA_ENV="/hkfs/work/workspace/scratch/rg5174-ragspace/envs/rag_env"
 
-# 线程/通信（单卡常用设置）
+# Thread/communication settings (common single-GPU settings)
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-8}
 export MKL_NUM_THREADS=${MKL_NUM_THREADS:-8}
 export TOKENIZERS_PARALLELISM=false
@@ -27,7 +27,7 @@ export TIME_BUDGET_MIN=718
 mkdir -p /hkfs/work/workspace/scratch/rg5174-ragspace3/RAG_agentic/logs
 cd "$SLURM_SUBMIT_DIR"
 
-# 激活 conda
+# Activate conda
 if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
   source "$HOME/miniconda3/etc/profile.d/conda.sh"
 elif [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then

@@ -6,7 +6,7 @@ from collections import defaultdict
 
 ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/RAG_Qwen3/RAG_end2end_CoT_agentic_0_1"
 
-# 只匹配你关心的两种
+# Match only the two types you care about
 RE_KEPT = re.compile(r"kept_query_imgs\s*=\s*(\[[^\]]*\])", re.IGNORECASE)
 RE_SKIPPED = re.compile(r"\[JUDGE\]\s*skipped.*?query_imgs\s*=\s*(\[[^\]]*\])", re.IGNORECASE)
 
@@ -63,7 +63,7 @@ def main():
         if not matched_any:
             no_match_logs.append(lp)
 
-    # 输出
+    # Output
     print("=== Per-scan kept frames (ColQwen kept_query_imgs + JUDGE skipped query_imgs) ===")
     total_unique_sum = 0
     total_occ_sum = 0

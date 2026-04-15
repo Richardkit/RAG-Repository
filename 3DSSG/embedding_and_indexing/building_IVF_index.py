@@ -2,7 +2,7 @@ import faiss
 import numpy as np
 import pickle
 
-# === 加载数据 ===
+# === Load data ===
 with open("/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset_siglip2/all_keys.pkl", "rb") as f:
     rgb_keys = pickle.load(f)
 
@@ -13,21 +13,21 @@ rgb_vectors = np.memmap(
     shape=(len(rgb_keys), 768)
 )
 
-# === 构建 IndexIVFFlat ===
+# === Build IndexIVFFlat ===
 d = 768
-nlist = 529  # coarse centroid 数量
+nlist = 529  # number of coarse centroids
 quantizer = faiss.IndexFlatL2(d)  # coarse quantizer
 
 index = faiss.IndexIVFFlat(quantizer, d, nlist, faiss.METRIC_L2)
 
-# === 训练 ===
+# === Train ===
 print("🔧 Training IVFFlat index...")
-index.train(rgb_vectors[:50000])  # 训练阶段只需部分数据
+index.train(rgb_vectors[:50000])  # only a subset of data is needed during the training phase
 print("✅ Training done.")
 
-# === 添加向量 ===
+# === Add vectors ===
 index.add(rgb_vectors)
 print(f"✅ Indexed {index.ntotal} vectors.")
 
-# === 保存 ===
+# === Save ===
 faiss.write_index(index, "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan_embeddings_without_validset_siglip2/rgb_index.ivfflat")

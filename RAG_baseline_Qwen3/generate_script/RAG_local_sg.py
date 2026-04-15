@@ -80,9 +80,9 @@ def load_vocab_list(path: str) -> List[str]:
     return items
 
 def build_vocab_sets() -> Tuple[List[str], List[str], set, set]:
-    cls_list = load_vocab_list(CLASSES_TXT)         # 原始大小写保留（提示里展示）
+    cls_list = load_vocab_list(CLASSES_TXT)         # Original case preserved (displayed in prompts)
     rel_list = load_vocab_list(RELATIONS_TXT)
-    cls_set  = {normalize_text(x) for x in cls_list}  # 代码过滤用（lower）
+    cls_set  = {normalize_text(x) for x in cls_list}  # Used for code filtering (lowercased)
     rel_set  = {normalize_text(x) for x in rel_list}
     return cls_list, rel_list, cls_set, rel_set
 
@@ -109,10 +109,10 @@ def mixed_similarity(name_a: str, desc_a: str, name_b: str, desc_b: str) -> floa
     return NAME_WEIGHT * jaccard_token_sim(name_a, name_b) + DESC_WEIGHT * jaccard_token_sim(desc_a, desc_b)
 
 def _extract_array_objects(raw, key):
-    # 在 raw 里找到 "key": [ ... ] 的片段，返回每个完整的 {...} 文本（尽量多）
+    # Find the "key": [ ... ] fragment in raw, return each complete {...} text (as many as possible)
     m = re.search(rf'"{re.escape(key)}"\s*:\s*\[', raw)
     if not m: return []
-    i = m.end()  # 指向 '[' 后
+    i = m.end()  # points to after '['
     objs, depth, start = [], 0, None
     while i < len(raw):
         ch = raw[i]
@@ -126,7 +126,7 @@ def _extract_array_objects(raw, key):
                 start = None
         elif ch == ']':
             if depth == 0:
-                break  # 数组结束
+                break  # end of array
         i += 1
     return objs
 
@@ -167,7 +167,7 @@ def cap_graph(g, max_nodes=10, max_edges=30):
     if not isinstance(g, dict):
         return {"nodes": [], "edges": []}
     nodes = (g.get("nodes") or [])[:max_nodes]
-    # 只保留引用到 nodes 的边
+    # Keep only edges that reference existing nodes
     keep_ids = {str(n.get("id")) for n in nodes}
     edges = []
     for e in (g.get("edges") or []):
@@ -243,7 +243,7 @@ def objects_to_nodes_edges(j):
         for e in (o.get("edges") or []):
             if not isinstance(e, dict): 
                 continue
-            src = str(e.get("src") or oid).strip()   # 若省略src，默认就是本对象
+            src = str(e.get("src") or oid).strip()   # If src is omitted, default to the current object
             tgt = str(e.get("tgt","")).strip()
             rel = (e.get("relationship") or e.get("c_edge") or e.get("predicate") or "").strip().lower()
             if src and tgt and rel:
@@ -256,7 +256,7 @@ def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
     from qwen_vl_utils import process_vision_info
     import re as _re, json as _json
 
-    # === 构建输入 ===
+    # === Build input ===
     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     try:
         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -281,7 +281,7 @@ def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
     print(f"[Diag] tokens_in(text_only)={text_tokens}, tokens_in(actual)={input_ids_len}, "
           f"max_ctx={max_ctx}, images={len(image_inputs)}")
 
-    # === 生成 ===
+    # === Generation ===
     out_ids = qwen_model.generate(**inputs, max_new_tokens= max_new_tokens)
     new_tokens = out_ids.shape[1] - inputs.input_ids.shape[1]
     total_seq = out_ids.shape[1]
@@ -294,7 +294,7 @@ def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
 
     m = _re.search(r"\{[\s\S]*\}", out_text)
     if not m:
-        return None, out_text  # ← 保留原始输出
+        return None, out_text  # ← keep the original output
     try:
         return _json.loads(m.group(0)), out_text
     except Exception:
@@ -305,35 +305,35 @@ def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
 # Graph merge
 def build_id_map(current_nodes, global_nodes_by_id):
     """
-    将本窗口局部节点映射到全局节点：
-    - 先尝试与已有全局节点做文本相似度匹配（>=SIM_THRESHOLD则复用其ID）
-    - 否则为“本窗口新节点”分配**递增的数字ID**（不会重复为"1"）
+    Map local nodes in this window to global nodes:
+    - First try text similarity matching with existing global nodes (if >=SIM_THRESHOLD, reuse their ID)
+    - Otherwise assign an **incrementing numeric ID** (never repeating “1”) to “new nodes in this window”
     """
     from collections import defaultdict
 
     id_map = {}
     new_global_nodes = []
 
-    # 1) 统计现有全局最大数字ID，准备递增分配
+    # 1) Count the current maximum global numeric ID, prepare for incremental allocation
     def _to_int(s):
         s = str(s)
         return int(s) if s.isdigit() else None
     existing_int_ids = [_to_int(k) for k in global_nodes_by_id.keys()]
     existing_int_ids = [x for x in existing_int_ids if x is not None]
-    next_id = (max(existing_int_ids) + 1) if existing_int_ids else 1  # 起始数字ID
+    next_id = (max(existing_int_ids) + 1) if existing_int_ids else 1  # starting numeric ID
 
-    # 2) 建立按名称的粗索引（加速相似度匹配）
+    # 2) Build a coarse index by name (to speed up similarity matching)
     index_by_name = defaultdict(list)
     for gid, n in global_nodes_by_id.items():
         index_by_name[normalize_text(n.get("name", ""))].append((gid, n))
 
-    # 3) 对每个局部节点：相似度复用 or 分配新数字ID
+    # 3) For each local node: reuse by similarity or assign a new numeric ID
     for n in (current_nodes or []):
         lid  = str(n.get("id", "")).strip()
         name = n.get("name", "")
         desc = n.get("description", "")
 
-        # 3.1 相似度候选：同名优先 + 全表补充
+        # 3.1 Similarity candidates: same-name first + supplement with full list
         candidates = []
         same_name_key = normalize_text(name)
         if same_name_key in index_by_name:
@@ -343,7 +343,7 @@ def build_id_map(current_nodes, global_nodes_by_id):
             if g not in exist:
                 candidates.append((g, obj))
 
-        # 3.2 选最佳匹配（若分数足够就复用）
+        # 3.2 Select the best match (reuse if score is sufficient)
         best_gid, best_score = None, -1.0
         for gid, obj in candidates:
             s = mixed_similarity(name, desc, obj.get("name", ""), obj.get("description", ""))
@@ -351,10 +351,10 @@ def build_id_map(current_nodes, global_nodes_by_id):
                 best_gid, best_score = gid, s
 
         if best_gid is not None and best_score >= SIM_THRESHOLD:
-            # 复用已有全局ID
+            # Reuse existing global ID
             id_map[lid] = best_gid
         else:
-            # 3.3 分配**新的数字ID**（递增）
+            # 3.3 Assign a **new numeric ID** (incrementing)
             new_id = str(next_id)
             next_id += 1
             id_map[lid] = new_id
@@ -381,19 +381,19 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
     # --- normalize local (no seen_in_frames) ---
     for n in local_nodes:
         n["id"] = str(n.get("id"))
-        # 只保留必须字段
+        # Keep only required fields
         n["name"] = n.get("name", "")
         n["description"] = n.get("description", "")
 
     for e in local_edges:
-        # 统一关系字段
+        # Unify relationship field
         if "c_edge" not in e:
             e["c_edge"] = e.get("predicate") or e.get("relation") or ""
 
-    # 建立 local->global 映射 + 新增节点
+    # Build local->global mapping + add new nodes
     id_map, new_global_nodes = build_id_map(local_nodes, global_nodes_by_id)
 
-    # ---- 合并节点（无 seen_in_frames）----
+    # ---- Merge nodes (no seen_in_frames) ----
     for ln in local_nodes:
         ln_id  = str(ln.get("id"))
         ln_name = ln.get("name", "")
@@ -403,21 +403,21 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
         if gid in global_nodes_by_id:
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
-                # 兜底：若历史是异常/None，直接用完整节点覆盖
-                cur = {"id": gid, "name": ln_name, "description": ln_desc}
+                # Fallback: if the historical entry is abnormal/None, overwrite with the full node
+                cur = {“id”: gid, “name”: ln_name, “description”: ln_desc}
                 global_nodes_by_id[gid] = cur
 
-            # 名称补全（不强制改名）
-            if not cur.get("name") and ln_name:
-                cur["name"] = ln_name
-            # 描述更“丰富”时才更新
-            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
-                cur["description"] = ln_desc
+            # Name completion (do not force rename)
+            if not cur.get(“name”) and ln_name:
+                cur[“name”] = ln_name
+            # Update description only when the new one is “richer”
+            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get(“description”, “”))):
+                cur[“description”] = ln_desc
         else:
-            # 新全局节点：只三字段
+            # New global node: only three fields
             global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
 
-    # ---- 合并边并去重 ----
+    # ---- Merge edges and deduplicate ----
     existing = set((e["src"], e["tgt"], e.get("c_edge", "")) for e in global_graph["edges"])
     for e in local_edges:
         src = id_map.get(str(e.get("src")))
@@ -430,20 +430,20 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             existing.add(key)
             global_graph["edges"].append({"src": src, "tgt": tgt, "c_edge": pred})
 
-    # 数字ID排序（你已确保全局ID为数字）
+    # Sort by numeric ID (global IDs are ensured to be numbers)
     global_graph["nodes"] = sorted(global_nodes_by_id.values(), key=lambda x: int(x["id"]))
     return global_graph
 
 def renumber_local_ids(local_graph: Dict[str, Any]) -> Dict[str, Any]:
     """
-    将本地窗口内的节点 id 规范为 1..N 的纯数字字符串，
-    并把 edges 的 src/tgt 用同一映射重写。
-    按 nodes 的当前顺序赋号。
+    Normalize node ids in the local window to pure numeric strings 1..N,
+    and rewrite src/tgt of edges using the same mapping.
+    Numbers are assigned in the current order of nodes.
     """
     nodes = list(local_graph.get("nodes") or [])
     edges = list(local_graph.get("edges") or [])
 
-    # 1) 为节点建立从“原始id字符串”->“1..N” 的映射
+    # 1) Build a mapping from “original id string” -> “1..N” for nodes
     id_map = {}
     new_nodes = []
     next_id = 1
@@ -462,7 +462,7 @@ def renumber_local_ids(local_graph: Dict[str, Any]) -> Dict[str, Any]:
 
     keep_ids = set(id_map.values())
 
-    # 2) 重写边的端点；只保留两端都存在且非自环
+    # 2) Rewrite edge endpoints; keep only edges where both endpoints exist and are not self-loops
     new_edges = []
     for e in edges:
         s_old = str(e.get("src","")).strip()
@@ -579,19 +579,19 @@ def main_stream(sequence_dir: str,
         # cap 10/30
         local_graph = cap_graph(local_graph, max_nodes=10, max_edges=30)
 
-        # 兼容 object-centric
+        # Compatible with object-centric format
         if "objects" in (local_graph or {}):
             local_graph = objects_to_nodes_edges(local_graph)
             local_graph = cap_graph(local_graph, max_nodes=10, max_edges=30)
 
-        # **关键**：把 id 统一重编号为 1..N 的数字；并同步 edges
+        # **Key**: Renumber all ids uniformly to 1..N; also update edges accordingly
         local_graph = renumber_local_ids(local_graph)
 
-        # 写盘（只写 local）
+        # Write to disk (local only)
         atomic_write_json(paths["localW"], local_graph)
         os.replace(paths["localW"], paths["local"])
 
-        # 清除锁
+        # Remove the lock file
         if os.path.exists(paths["lock"]):
             os.remove(paths["lock"])
 

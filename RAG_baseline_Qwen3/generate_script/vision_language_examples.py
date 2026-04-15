@@ -369,7 +369,7 @@ def run_glm4_1v(questions: list[str], modality: str) -> ModelRequestData:
 # GLM-4.5V
 def run_glm4_5v(questions: list[str], modality: str) -> ModelRequestData:
     model_name = "zai-org/GLM-4.5V"
-    # 这个是108b的模型，好像跑不起来
+    # This is the 108B model, it seems unable to run
 
     engine_args = EngineArgs(
         model=model_name,

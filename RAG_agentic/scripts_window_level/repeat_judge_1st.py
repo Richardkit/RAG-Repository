@@ -92,10 +92,10 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #             model=MODEL_NAME,
 #             mm_encoder_tp_mode="data",
 #             tensor_parallel_size=max(torch.cuda.device_count(), 1),
-#             enable_expert_parallel=False,    # 单卡禁止 EP
-#             gpu_memory_utilization=0.95,     # 避免 OOM
-#             enforce_eager=True,              # 之前讨论过，关掉 torch.compile/cudagraph
-#             # executor="uniproc",            # 如果你现在用这个，也可以保留
+#             enable_expert_parallel=False,    # disable EP on single GPU
+#             gpu_memory_utilization=0.95,     # avoid OOM
+#             enforce_eager=True,              # as discussed previously, disable torch.compile/cudagraph
+#             # executor="uniproc",            # keep this if you are using it now
 #         )
 #     return _GLOBAL_VLLM
 
@@ -144,7 +144,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 # @torch.no_grad()
 # def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
 
-#     # === 构建输入 ===
+#     # === Build input ===
 #     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 #     try:
 #         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -169,7 +169,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #     print(f"[Diag] tokens_in(text_only)={text_tokens}, tokens_in(actual)={input_ids_len}, "
 #           f"max_ctx={max_ctx}, images={len(image_inputs)}")
 
-#     # === 生成 ===
+#     # === Generate ===
 #     out_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
 #     new_tokens = out_ids.shape[1] - inputs.input_ids.shape[1]
 #     total_seq = out_ids.shape[1]
@@ -182,7 +182,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 
 #     m = _re.search(r"\{[\s\S]*\}", out_text)
 #     if not m:
-#         return None, out_text  # ← 保留原始输出
+#         return None, out_text  # ← preserve raw output
 #     try:
 #         return _json.loads(m.group(0)), out_text
 #     except Exception:
@@ -192,7 +192,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #     from qwen_vl_utils import process_vision_info
 #     import re as _re, json as _json
 
-#     # === 构建输入 ===
+#     # === Build input ===
 #     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 #     try:
 #         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)

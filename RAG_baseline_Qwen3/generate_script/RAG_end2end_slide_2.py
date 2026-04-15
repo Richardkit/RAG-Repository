@@ -177,13 +177,13 @@ def cap_graph(g, max_nodes: int = 10, max_edges: int = 80):
     if not isinstance(g, dict):
         return {"nodes": [], "edges": []}
 
-    # 1) nodes 截断
+    # 1) Truncate nodes
     nodes = (g.get("nodes") or [])[:max_nodes]
 
-    # 允许 id 是 int/str，统一转成 str
+    # Allow id to be int/str, unify to str
     keep_ids = {str(n.get("id")) for n in nodes if n.get("id") is not None}
 
-    # 2) edges 过滤 & 截断
+    # 2) Filter & truncate edges
     edges = []
     for e in (g.get("edges") or []):
         src = str(e.get("src", "")).strip()
@@ -227,17 +227,17 @@ def _to_int_safe(x):
 def build_id_map(local_nodes, global_nodes_by_id):
     """
     New build_id_map:
-    - 不再根据 name/description 做相似度匹配
-    - 完全相信模型生成的 node["id"] 已经是「它认为的 global id」
-    - 若该 id 已存在于 global_nodes_by_id，则视为同一物体，直接复用
-    - 若该 id 不存在：
-        * 如果 id 是整数且大于当前已用最大 id，则直接用这个 id 作为新 global id
-        * 否则，为避免冲突，分配一个新的递增 id（next_id），并将 local id 映射到它
+    - No longer perform similarity matching based on name/description
+    - Fully trust that the model-generated node["id"] is already the "global id as the model sees it"
+    - If the id already exists in global_nodes_by_id, treat it as the same object and reuse directly
+    - If the id does not exist:
+        * If the id is an integer and greater than the current maximum used id, use it directly as the new global id
+        * Otherwise, to avoid conflicts, assign a new incrementing id (next_id) and map the local id to it
     """
     id_map = {}
     new_global_nodes = []
 
-    # 统计目前全局已经占用的整数 id
+    # Count the integer ids currently occupied in the global graph
     existing_int_ids = []
     for gid in global_nodes_by_id.keys():
         v = _to_int_safe(gid)
@@ -246,7 +246,7 @@ def build_id_map(local_nodes, global_nodes_by_id):
     max_existing = max(existing_int_ids) if existing_int_ids else 0
     next_id = max_existing + 1
 
-    used_ids = set(global_nodes_by_id.keys())  # 字符串形式
+    used_ids = set(global_nodes_by_id.keys())  # in string form
 
     for node in local_nodes:
         lid_raw = node.get("id")
@@ -254,26 +254,26 @@ def build_id_map(local_nodes, global_nodes_by_id):
         name = node.get("name", "")
         desc = node.get("description", "")
 
-        # 情况 1：模型给的 id 已经存在于 global graph → 直接当成同一个物体
+        # Case 1: The id from the model already exists in the global graph -> treat as the same object directly
         if lid in global_nodes_by_id:
             id_map[lid] = lid
-            # 如果你希望更新一下全局描述，这里也可以 merge 一下 description
-            # 例如：把新的 desc append 进去（可选）
+            # If you want to update the global description, you can also merge description here
+            # For example: append the new desc (optional)
             continue
 
-        # 情况 2：这个 id 还没用过
+        # Case 2: This id has not been used yet
         lid_int = _to_int_safe(lid)
         if lid_int is not None and lid_int > max_existing and lid not in used_ids:
-            # 模型给的是一个「比当前所有 id 都大的整数」，认为是一个合理的新 global id
+            # The model provided an integer larger than all current ids, considered a valid new global id
             g_id = lid
             used_ids.add(g_id)
-            # 同时更新 max_existing / next_id，避免之后冲突
+            # Also update max_existing / next_id to avoid future conflicts
             if lid_int > max_existing:
                 max_existing = lid_int
                 next_id = max_existing + 1
         else:
-            # 模型给了一个已经用过的小整数 / 非整数 id / 其他奇怪形式，
-            # 为了安全起见，我们分配一个真正唯一的 new_id
+            # The model gave a small integer already in use / a non-integer id / some other unusual form,
+            # For safety, we assign a truly unique new_id
             g_id = str(next_id)
             next_id += 1
             used_ids.add(g_id)
@@ -303,19 +303,19 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
     # --- normalize local (no seen_in_frames) ---
     for n in local_nodes:
         n["id"] = str(n.get("id"))
-        # 只保留必须字段
+        # Keep only required fields
         n["name"] = n.get("name", "")
         n["description"] = n.get("description", "")
 
     for e in local_edges:
-        # 统一关系字段
+        # Unify relationship field
         if "c_edge" not in e:
             e["c_edge"] = e.get("predicate") or e.get("relation") or ""
 
-    # 建立 local->global 映射 + 新增节点
+    # Build local->global mapping + add new nodes
     id_map, new_global_nodes = build_id_map(local_nodes, global_nodes_by_id)
 
-    # ---- 合并节点（无 seen_in_frames）----
+    # ---- Merge nodes (no seen_in_frames) ----
     for ln in local_nodes:
         ln_id  = str(ln.get("id"))
         ln_name = ln.get("name", "")
@@ -325,21 +325,21 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
         if gid in global_nodes_by_id:
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
-                # 兜底：若历史是异常/None，直接用完整节点覆盖
-                cur = {"id": gid, "name": ln_name, "description": ln_desc}
+                # Fallback: if the historical entry is abnormal/None, overwrite with the full node
+                cur = {“id”: gid, “name”: ln_name, “description”: ln_desc}
                 global_nodes_by_id[gid] = cur
 
-            # 名称补全（强制改名）
+            # Name completion (force rename)
             if ln_name:
-                cur["name"] = ln_name
-            # 描述更“丰富”时才更新
-            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
-                cur["description"] = ln_desc
+                cur[“name”] = ln_name
+            # Update description only when the new one is “richer”
+            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get(“description”, “”))):
+                cur[“description”] = ln_desc
         else:
-            # 新全局节点：只三字段
+            # New global node: only three fields
             global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
 
-    # ---- 合并边并去重 ----
+    # ---- Merge edges and deduplicate ----
     # prepare existing edges: map (src,tgt) -> edge index
     pair2idx = {}
     for idx, e in enumerate(global_graph["edges"]):
@@ -368,7 +368,7 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             pair2idx[key] = len(global_graph["edges"]) - 1
 
 
-    # 数字ID排序（你已确保全局ID为数字）
+    # Sort by numeric ID (global IDs are ensured to be numbers)
     global_graph["nodes"] = sorted(global_nodes_by_id.values(), key=lambda x: int(x["id"]))
     return global_graph
 
@@ -387,10 +387,10 @@ def get_qwen_vllm():
             model=QWEN_MODEL_NAME,
             mm_encoder_tp_mode="data",
             tensor_parallel_size=max(torch.cuda.device_count(), 1),
-            enable_expert_parallel=False,    # 单卡禁止 EP
-            gpu_memory_utilization=0.75,     # 避免 OOM
-            enforce_eager=True,              # 之前讨论过，关掉 torch.compile/cudagraph
-            # executor="uniproc",            # 如果你现在用这个，也可以保留
+            enable_expert_parallel=False,    # Disable EP on single GPU
+            gpu_memory_utilization=0.75,     # Avoid OOM
+            enforce_eager=True,              # As discussed, disable torch.compile/cudagraph
+            # executor="uniproc",            # Keep this if you are currently using it
         )
     return _GLOBAL_VLLM
 
@@ -398,7 +398,7 @@ def prepare_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8196):
     from qwen_vl_utils import process_vision_info
     import re as _re, json as _json
 
-    # === 构建输入 ===
+    # === Build input ===
     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     try:
         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -635,7 +635,7 @@ def run_rag_for_window(
 def get_base64_image(file_path):
     with open(file_path, "rb") as image_file:
         base64_data = base64.b64encode(image_file.read()).decode('utf-8')
-        # 根据文件后缀判断类型，这里默认你的文件是 jpg
+        # Determine type by file extension, default is jpg here
         return f"data:image/jpeg;base64,{base64_data}"
     
 def build_prompt_window_rag(
@@ -808,7 +808,7 @@ def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8196):
 
         request, in_tokens = prepare_qwen_vllm(messages, qwen_proc, max_new_tokens)
 
-        # ★ 不再 new LLM，而是拿全局单例
+        # * No longer instantiate a new LLM, use the global singleton instead
         llm = get_qwen_vllm()
 
         sampling_params = SamplingParams(
@@ -826,12 +826,12 @@ def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8196):
 
         m = _re.search(r"\{[\s\S]*\}", out_text)
         if not m:
-            return None, out_text  # ← 保留原始输出
+            return None, out_text  # <- Preserve raw output
         try:
             return _json.loads(m.group(0)), out_text
         except Exception:
             return None, out_text
-        
+
 from http import HTTPStatus
 
 def run_qwen_window_api(
@@ -840,36 +840,36 @@ def run_qwen_window_api(
     max_new_tokens: int = 8192,
 ):
     """
-    使用 DashScope MultiModalConversation 进行窗口级推理。
-    - 输入: messages (与 build_prompt_window_rag 输出一致)
-    - 输出: (parsed_graph_dict or None, raw_text or "")
+    Use DashScope MultiModalConversation for window-level inference.
+    - Input: messages (consistent with the output of build_prompt_window_rag)
+    - Output: (parsed_graph_dict or None, raw_text or "")
     """
     import json as _json
 
-    # 推荐用环境变量配置 API Key，而不是在代码里写死
-    # 例如: 在 shell 里 `export DASHSCOPE_API_KEY=sk-xxxx`
-    # 然后在这里: dashscope.api_key = os.getenv("DASHSCOPE_API_KEY")
-    # 如果你坚持手动传，也可以在外面 dashscope.api_key = "sk-xxxx"
+    # It is recommended to configure the API Key via environment variable rather than hardcoding it
+    # For example: in the shell run `export DASHSCOPE_API_KEY=sk-xxxx`
+    # Then here: dashscope.api_key = os.getenv("DASHSCOPE_API_KEY")
+    # If you insist on passing it manually, you can also set dashscope.api_key = "sk-xxxx" outside
     try:
         response = dashscope.MultiModalConversation.call(
-            api_key="sk-09a3812f7fc34d8abe65aae9d4132a9f", 
+            api_key="sk-09a3812f7fc34d8abe65aae9d4132a9f",
             model=qwen_model_name,
             messages=messages,
-            result_format="message",            # 返回 OpenAI-style message
-            response_format={"type": "json_object"},  # 启用 JSON Mode
-            max_tokens=max_new_tokens,         # 控制输出长度
+            result_format="message",            # Return OpenAI-style message
+            response_format={"type": "json_object"},  # Enable JSON Mode
+            max_tokens=max_new_tokens,         # Control output length
         )
     except Exception as e:
         print(f"[DashScope] API call failed: {e}")
         return None, ""
 
-    # 按 DashScope 文档，status_code 判断是否成功
+    # According to DashScope docs, check status_code to determine success
     if getattr(response, "status_code", None) != HTTPStatus.OK:
         print(f"[DashScope] Error code={getattr(response, 'code', None)}, "
               f"message={getattr(response, 'message', None)}")
         return None, ""
 
-    # 正常情况: response.output.choices[0].message.content
+    # Normal case: response.output.choices[0].message.content
     try:
         content = response.output.choices[0].message.content
     except Exception as e:
@@ -879,7 +879,7 @@ def run_qwen_window_api(
     raw_text = ""
     parsed = None
 
-    # 情况 1: content 是字符串，直接就是 JSON 字符串
+    # Case 1: content is a string, directly a JSON string
     if isinstance(content, str):
         raw_text = content.strip()
         try:
@@ -887,13 +887,13 @@ def run_qwen_window_api(
         except Exception:
             parsed = None
 
-    # 情况 2: content 是列表，每个元素是 {"type": "...", "text": "..."} 或 {"type":"json_object","json":{...}}
+    # Case 2: content is a list, each element is {"type": "...", "text": "..."} or {"type":"json_object","json":{...}}
     elif isinstance(content, list):
-        # 优先找 json_object 段
+        # Prefer to find the json_object segment first
         for seg in content:
             if not isinstance(seg, dict):
                 continue
-            # 有些模式下会直接给 {"type": "json_object", "json": {...}}
+            # In some modes it directly provides {"type": "json_object", "json": {...}}
             if seg.get("type") == "json_object" and "json" in seg:
                 try:
                     parsed = seg["json"]
@@ -901,10 +901,10 @@ def run_qwen_window_api(
                     break
                 except Exception:
                     pass
-            # 更多时候是 {"type":"text","text":"<json string>"} 这种
+            # More often it is the {"type":"text","text":"<json string>"} form
             if "text" in seg and isinstance(seg["text"], str):
                 raw_text_candidate = seg["text"].strip()
-                # 去掉可能的 ```json 包裹
+                # Strip possible ```json wrapping
                 tmp = raw_text_candidate.strip()
                 tmp = tmp.removeprefix("```json").removesuffix("```").strip()
                 try:
@@ -913,11 +913,11 @@ def run_qwen_window_api(
                     raw_text = raw_text_candidate
                     break
                 except Exception:
-                    # 解析失败就先记 raw_text，留给外层 salvage
+                    # On parse failure, record raw_text first for outer salvage
                     if not raw_text:
                         raw_text = raw_text_candidate
 
-        # 如果还没解析成功、但有 raw_text，就再尝试一次整体 loads
+        # If parsing has not succeeded yet but raw_text exists, try one more full loads
         if parsed is None and raw_text:
             try:
                 tmp = raw_text.strip()
@@ -953,7 +953,7 @@ def run_scan_with_rag_merge(
     out_dir = os.path.join(out_root, scan_id)
     os.makedirs(out_dir, exist_ok=True)
 
-    # ---- 1) 整个 scan 已完成 -> 直接跳过 ----
+    # ---- 1) Entire scan already completed -> skip directly ----
     final_path = os.path.join(out_dir, f"{scan_id}_global_graph_ragmerge.json")
     if os.path.exists(final_path):
         print(f"[Skip] {scan_id} already has final global graph.")
@@ -972,7 +972,7 @@ def run_scan_with_rag_merge(
     classes_list = load_vocab_list(CLASSES_TXT)
     relations_list = load_vocab_list(RELATIONS_TXT)
 
-    # ---- 2) window 级别 resume：看看已经做到第几个 window ----
+    # ---- 2) Window-level resume: check which window was reached ----
     global_graph: Dict[str, Any] = {"nodes": [], "edges": []}
     start_win_idx = 0
 
@@ -998,10 +998,10 @@ def run_scan_with_rag_merge(
             else:
                 print(f"[WARN] Failed to load {last_path}, will restart from window 0.")
 
-    # ---- 3) 从 start_win_idx 开始循环各个 window ----
+    # ---- 3) Loop through each window starting from start_win_idx ----
     for win_idx, (s, e) in enumerate(win_plan):
         if win_idx < start_win_idx:
-            # 这个 window 已经在之前 run 中完成过，直接跳过
+            # This window was already completed in a previous run, skip directly
             continue
 
         win_rgbs = all_rgbs[s:e]
@@ -1029,7 +1029,7 @@ def run_scan_with_rag_merge(
             faiss_topk=5,
         )
 
-        # 用完 RAG 结果后就删除中间文件，节省空间
+        # Delete intermediate files after RAG results are used, to save space
         try:
             if os.path.exists(rag_json_path):
                 os.remove(rag_json_path)
@@ -1087,7 +1087,7 @@ def run_scan_with_rag_merge(
 
         print(f"[OK] Window #{win_idx} merged. Global nodes={len(global_graph.get('nodes',[]))}, edges={len(global_graph.get('edges',[]))}")
 
-    # 所有 window 跑完，写最终 global
+    # All windows finished, write final global graph
     atomic_write_json(final_path, global_graph)
     print(f"\n✅ Done. Final global graph saved to: {final_path}")
 
@@ -1099,7 +1099,7 @@ def get_scan_ids(test_list_path: str) -> List[str]:
         return [line.strip() for line in f if line.strip()]
 
 if __name__ == "__main__":
-    # 这些路径你可以按需改
+    # You can modify these paths as needed
     test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace2/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/3RScan"
     out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace2/data/RAG_baseline_Qwen3/RAG_end2end_slide"

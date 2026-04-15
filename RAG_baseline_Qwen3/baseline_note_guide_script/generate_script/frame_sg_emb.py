@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-用 SigLIP2 给 3RScan 的 frame-level scene graph 生成“note text”embedding（文本侧），并按 scan 保存。
+“””
+Use SigLIP2 to generate “note text” embeddings (text side) for 3RScan frame-level scene graphs, and save them per scan.
 
 Input:
   /hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan/{scan_id}/frame_sg/frame-XXXXXX.json
@@ -12,11 +12,11 @@ Output:
     - frame_text_embeds.npz   (embeddings + frame_ids + json_paths)
     - frame_note_keys.jsonl   (mapping: scan_id, frame_id, json_path, note_text)
 
-要点：
-- note_text 仅由 frame_sg 里的 object.name 构造： "Objects: floor, wall(x6), bed, pillow(x5), ..."
-- 使用 SigLIP2 的 text encoder：model.get_text_features(...)
-- 自动按模型 config 决定 max token（防止你之前的 max_position_embeddings 报错）
-"""
+Key points:
+- note_text is constructed solely from object.name in frame_sg: “Objects: floor, wall(x6), bed, pillow(x5), ...”
+- Uses SigLIP2's text encoder: model.get_text_features(...)
+- Automatically determines max token from model config (to prevent max_position_embeddings errors)
+“””
 
 import os
 import re
@@ -32,24 +32,24 @@ from transformers import AutoTokenizer, SiglipModel
 
 
 # =========================
-# Config (只改这里即可)
+# Config (only edit here)
 # =========================
 ROOT_3RSCAN = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
 FRAME_SG_SUBDIR = "frame_sg"
 
 OUT_ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_fram_sg_embed_note_guided_wo_validset/frame_embeddings"
 
-# validation scans（存在则排除；不存在就全跑）
+# validation scans (if the list exists, exclude them; otherwise process all)
 VAL_LIST_PATH = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
 
-# 你说用 SigLIP2：这里用常见的 HF 名称（按你环境已有的为准）
+# Using SigLIP2: here we use the common HF name (adjust to whatever is available in your environment)
 MODEL_NAME = "google/siglip2-base-patch16-224"
 
 BATCH_SIZE = 128
 
 # note-text format
 USE_COUNTS = True
-MAX_OBJECTS_IN_TEXT = 60  # 先粗限，tokenizer 还会再 truncation
+MAX_OBJECTS_IN_TEXT = 60  # Coarse limit first, tokenizer will do further truncation
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 DTYPE = torch.float16 if DEVICE == "cuda" else torch.float32
@@ -81,7 +81,7 @@ def load_json(path: str) -> Dict[str, Any]:
 def atomic_save_npz(path: str, **arrays):
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
-    # tmp 必须也以 .npz 结尾，否则 numpy 会自动补 .npz 导致找不到
+    # tmp must also end with .npz, otherwise numpy will automatically append .npz and the file won't be found
     tmp = path + ".tmp.npz"
     np.savez_compressed(tmp, **arrays)
     os.replace(tmp, path)
@@ -115,7 +115,7 @@ def build_note_text_from_frame_sg(frame_sg: Dict[str, Any]) -> str:
         return "Objects: none."
 
     cnt = Counter(names)
-    # sort: 高频优先，再字母
+    # sort: highest frequency first, then alphabetical
     items = sorted(cnt.items(), key=lambda x: (-x[1], x[0]))
 
     parts = []
@@ -145,7 +145,7 @@ def infer_max_text_tokens(processor, model, fallback: int = 64) -> int:
     tok = getattr(processor, "tokenizer", None)
     if tok is not None:
         tok_mx = getattr(tok, "model_max_length", None)
-        # 有些 tokenizer 会给超大值（1e30），这里过滤一下
+        # some tokenizers return very large values (1e30), filter them out here
         try:
             if isinstance(tok_mx, int) and tok_mx > 0 and tok_mx < 100000:
                 pass
@@ -161,7 +161,7 @@ def infer_max_text_tokens(processor, model, fallback: int = 64) -> int:
         cands.append(tok_mx)
 
     if cands:
-        # 取更保守的最小值，避免炸
+        # take the more conservative minimum value to avoid blowup
         return int(min(cands))
 
     return int(fallback)
@@ -181,7 +181,7 @@ def encode_text_batch(tokenizer, model, texts, max_tokens):
     )
     inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
 
-    feats = model.get_text_features(**inputs)  # 关键：只需要 input_ids/attention_mask
+    feats = model.get_text_features(**inputs)  # key: only input_ids/attention_mask needed
     feats = feats.to(torch.float32)
     feats = feats / (feats.norm(dim=-1, keepdim=True) + 1e-12)
     return feats.cpu().numpy().astype(np.float32)
@@ -225,7 +225,7 @@ def process_one_scan(processor, model, scan_id: str, max_tokens: int):
     out_npz = os.path.join(out_dir, "frame_text_embeds.npz")
     out_jsonl = os.path.join(out_dir, "frame_note_keys.jsonl")
 
-    # resume：已有则跳过
+    # resume: skip if already done
     if os.path.exists(out_npz) and os.path.exists(out_jsonl):
         print(f"[Skip] {scan_id} already done: {out_dir}")
         return

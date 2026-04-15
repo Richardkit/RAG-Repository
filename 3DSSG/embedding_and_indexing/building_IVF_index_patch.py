@@ -1,10 +1,10 @@
-# building_IVF_index_patch.py (示例：建 IVF index)
+# building_IVF_index_patch.py (example: build IVF index)
 import os, pickle
 import numpy as np
 import faiss
 from tqdm import tqdm
 
-# ========= 你要改的路径 =========
+# ========= Paths to modify =========
 IN_DIR  = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_patch_embeddings_without_validset_siglip2_global"
 OUT_DIR = IN_DIR
 
@@ -12,15 +12,15 @@ X_NPY   = os.path.join(IN_DIR, "all_patch_embs.npy")
 KEYS_PKL= os.path.join(IN_DIR, "all_patch_keys.pkl")
 
 OUT_INDEX = os.path.join(OUT_DIR, "patch_index.ivfflat")
-# 如果你想保留一个 flat 备份，也可以：
+# If you want to keep a flat backup as well:
 OUT_INDEX_FLAT = os.path.join(OUT_DIR, "patch_index.flatip")
 
 D = 768
 
-# IVF 参数：按数据量调
-NLIST = 4096     # 聚类中心数（常用 1k~16k）
-NPROBE = 16      # 查询时探测几个倒排桶
-TRAIN_MAX = 300000  # 训练最多采样多少 patch
+# IVF parameters: adjust according to data size
+NLIST = 4096     # number of cluster centroids (commonly 1k~16k)
+NPROBE = 16      # number of inverted lists to probe at query time
+TRAIN_MAX = 300000  # maximum number of patches to sample for training
 
 def l2_normalize(x: np.ndarray, eps=1e-12):
     n = np.linalg.norm(x, axis=1, keepdims=True)
@@ -29,18 +29,18 @@ def l2_normalize(x: np.ndarray, eps=1e-12):
 def main():
     X = np.load(X_NPY)  # (N,D) float32/float16
     if X.ndim != 2 or X.shape[1] != D:
-        raise RuntimeError(f"X shape 不对: {X.shape}")
+        raise RuntimeError(f"X shape is incorrect: {X.shape}")
 
-    # FAISS 建议 float32
+    # FAISS recommends float32
     X = X.astype(np.float32)
 
-    # 用 IP 做 cosine：先 L2 normalize
+    # Use IP for cosine similarity: L2 normalize first
     X = l2_normalize(X)
 
     N = X.shape[0]
     print("[INFO] N =", N, "D =", D)
 
-    # -------- 可选：先建一个 FlatIP（最稳，但大库会慢）---------
+    # -------- Optional: build a FlatIP first (most stable, but slow for large libraries) ---------
     # flat = faiss.IndexFlatIP(D)
     # flat.add(X)
     # faiss.write_index(flat, OUT_INDEX_FLAT)
@@ -65,13 +65,13 @@ def main():
     print("[ADD] ...")
     index.add(X)
 
-    # set nprobe（查询时也可以再设）
+    # set nprobe (can also be set again at query time)
     index.nprobe = NPROBE
 
     faiss.write_index(index, OUT_INDEX)
     print("[SAVE]", OUT_INDEX)
 
-    # keys 文件只是引用一下，确认长度一致即可
+    # the keys file is only referenced here to verify that the lengths match
     with open(KEYS_PKL, "rb") as f:
         keys = pickle.load(f)
     assert len(keys) == N, f"keys({len(keys)}) != N({N})"

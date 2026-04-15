@@ -6,7 +6,7 @@ import pickle
 import numpy as np
 from tqdm import tqdm
 
-# ---- faiss import：有的环境是 faiss，有的是 faiss-cpu ----
+# ---- faiss import: some environments use faiss, others use faiss-cpu ----
 try:
     import faiss  # type: ignore
 except Exception as e:
@@ -14,48 +14,48 @@ except Exception as e:
     raise
 
 # =========================
-# 你只需要改这里的路径
+# You only need to change the paths here
 # =========================
 
-# 如果你实际是 .../frame_embeddings/<scan_id>/，就把 PATCH_ROOT 指到 frame_embeddings
+# If your actual structure is .../frame_embeddings/<scan_id>/, point PATCH_ROOT to frame_embeddings
 PATCH_ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_patch_embeddings_without_validset_siglip2/frame_embeddings"
 
-# 输出目录（索引与全局 keys 保存到这里）
+# Output directory (index and global keys are saved here)
 OUT_DIR = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan_patch_embeddings_without_validset_siglip2"
 os.makedirs(OUT_DIR, exist_ok=True)
 
-OUT_INDEX_PATH = os.path.join(OUT_DIR, "patch_index_50.ivfflat")
-OUT_KEYS_PATH  = os.path.join(OUT_DIR, "all_patch_keys_50.pkl")
-OUT_LOG_PATH   = os.path.join(OUT_DIR, "build_faiss_patch_50.log")
+OUT_INDEX_PATH = os.path.join(OUT_DIR, "patch_index_002.ivfflat")
+OUT_KEYS_PATH  = os.path.join(OUT_DIR, "all_patch_keys_002.pkl")
+OUT_LOG_PATH   = os.path.join(OUT_DIR, "build_faiss_patch_002.log")
 
 # =========================
-# FAISS / 向量参数
+# FAISS / vector parameters
 # =========================
 D = 768
 METRIC = "cosine"   # cosine via inner product + L2 normalize
-INDEX_TYPE = "ivfflat"  # 你要的就是它
+INDEX_TYPE = "ivfflat"  # this is the one you want
 
-KB_FRACTION = 0.5
+KB_FRACTION = 1
 KB_MODE = "random"   # or "top"
 KB_SEED = 0
 
-# IVF 参数（你可以不改；但如果库很大可加大 NLIST）
+# IVF parameters (no need to change; but increase NLIST if the library is very large)
 NLIST = 4096
 NPROBE = 16
 
-# 训练样本上限（太大训练慢，太小训练不稳）
+# Upper limit of training samples (too large slows training, too small makes it unstable)
 TRAIN_MAX = 100_000
-# 每个 scan 最多采多少条进训练池（防止某个 scan 特别大把训练池挤爆）
+# Maximum number of entries sampled per scan into the training pool (prevents a single large scan from overwhelming the pool)
 TRAIN_PER_SCAN_MAX = 4000
 
-# add 的分块大小（避免一次 add 太大占内存）
+# Chunk size for add (avoids excessive memory usage from adding too many at once)
 ADD_CHUNK = 200_000
 
-# 允许 key 的快速检查：必须是字符串
+# Enable fast key validation: keys must be strings
 STRICT_KEY_TYPE = True
 
 # =========================
-# 工具函数
+# Utility functions
 # =========================
 def log(msg: str):
     ts = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -71,7 +71,7 @@ def l2_normalize(x: np.ndarray, eps: float = 1e-12) -> np.ndarray:
 
 def find_scan_dirs(root: str):
     """
-    找到所有包含 frame_patch_embeddings.npy + patch_keys.pkl 的目录
+    Find all directories containing frame_patch_embeddings.npy + patch_keys.pkl
     """
     npy_files = glob.glob(os.path.join(root, "**", "frame_patch_embeddings.npy"), recursive=True)
     scan_dirs = []
@@ -92,12 +92,12 @@ def load_one_scan(scan_dir: str):
     if not os.path.exists(pkl_path):
         raise FileNotFoundError(pkl_path)
 
-    # mmap 读取，省内存
+    # read with mmap to save memory
     X = np.load(npy_path, mmap_mode="r")  # may be float16/float32
     with open(pkl_path, "rb") as f:
         keys = pickle.load(f)
 
-    # ---- 硬检查 ----
+    # ---- Hard checks ----
     if not isinstance(X, np.ndarray):
         raise RuntimeError(f"X is not ndarray: {npy_path}")
 
@@ -114,7 +114,7 @@ def load_one_scan(scan_dir: str):
         raise RuntimeError(f"Key count mismatch in {scan_dir}: X={X.shape[0]} vs keys={len(keys)}")
 
     if STRICT_KEY_TYPE:
-        # 只检查前后几个，避免 O(N) 很慢
+        # only check a few entries at the front and back to avoid O(N) slowness
         for idx in [0, min(1, len(keys)-1), max(0, len(keys)-2), len(keys)-1]:
             if len(keys) == 0:
                 break
@@ -126,15 +126,15 @@ def load_one_scan(scan_dir: str):
 
     def infer_scan_id(scan_dir: str) -> str:
         cur = os.path.abspath(scan_dir)
-        for _ in range(4):  # 向上最多找4层，足够覆盖 .../<uuid>/sequence/...
+        for _ in range(4):  # search up at most 4 levels, enough to cover .../<uuid>/sequence/...
             base = os.path.basename(cur)
             if UUID_RE.match(base):
                 return base.lower()
             cur = os.path.dirname(cur)
-        # fallback：至少返回原basename（但会触发后面的检查）
+        # fallback: return the original basename at minimum (will trigger subsequent checks)
         return os.path.basename(scan_dir)
 
-    # load_one_scan() 里用：
+    # used inside load_one_scan():
     scan_id = infer_scan_id(scan_dir)
     if not UUID_RE.match(scan_id):
         raise RuntimeError(f"Cannot infer UUID scan_id from scan_dir={scan_dir}, got scan_id={scan_id}")
@@ -157,10 +157,10 @@ def make_index():
     return index
 
 # =========================
-# 主流程
+# Main pipeline
 # =========================
 def main():
-    # 清理/新建 log
+    # Clear/create log
     with open(OUT_LOG_PATH, "w", encoding="utf-8") as f:
         f.write("")
 
@@ -183,7 +183,7 @@ def main():
 
     log(f"Found scan dirs: {len(scan_dirs)}")
 
-    # 1) 收集训练样本
+    # 1) Collect training samples
     train_buf = []
     train_count = 0
     total_vectors_est = 0
@@ -201,7 +201,7 @@ def main():
         if take <= 0:
             continue
 
-        # 采样（大于 take 就随机，否则全取）
+        # sampling (random if larger than take, otherwise take all)
         if n > take:
             rng = np.random.default_rng(0)
             idx = rng.choice(n, size=take, replace=False)
@@ -221,14 +221,14 @@ def main():
         sys.exit(1)
 
     X_train = np.concatenate(train_buf, axis=0)
-    # 最终硬检查
+    # Final hard check
     if X_train.ndim != 2 or X_train.shape[1] != D:
         log(f"[FATAL] Bad X_train shape: {X_train.shape}")
         sys.exit(1)
 
     log(f"Training samples: {X_train.shape}")
 
-    # 2) 建 index + train
+    # 2) Build index + train
     index = make_index()
     log("Training FAISS index...")
     t0 = time.time()
@@ -240,7 +240,7 @@ def main():
         log("[FATAL] Index training failed (index.is_trained=False).")
         sys.exit(1)
 
-    # 3) 逐 scan add（流式，不拼全局大矩阵）
+    # 3) Add scan by scan (streaming, without assembling a large global matrix)
     all_keys = []
     added = 0
 
@@ -252,7 +252,7 @@ def main():
         if n == 0:
             continue
 
-        # 分块 add，避免一次性占太多内存
+        # add in chunks to avoid excessive memory usage at once
         start = 0
         while start < n:
             end = min(n, start + ADD_CHUNK)
@@ -264,10 +264,10 @@ def main():
 
         all_keys.extend(keys2)
         added += n
-        if added == n:  # 第一个scan
+        if added == n:  # first scan
             log(f"Sample key after prefix: {keys2[0]}")
 
-        # 关键一致性检查：index.ntotal 必须与 keys 同步
+        # Critical consistency check: index.ntotal must stay in sync with keys
         if index.ntotal != len(all_keys):
             log(f"[FATAL] ntotal mismatch after add scan {d}: ntotal={index.ntotal}, keys={len(all_keys)}")
             sys.exit(1)
@@ -278,7 +278,7 @@ def main():
         log("[FATAL] index.ntotal is 0, nothing added.")
         sys.exit(1)
 
-    # 4) 设置 nprobe 并保存
+    # 4) Set nprobe and save
     index.nprobe = NPROBE
 
     log(f"Saving FAISS index -> {OUT_INDEX_PATH}")
@@ -288,7 +288,7 @@ def main():
     with open(OUT_KEYS_PATH, "wb") as f:
         pickle.dump(all_keys, f)
 
-    # 5) 保存后再读回做一次最小验证（防止写坏）
+    # 5) Read back after saving for a minimal sanity check (guards against corrupt writes)
     log("Verifying saved index...")
     idx2 = faiss.read_index(OUT_INDEX_PATH)
     if idx2.ntotal != len(all_keys):
@@ -296,7 +296,7 @@ def main():
         sys.exit(1)
 
     log("Quick search sanity check...")
-    # 取一个向量做自检：最近邻应该有很高相似度
+    # Take one vector for self-check: the nearest neighbor should have a very high similarity
     q = np.array(np.load(os.path.join(scan_dirs[0], "frame_patch_embeddings.npy"), mmap_mode="r")[0:1]).astype(np.float32)
     q = l2_normalize(q)
     Dists, Ids = idx2.search(q, 5)

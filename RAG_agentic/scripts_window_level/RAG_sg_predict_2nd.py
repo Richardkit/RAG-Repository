@@ -224,17 +224,17 @@ def _to_int_safe(x):
 def build_id_map(local_nodes, global_nodes_by_id):
     """
     New build_id_map:
-    - 不再根据 name/description 做相似度匹配
-    - 完全相信模型生成的 node["id"] 已经是「它认为的 global id」
-    - 若该 id 已存在于 global_nodes_by_id，则视为同一物体，直接复用
-    - 若该 id 不存在：
-        * 如果 id 是整数且大于当前已用最大 id，则直接用这个 id 作为新 global id
-        * 否则，为避免冲突，分配一个新的递增 id（next_id），并将 local id 映射到它
+    - No longer do similarity matching based on name/description
+    - Fully trust that the model-generated node["id"] is already the 'global id it considers'
+    - If the id already exists in global_nodes_by_id, treat it as the same object and reuse directly
+    - If the id does not exist:
+        * If the id is an integer greater than the current maximum used id, use it directly as the new global id
+        * Otherwise, to avoid conflicts, assign a new incrementing id (next_id) and map the local id to it
     """
     id_map = {}
     new_global_nodes = []
 
-    # 统计目前全局已经占用的整数 id
+    # Count currently occupied integer ids in the global graph
     existing_int_ids = []
     for gid in global_nodes_by_id.keys():
         v = _to_int_safe(gid)
@@ -243,7 +243,7 @@ def build_id_map(local_nodes, global_nodes_by_id):
     max_existing = max(existing_int_ids) if existing_int_ids else 0
     next_id = max_existing + 1
 
-    used_ids = set(global_nodes_by_id.keys())  # 字符串形式
+    used_ids = set(global_nodes_by_id.keys())  # in string form
 
     for node in local_nodes:
         lid_raw = node.get("id")
@@ -251,26 +251,26 @@ def build_id_map(local_nodes, global_nodes_by_id):
         name = node.get("name", "")
         desc = node.get("description", "")
 
-        # 情况 1：模型给的 id 已经存在于 global graph → 直接当成同一个物体
+        # Case 1: the model-provided id already exists in the global graph → treat as the same object directly
         if lid in global_nodes_by_id:
             id_map[lid] = lid
-            # 如果你希望更新一下全局描述，这里也可以 merge 一下 description
-            # 例如：把新的 desc append 进去（可选）
+            # If you want to update the global description, you can also merge description here
+            # e.g., append the new desc (optional)
             continue
 
-        # 情况 2：这个 id 还没用过
+        # Case 2: this id has not been used yet
         lid_int = _to_int_safe(lid)
         if lid_int is not None and lid_int > max_existing and lid not in used_ids:
-            # 模型给的是一个「比当前所有 id 都大的整数」，认为是一个合理的新 global id
+            # The model provided an integer larger than all current ids; treat as a valid new global id
             g_id = lid
             used_ids.add(g_id)
-            # 同时更新 max_existing / next_id，避免之后冲突
+            # Also update max_existing / next_id to avoid future conflicts
             if lid_int > max_existing:
                 max_existing = lid_int
                 next_id = max_existing + 1
         else:
-            # 模型给了一个已经用过的小整数 / 非整数 id / 其他奇怪形式，
-            # 为了安全起见，我们分配一个真正唯一的 new_id
+            # The model provided a small already-used integer / non-integer id / other unusual form;
+            # for safety, we assign a truly unique new_id
             g_id = str(next_id)
             next_id += 1
             used_ids.add(g_id)
@@ -300,19 +300,19 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
     # --- normalize local (no seen_in_frames) ---
     for n in local_nodes:
         n["id"] = str(n.get("id"))
-        # 只保留必须字段
+        # Keep only required fields
         n["name"] = n.get("name", "")
         n["description"] = n.get("description", "")
 
     for e in local_edges:
-        # 统一关系字段
+        # Normalize the relationship field
         if "c_edge" not in e:
             e["c_edge"] = e.get("predicate") or e.get("relation") or ""
 
-    # 建立 local->global 映射 + 新增节点
+    # Build local->global mapping + new nodes
     id_map, new_global_nodes = build_id_map(local_nodes, global_nodes_by_id)
 
-    # ---- 合并节点（无 seen_in_frames）----
+    # ---- Merge nodes (without seen_in_frames) ----
     for ln in local_nodes:
         ln_id  = str(ln.get("id"))
         ln_name = ln.get("name", "")
@@ -322,21 +322,21 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
         if gid in global_nodes_by_id:
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
-                # 兜底：若历史是异常/None，直接用完整节点覆盖
+                # Fallback: if the historical value is abnormal/None, overwrite with the full node
                 cur = {"id": gid, "name": ln_name, "description": ln_desc}
                 global_nodes_by_id[gid] = cur
 
-            # 名称补全（强制改名）
+            # Fill in name (force rename)
             if ln_name:
                 cur["name"] = ln_name
-            # 描述更“丰富”时才更新
+            # only update when the description is more “informative”
             if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
                 cur["description"] = ln_desc
         else:
-            # 新全局节点：只三字段
+            # New global node: only three fields
             global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
 
-    # ---- 合并边并去重 ----
+    # ---- Merge edges and deduplicate ----
     # prepare existing edges: map (src,tgt) -> edge index
     pair2idx = {}
     for idx, e in enumerate(global_graph["edges"]):
@@ -369,7 +369,7 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             pair2idx[key] = len(global_graph["edges"]) - 1
 
 
-    # 数字ID排序（你已确保全局ID为数字）
+    # Sort by numeric ID (global IDs are ensured to be numeric)
     global_graph["nodes"] = sorted(global_nodes_by_id.values(), key=lambda x: int(x["id"]))
     return global_graph
 
@@ -388,10 +388,10 @@ def get_qwen_vllm():
             model=QWEN_MODEL_NAME_2ND,
             mm_encoder_tp_mode="data",
             tensor_parallel_size=max(torch.cuda.device_count(), 1),
-            enable_expert_parallel=False,    # 单卡禁止 EP
-            gpu_memory_utilization=0.60,     # 避免 OOM
+            enable_expert_parallel=False,    # disable EP on single GPU
+            gpu_memory_utilization=0.60,     # avoid OOM
             enforce_eager=False,              # Temporarily True to avoid compile timeout
-            # executor="uniproc",            # 如果你现在用这个，也可以保留
+            # executor="uniproc",            # keep this if you are using it now
         )
     return _GLOBAL_VLLM
 
@@ -399,7 +399,7 @@ def prepare_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
     from qwen_vl_utils import process_vision_info
     import re as _re, json as _json
 
-    # === 构建输入 ===
+    # === Build input ===
     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     try:
         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -647,7 +647,7 @@ def run_rag_for_window(
 def get_base64_image(file_path):
     with open(file_path, "rb") as image_file:
         base64_data = base64.b64encode(image_file.read()).decode('utf-8')
-        # 根据文件后缀判断类型，这里默认你的文件是 jpg
+        # Determine file type by extension; default assumes your file is jpg
         return f"data:image/jpeg;base64,{base64_data}"
     
 def build_prompt_window_rag(
@@ -873,7 +873,7 @@ def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
 
         m = _re.search(r"\{[\s\S]*\}", out_text)
         if not m:
-            return None, out_text  # ← 保留原始输出
+            return None, out_text  # ← preserve raw output
         try:
             return _json.loads(m.group(0)), out_text
         except Exception:
@@ -908,7 +908,7 @@ def run_scan_with_rag_merge(
     logger.info(f"[CFG] IF_vLLM={IF_vLLM} window_size={window_size} stride={stride}")
 
 
-    # ---- 1) 整个 scan 已完成 -> 直接跳过 ----
+    # ---- 1) Entire scan already completed -> skip directly ----
     final_path = os.path.join(out_dir, f"{scan_id}_global_graph_final.json")
     if os.path.exists(final_path):
         print(f"[Skip] {scan_id} already has final global graph.")
@@ -927,7 +927,7 @@ def run_scan_with_rag_merge(
     classes_list = load_vocab_list(CLASSES_TXT)
     relations_list = load_vocab_list(RELATIONS_TXT)
 
-    # ---- 2) window 级别 resume：看看已经做到第几个 window ----
+    # ---- 2) Window-level resume: check which window was last completed ----
     global_graph: Dict[str, Any] = {"nodes": [], "edges": []}
     start_win_idx = 0
 
@@ -1014,7 +1014,7 @@ def run_scan_with_rag_merge(
             faiss_topk=5,
         )
 
-        # 用完 RAG 结果后就删除中间文件，节省空间
+        # Delete intermediate files after using RAG results to save space
         try:
             if os.path.exists(rag_json_path):
                 os.remove(rag_json_path)
@@ -1114,7 +1114,7 @@ def run_scan_with_rag_merge(
 
 
 
-    # 所有 window 跑完，写最终 global
+    # All windows processed; write final global graph
     atomic_write_json(final_path, global_graph)
     print(f"\n✅ Done. Final global graph saved to: {final_path}")
 
@@ -1126,7 +1126,7 @@ def get_scan_ids(test_list_path: str) -> List[str]:
         return [line.strip() for line in f if line.strip()]
 
 if __name__ == "__main__":
-    # 这些路径你可以按需改
+    # You can modify these paths as needed
     test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"
     out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/window_level_embedding_thr_0.5"

@@ -406,37 +406,37 @@ def build_Qwen_prompt(json_path: str, output_prompt_path: str, output_txt_path: 
     with open(json_path, "r") as f:
         rag = json.load(f)
 
-    # 如果你不想立刻删原始RAG输出，可以注释掉下一行
+    # If you don't want to delete the original RAG output immediately, comment out the next line
     # os.remove(json_path)
 
     query_images = rag.get("query_images", []) or []
     merged_ref   = rag.get("merged_reference_sg", {}) or {}
     winning_sid  = rag.get("winning_kb_scan_id", "unknown")
-    refs_rgbs    = rag.get("refs_rbgs", []) or []   # 参考场景图片（这次是GT，会等于query）
+    refs_rgbs    = rag.get("refs_rbgs", []) or []   # Reference scene images (this time is GT, will equal query)
 
-    # 限定可用谓词集合（保持你现有文件）
+    # Restrict the usable predicate set (keep your existing file)
     relationship_type_path = "/hkfs/work/workspace/scratch/rg5174-myspace/RAG_baseline_Qwen2.5/relationships_n160.txt"
     with open(relationship_type_path, "r") as f:
         relationship_type = [line.strip() for line in f if line.strip()]
 
-    # 序列化参考SG，尽量压缩以省token
+    # Serialize the reference SG, compress as much as possible to save tokens
     merged_ref_str = json.dumps(merged_ref, ensure_ascii=False, separators=(",", ":"))
 
-    # 组装 content：先放查询图（每张图前插一个标注的text），再放参考图（同理），最后放总指令
+    # Assemble content: first query images (insert a labeled text before each), then reference images (same), finally the full instruction
     content = []
 
-    # 查询图（标准 image）
+    # Query images (standard image)
     for i, img in enumerate(query_images, 1):
         content.append({"type": "text", "text": f"[QUERY #{i}]"})
         content.append({"type": "image", "image": img})
 
-    # 参考图（标准 image）——即便与query相同也没关系；如果你担心重复，可做去重
-    # refs_rgbs = [p for p in refs_rgbs if p not in set(query_images)]  # 可选：去掉与query重复的图
+    # Reference images (standard image) -- even if identical to query it doesn't matter; deduplicate if concerned
+    # refs_rgbs = [p for p in refs_rgbs if p not in set(query_images)]  # Optional: remove images duplicated with query
     for j, ref_img in enumerate(refs_rgbs, 1):
         content.append({"type": "text", "text": f"[REF #{j}] (similar scene image)"})
         content.append({"type": "image", "image": ref_img})
 
-    # 大指令（使用三引号写法更安全）
+    # Full instruction (using triple-quote syntax is safer)
     guide_text = f"""You are given two sets of images: (1) QUERY images from a scene; (2) REF (similar-scene) images.
 Treat EACH image independently; DO NOT copy any box from other images.
 
@@ -584,7 +584,7 @@ def run_model_inference(
         json.dump(result, f, indent=2, ensure_ascii=False)
     print(f"✅ Inference saved to: {out_path}")
 
-    # 如果需要把解析出的 JSON 单独落盘：
+    # If you need to save the parsed JSON to disk separately:
     if parsed_json is not None:
         sg_path = os.path.join(os.path.dirname(out_path), f"{scan_id}_parse_sg.json")
         with open(sg_path, "w") as f:

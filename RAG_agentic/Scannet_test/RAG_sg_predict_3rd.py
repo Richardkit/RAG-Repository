@@ -56,12 +56,12 @@ COLQWEN_NAME = "vidore/colqwen2.5-v0.1"
 WINDOW_SIZE = 6
 STRIDE      = 4  # overlap = WINDOW_SIZE - STRIDE = 2
 
-PATCH_TOPK = 20         # 每个 query patch 在 FAISS 里取 topk（越大越慢）
-NPROBE = 8              # IVF nprobe（越大越慢）
-TOP_REF_FRAMES = 5      # 每个 winning scan 取多少参考帧（用于抽 edge）
+PATCH_TOPK = 20         # topk per query patch in FAISS (larger = slower)
+NPROBE = 8              # IVF nprobe (larger = slower)
+TOP_REF_FRAMES = 5      # number of reference frames per winning scan (used to extract edges)
 
 TIME_BUDGET_SEC = 10000 * 60
-TIME_GRACE_SEC  = 30          # 留 30s 兜底写盘
+TIME_GRACE_SEC  = 30          # reserve 30s for fallback disk writes
 TIME_LOG_NAME   = "runtime_log.txt"
 
 SIGLIP2_NAME = "google/siglip2-base-patch16-224"
@@ -94,10 +94,10 @@ class RunTimer:
         self.start_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self._write(f"START {self.start_time_str} budget={self.budget_sec}s grace={self.grace_sec}s")
 
-        # 正常退出也写 END
+        # Also write END on normal exit
         atexit.register(self._on_exit)
 
-        # 收到 kill 信号也尽量写一下
+        # Also try to write when a kill signal is received
         for sig in (signal.SIGTERM, signal.SIGINT):
             signal.signal(sig, self._signal_handler)
 
@@ -120,11 +120,11 @@ class RunTimer:
         return time.monotonic() - self.t0
 
     def should_stop(self) -> bool:
-        # 提前 TIME_GRACE_SEC 秒退出，留出写盘时间
+        # Exit TIME_GRACE_SEC seconds early to leave time for disk writes
         return self.elapsed() >= (self.budget_sec - self.grace_sec)
 
     def checkpoint(self, msg: str):
-        # 你可以在每个 window/scan 后写一条
+        # You can write a message after each window/scan
         self._write(msg)
 
 # =========================
@@ -301,17 +301,17 @@ def _to_int_safe(x):
 def build_id_map(local_nodes, global_nodes_by_id):
     """
     New build_id_map:
-    - 不再根据 name/description 做相似度匹配
-    - 完全相信模型生成的 node["id"] 已经是「它认为的 global id」
-    - 若该 id 已存在于 global_nodes_by_id，则视为同一物体，直接复用
-    - 若该 id 不存在：
-        * 如果 id 是整数且大于当前已用最大 id，则直接用这个 id 作为新 global id
-        * 否则，为避免冲突，分配一个新的递增 id（next_id），并将 local id 映射到它
+    - No longer do similarity matching based on name/description
+    - Fully trust that the model-generated node["id"] is already the 'global id it considers'
+    - If the id already exists in global_nodes_by_id, treat it as the same object and reuse directly
+    - If the id does not exist:
+        * If the id is an integer greater than the current maximum used id, use it directly as the new global id
+        * Otherwise, to avoid conflicts, assign a new incrementing id (next_id) and map the local id to it
     """
     id_map = {}
     new_global_nodes = []
 
-    # 统计目前全局已经占用的整数 id
+    # Count currently occupied integer ids in the global graph
     existing_int_ids = []
     for gid in global_nodes_by_id.keys():
         v = _to_int_safe(gid)
@@ -320,7 +320,7 @@ def build_id_map(local_nodes, global_nodes_by_id):
     max_existing = max(existing_int_ids) if existing_int_ids else 0
     next_id = max_existing + 1
 
-    used_ids = set(global_nodes_by_id.keys())  # 字符串形式
+    used_ids = set(global_nodes_by_id.keys())  # in string form
 
     for node in local_nodes:
         lid_raw = node.get("id")
@@ -328,26 +328,26 @@ def build_id_map(local_nodes, global_nodes_by_id):
         name = node.get("name", "")
         desc = node.get("description", "")
 
-        # 情况 1：模型给的 id 已经存在于 global graph → 直接当成同一个物体
+        # Case 1: the model-provided id already exists in the global graph → treat as the same object directly
         if lid in global_nodes_by_id:
             id_map[lid] = lid
-            # 如果你希望更新一下全局描述，这里也可以 merge 一下 description
-            # 例如：把新的 desc append 进去（可选）
+            # If you want to update the global description, you can also merge description here
+            # e.g., append the new desc (optional)
             continue
 
-        # 情况 2：这个 id 还没用过
+        # Case 2: this id has not been used yet
         lid_int = _to_int_safe(lid)
         if lid_int is not None and lid_int > max_existing and lid not in used_ids:
-            # 模型给的是一个「比当前所有 id 都大的整数」，认为是一个合理的新 global id
+            # The model provided an integer larger than all current ids; treat as a valid new global id
             g_id = lid
             used_ids.add(g_id)
-            # 同时更新 max_existing / next_id，避免之后冲突
+            # Also update max_existing / next_id to avoid future conflicts
             if lid_int > max_existing:
                 max_existing = lid_int
                 next_id = max_existing + 1
         else:
-            # 模型给了一个已经用过的小整数 / 非整数 id / 其他奇怪形式，
-            # 为了安全起见，我们分配一个真正唯一的 new_id
+            # The model provided a small already-used integer / non-integer id / other unusual form;
+            # for safety, we assign a truly unique new_id
             g_id = str(next_id)
             next_id += 1
             used_ids.add(g_id)
@@ -377,19 +377,19 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
     # --- normalize local (no seen_in_frames) ---
     for n in local_nodes:
         n["id"] = str(n.get("id"))
-        # 只保留必须字段
+        # Keep only required fields
         n["name"] = n.get("name", "")
         n["description"] = n.get("description", "")
 
     for e in local_edges:
-        # 统一关系字段
+        # Normalize the relationship field
         if "c_edge" not in e:
             e["c_edge"] = e.get("predicate") or e.get("relation") or ""
 
-    # 建立 local->global 映射 + 新增节点
+    # Build local->global mapping + new nodes
     id_map, new_global_nodes = build_id_map(local_nodes, global_nodes_by_id)
 
-    # ---- 合并节点（无 seen_in_frames）----
+    # ---- Merge nodes (without seen_in_frames) ----
     for ln in local_nodes:
         ln_id  = str(ln.get("id"))
         ln_name = ln.get("name", "")
@@ -399,21 +399,21 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
         if gid in global_nodes_by_id:
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
-                # 兜底：若历史是异常/None，直接用完整节点覆盖
+                # Fallback: if the historical value is abnormal/None, overwrite with the full node
                 cur = {"id": gid, "name": ln_name, "description": ln_desc}
                 global_nodes_by_id[gid] = cur
 
-            # 名称补全（强制改名）
+            # Fill in name (force rename)
             if ln_name:
                 cur["name"] = ln_name
-            # 描述更“丰富”时才更新
+            # only update when the description is more “informative”
             if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
                 cur["description"] = ln_desc
         else:
-            # 新全局节点：只三字段
+            # New global node: only three fields
             global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
 
-    # ---- 合并边并去重 ----
+    # ---- Merge edges and deduplicate ----
     # prepare existing edges: map (src,tgt) -> edge index
     pair2idx = {}
     for idx, e in enumerate(global_graph["edges"]):
@@ -450,7 +450,7 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             pair2idx[key] = len(global_graph["edges"]) - 1
 
 
-    # 数字ID排序（你已确保全局ID为数字）
+    # Sort by numeric ID (global IDs are ensured to be numeric)
     global_graph["nodes"] = sorted(global_nodes_by_id.values(), key=lambda x: int(x["id"]))
     return global_graph
 
@@ -475,10 +475,10 @@ def get_qwen_vllm():
             model=QWEN_MODEL_NAME_2ND,
             mm_encoder_tp_mode="data",
             tensor_parallel_size=visible_gpu_count(),
-            enable_expert_parallel=False,    # 单卡禁止 EP
-            gpu_memory_utilization=0.80,     # 避免 OOM
+            enable_expert_parallel=False,    # disable EP on single GPU
+            gpu_memory_utilization=0.80,     # avoid OOM
             enforce_eager=False,              # Temporarily True to avoid compile timeout
-            # executor="uniproc",            # 如果你现在用这个，也可以保留
+            # executor="uniproc",            # keep this if you are using it now
         )
     return _GLOBAL_VLLM
 
@@ -486,7 +486,7 @@ def prepare_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
     from qwen_vl_utils import process_vision_info
     import re as _re, json as _json
 
-    # === 构建输入 ===
+    # === Build input ===
     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     try:
         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -529,7 +529,7 @@ def load_faiss_and_keys_once(embedding_index_path: str, rgb_keys_path: str, npro
         print(f"[FAISS] loading keys: {rgb_keys_path}")
         with open(rgb_keys_path, "rb") as f:
             _RGB_KEYS = pickle.load(f)
-        # 统一成 str，避免 bytes
+        # Normalize to str to avoid bytes
         _RGB_KEYS = [
             (k.decode("utf-8", "ignore") if isinstance(k, (bytes, bytearray)) else str(k))
             for k in _RGB_KEYS
@@ -555,7 +555,7 @@ def embed_image_patches_siglip2(model_bundle, img: Image.Image) -> np.ndarray:
     inputs = processor(images=img, return_tensors="pt")
     pixel_values = inputs["pixel_values"].to(device)
 
-    # CPU 兼容
+    # CPU compatibility
     if device.startswith("cuda"):
         with torch.cuda.amp.autocast(dtype=torch.float16):
             out = vision_model(pixel_values=pixel_values)
@@ -735,8 +735,8 @@ def run_rag_for_window(
     query_rgbs: List[str],
     model_bundle,
     out_json_path: str,
-    faiss_topk: int = 5,          # 这里不再表示 patch topk，而是最终 reference image topk
-    patch_topk: int = 10,         # 每个 query patch 从 faiss 取多少个候选 patch（关键参数）
+    faiss_topk: int = 5,          # this no longer means patch topk, but the final reference image topk
+    patch_topk: int = 10,         # number of candidate patches retrieved from faiss per query patch (key parameter)
 ) -> List[Dict[str, Any]]:
 
     if not query_rgbs:
@@ -745,7 +745,7 @@ def run_rag_for_window(
     rgb_keys = [(k.decode("utf-8", "ignore") if isinstance(k, (bytes, bytearray)) else str(k)) for k in rgb_keys]
 
     # ----------------------------
-    # 1) 对每个 query image：提取 patch embeddings [P,D]
+    # 1) For each query image: extract patch embeddings [P,D]
     # ----------------------------
     query_patch_list = []
     for p in query_rgbs:
@@ -759,19 +759,19 @@ def run_rag_for_window(
     Ddim = query_patch_list[0].shape[1] # D is the dimension of SigLIP2 patch embedding (e.g., 768)
 
     # ----------------------------
-    # 2) 对每个 query image：FAISS 批量检索（按 patch）
-    #    然后做 image-level MaxSim：
+    # 2) For each query image: FAISS batch retrieval (by patch)
+    #    then compute image-level MaxSim:
     #      score(q_img, kb_img) = sum_{q_patch} max_{kb_patch in kb_img} sim(q_patch, kb_patch)
     # ----------------------------
-    # 我们会累计：
+    # We accumulate:
     #   kb_img_total_score[(scan,frame)] = sum over query_images score(q_img, kb_img)
-    # 同时为 scan 总分做准备
+    # Also prepare for scan total score
     kb_img_total_score = defaultdict(float)
-    # 为了计算 scan_score：对每个 query_img，在每个 scan 内取最佳 kb_img 分数，然后 sum
+    # To compute scan_score: for each query_img, take the best kb_img score within each scan, then sum
     #   scan_score[scan] = sum_{q_img} max_{kb_img in scan} score(q_img, kb_img)
     scan_score_all = defaultdict(float)
 
-    # 保存每个 query_img 对每个 kb_img 的分数（只存稀疏命中即可）
+    # Save scores of each query_img against each kb_img (sparse hits only)
     # qimg_scores: List[Dict[(scan,frame)->score]]
     qimg_scores = []
 
@@ -789,8 +789,8 @@ def run_rag_for_window(
         S = Q @ Q.T                      # [P,P]
         mask = np.ones((P, P), dtype=bool)
         np.fill_diagonal(mask, False)
-        cor_mean = S[mask].reshape(P, P-1).mean(axis=1)   # 每个patch与其他patch的平均相似度
-        score = -cor_mean / temperature                   # 越独特(平均相似度低) -> score越大
+        cor_mean = S[mask].reshape(P, P-1).mean(axis=1)   # average similarity of each patch with other patches
+        score = -cor_mean / temperature                   # more unique (lower average similarity) -> higher score
         score = score - score.max()
         weights = np.exp(score)
         weights = weights / (weights.sum() + 1e-12)
@@ -812,7 +812,7 @@ def run_rag_for_window(
 
                 arr = per_img_max.get(img_key)
                 if arr is None:
-                    arr = np.full((P,), -1e9, dtype=np.float32) # 未命中的 patch 不参与求和
+                    arr = np.full((P,), -1e9, dtype=np.float32) # unmatched patches do not contribute to the sum
                     per_img_max[img_key] = arr
                 if sim > arr[p_idx]:
                     arr[p_idx] = sim
@@ -828,24 +828,24 @@ def run_rag_for_window(
 
         # sum over query patches => image score
         per_img_score = {}
-        # 同时按 scan 聚合该 query_img 的最佳 kb image
+        # Also aggregate the best kb image per scan for this query_img
         best_in_scan = defaultdict(lambda: -1e9)
 
         for (sid, fid), arr in per_img_max.items():
             valid = arr > -1e8
-            sc = float((arr[valid] * weights[valid]).sum())  # 只累加命中patch
+            sc = float((arr[valid] * weights[valid]).sum())  # accumulate only matched patches
             per_img_score[(sid, fid)] = sc
             if sc > best_in_scan[sid]:
                 best_in_scan[sid] = sc
 
-        # 更新 scan_score：这个 query image 对每个 scan 只贡献它的 best kb image score
+        # Update scan_score: this query image contributes only its best kb image score to each scan
         for sid, best_sc in best_in_scan.items():
-            scan_score_all[sid] += float(best_sc) # 计算每个base scan的总分，累加base scan中每个frame与query image patches的最高分
+            scan_score_all[sid] += float(best_sc) # compute total score for each base scan, accumulating the highest scores of patches between each frame in the base scan and query image patches
 
         qimg_scores.append(per_img_score)
 
     # ----------------------------
-    # 3) 选 winning scan（scan_score 最大）
+    # 3) Select winning scan (maximum scan_score)
     # ----------------------------
     if not scan_score_all:
         raise RuntimeError("No scan_score computed; check index/keys parsing / embeddings.")
@@ -866,7 +866,7 @@ def run_rag_for_window(
     print(f"[RAG-MaxSim] winning_kb_scan_id = {winning_scan}")
 
     # ----------------------------
-    # 4) 在 winning scan 内，算 kb image 总分（跨所有 query images 累加）
+    # 4) Within the winning scan, compute total kb image score (accumulated across all query images)
     #    kb_img_total_score[(scan,frame)] = sum_q score(q, kb_img)
     # ----------------------------
     for per_img_score in qimg_scores:
@@ -874,7 +874,7 @@ def run_rag_for_window(
             if sid == winning_scan:
                 kb_img_total_score[(sid, fid)] += float(sc)
 
-    # 如果 winning scan 没有任何 image 分数（极少见），兜底：从 scan_score 的候选里取一次 patch 统计
+    # If the winning scan has no image scores (very rare), fallback: take patch statistics from scan_score candidates
     if not kb_img_total_score:
         raise RuntimeError(f"No kb image scores inside winning scan={winning_scan}. Increase patch_topk?")
 
@@ -885,7 +885,7 @@ def run_rag_for_window(
     )[:faiss_topk]
 
     # ----------------------------
-    # 5) load top-5 frame SG，merge edges（沿用你原来的 _merge_reference_sgs）
+    # 5) Load top-5 frame SGs and merge edges (reusing _merge_reference_sgs)
     # ----------------------------
     chosen_refs = []
     for fid, sc in top_imgs:
@@ -904,13 +904,13 @@ def run_rag_for_window(
             "kb_frame_id": int(fid),
             "json_path": json_path,
             "json": sg,
-            "distance": float(sc)  # 这里其实是 score，字段名先不动（保持兼容）
+            "distance": float(sc)  # this is actually a score; keep the field name unchanged (maintain compatibility)
         })
 
     merged_reference_sg = _merge_reference_sgs(chosen_refs, winning_scan)
     merged_edges = merged_reference_sg.get("edges", [])
 
-    # 输出统计（重要：把 scan_score 和 top images 写出去，方便你 debug/写论文）
+    # Output statistics (important: write out scan_score and top images for debugging/paper writing)
     out = {
         "scan_score": {k: float(v) for k, v in scan_score_used.items()},
         "winning_scan": winning_scan,
@@ -928,7 +928,7 @@ def run_rag_for_window(
 def get_base64_image(file_path):
     with open(file_path, "rb") as image_file:
         base64_data = base64.b64encode(image_file.read()).decode('utf-8')
-        # 根据文件后缀判断类型，这里默认你的文件是 jpg
+        # Determine file type by extension; default assumes your file is jpg
         return f"data:image/jpeg;base64,{base64_data}"
     
 def build_prompt_window_rag(
@@ -1165,7 +1165,7 @@ def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
 
     m = _re.search(r"\{[\s\S]*\}", out_text)
     if not m:
-        return None, out_text  # ← 保留原始输出
+        return None, out_text  # ← preserve raw output
     try:
         return _json.loads(m.group(0)), out_text
     except Exception:
@@ -1207,7 +1207,7 @@ def run_scan_with_rag_merge(
 ):
     sequence_dir = os.path.join(sequence_root, scan_id)
 
-    # 兼容 3RScan: 如果存在 sequence 子目录就用它
+    # Compatible with 3RScan: use the sequence subdirectory if it exists
     if os.path.isdir(os.path.join(sequence_dir, "sequence")):
         sequence_dir = os.path.join(sequence_dir, "sequence")
 
@@ -1220,7 +1220,7 @@ def run_scan_with_rag_merge(
     logger.info(f"[CFG] IF_vLLM={IF_vLLM} window_size={window_size} stride={stride}")
 
 
-    # ---- 1) 整个 scan 已完成 -> 直接跳过 ----
+    # ---- 1) Entire scan already completed -> skip directly ----
     final_path = os.path.join(out_dir, f"{scan_id}_global_graph_final.json")
     if os.path.exists(final_path):
         print(f"[Skip] {scan_id} already has final global graph.")
@@ -1239,7 +1239,7 @@ def run_scan_with_rag_merge(
     classes_list = load_vocab_list(CLASSES_TXT)
     relations_list = load_vocab_list(RELATIONS_TXT)
 
-    # ---- 2) window 级别 resume：看看已经做到第几个 window ----
+    # ---- 2) Window-level resume: check which window was last completed ----
     global_graph: Dict[str, Any] = {"nodes": [], "edges": []}
     start_win_idx = 0
 
@@ -1325,7 +1325,7 @@ def run_scan_with_rag_merge(
             out_json_path=rag_json_path,
             faiss_topk=5,
         )
-        # 用完 RAG 结果后就删除中间文件，节省空间
+        # Delete intermediate files after using RAG results to save space
         try:
             if os.path.exists(rag_json_path):
                 os.remove(rag_json_path)
@@ -1434,7 +1434,7 @@ def run_scan_with_rag_merge(
             timer.checkpoint(f"EARLY_EXIT at scan={scan_id} win={win_idx} elapsed={timer.elapsed():.1f}s")
             break
 
-    # 所有 window 跑完，写最终 global
+    # All windows processed; write final global graph
     atomic_write_json(final_path, global_graph)
     print(f"\n✅ Done. Final global graph saved to: {final_path}")
 
@@ -1446,7 +1446,7 @@ def get_scan_ids(test_list_path: str) -> List[str]:
         return [line.strip() for line in f if line.strip()]
 
 if __name__ == "__main__":
-    # 这些路径你可以按需改
+    # You can modify these paths as needed
     # test_list_path = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
     sequence_root  = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/ScanNet-sparse"
     out_root       = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/Ablation/scannet"
@@ -1473,7 +1473,7 @@ if __name__ == "__main__":
     faiss_index, rgb_keys = load_faiss_and_keys_once(
                         embedding_index_path,
                         rgb_keys_path,
-                        nprobe=NPROBE  # 如果你有这个参数；没有就传 None
+                        nprobe=NPROBE  # pass this parameter if you have it; otherwise pass None
                 )
 
     # scan_ids = sorted(get_scan_ids(test_list_path))

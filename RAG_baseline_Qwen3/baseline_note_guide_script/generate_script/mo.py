@@ -6,7 +6,7 @@ import json
 from typing import Any, List
 
 # =======================
-# 配置：你只需要确认这三个
+# Config: only these three need to be confirmed
 # =======================
 VALID_TXT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/3DSSG/embedding_and_indexing/3RScan_validation_set.txt"
 DATA_ROOT = "/hkfs/work/workspace/scratch/rg5174-ragspace3/data/3RScan"

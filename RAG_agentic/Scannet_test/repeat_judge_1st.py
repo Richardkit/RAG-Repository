@@ -92,10 +92,10 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #             model=MODEL_NAME,
 #             mm_encoder_tp_mode="data",
 #             tensor_parallel_size=max(torch.cuda.device_count(), 1),
-#             enable_expert_parallel=False,    # 单卡禁止 EP
-#             gpu_memory_utilization=0.95,     # 避免 OOM
-#             enforce_eager=True,              # 之前讨论过，关掉 torch.compile/cudagraph
-#             # executor="uniproc",            # 如果你现在用这个，也可以保留
+#             enable_expert_parallel=False,    # disable EP on single GPU
+#             gpu_memory_utilization=0.95,     # avoid OOM
+#             enforce_eager=True,              # as discussed previously, disable torch.compile/cudagraph
+#             # executor="uniproc",            # keep this if you are using it now
 #         )
 #     return _GLOBAL_VLLM
 
@@ -144,7 +144,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 # @torch.no_grad()
 # def run_qwen(messages, qwen_model, qwen_proc, max_new_tokens: int = 8196):
 
-#     # === 构建输入 ===
+#     # === Build input ===
 #     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 #     try:
 #         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -169,7 +169,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #     print(f"[Diag] tokens_in(text_only)={text_tokens}, tokens_in(actual)={input_ids_len}, "
 #           f"max_ctx={max_ctx}, images={len(image_inputs)}")
 
-#     # === 生成 ===
+#     # === Generate ===
 #     out_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
 #     new_tokens = out_ids.shape[1] - inputs.input_ids.shape[1]
 #     total_seq = out_ids.shape[1]
@@ -182,7 +182,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 
 #     m = _re.search(r"\{[\s\S]*\}", out_text)
 #     if not m:
-#         return None, out_text  # ← 保留原始输出
+#         return None, out_text  # ← preserve raw output
 #     try:
 #         return _json.loads(m.group(0)), out_text
 #     except Exception:
@@ -192,7 +192,7 @@ def jaccard_token_sim(a: str, b: str) -> float:
 #     from qwen_vl_utils import process_vision_info
 #     import re as _re, json as _json
 
-#     # === 构建输入 ===
+#     # === Build input ===
 #     text = qwen_proc.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 #     try:
 #         text_token_ids = qwen_proc.tokenizer.encode(text, add_special_tokens=False)
@@ -503,22 +503,22 @@ def load_colqwen(COLQWEN_NAME: str, device="cuda"):
 def img_if_new_check_colqwen(
     window_img_paths,
     scan_id,
-    image_buffer,        # 这里 image_buffer 直接存“已保留的图片路径”
+    image_buffer,        # here image_buffer directly stores “paths of already-kept images”
     colqwen_model,
     colqwen_proc,
     device="cuda",
     SIM_THRESH=0.75,
-    topk_buf=5,         # buffer 里取多少张做对比（越大越稳，越小越快）
+    topk_buf=5,         # how many images from the buffer to compare against (more = more stable, fewer = faster)
 ):
     keep_imgs = []
 
     for img_path in window_img_paths:
-        # buffer 为空：必保留
+        # buffer is empty: always keep
         if not image_buffer:
             keep_imgs.append(img_path)
             continue
 
-        # 只取最近/随机一部分 buffer 做对比（避免太慢）
+        # Take only the most recent/random subset of the buffer for comparison (to avoid being too slow)
         cand = image_buffer[-topk_buf:] if len(image_buffer) > topk_buf else image_buffer
 
         # ColQwen similarity
@@ -527,7 +527,7 @@ def img_if_new_check_colqwen(
         print(f"[NEW_CHECK] {os.path.basename(img_path)} max_sim={max_sim:.4f} keep={max_sim < SIM_THRESH}")
 
 
-        # max_sim 小于阈值：认为是新视角/新内容 -> 保留
+        # max_sim below threshold: considered a new viewpoint/new content -> keep
         if max_sim < SIM_THRESH:
             keep_imgs.append(img_path)
 

@@ -11,7 +11,7 @@ with open(keys_path, "rb") as f:
 N = len(rgb_keys)
 print(f"🔍 Loaded {N} keys")
 
-# === 使用 memmap 读取 ===
+# === Read using memmap ===
 try:
     rgb_vectors = np.memmap(npy_path, dtype=np.float32, mode="r", shape=(N, 768))
     print(f"✅ Loaded .npy file with shape: {rgb_vectors.shape}")
@@ -19,14 +19,14 @@ except Exception as e:
     print(f"❌ Failed to load .npy: {e}")
     exit(1)
 
-# === 检查维度正确性 ===
+# === Check dimension correctness ===
 if rgb_vectors.shape != (N, 768):
     print(f"❌ Shape mismatch: got {rgb_vectors.shape}, expected ({N}, 768)")
 else:
     print("✅ Shape correct")
 
-# === 检查是否存在 NaN / Inf ===
-subset = rgb_vectors[:1000]  # 检查前 1000 个
+# === Check for NaN / Inf values ===
+subset = rgb_vectors[:1000]  # check the first 1000 entries
 if np.isnan(subset).any():
     print("❌ Detected NaN values")
 elif np.isinf(subset).any():
@@ -34,7 +34,7 @@ elif np.isinf(subset).any():
 else:
     print("✅ No NaN or Inf in sample")
 
-# === 打印一条向量看看 ===
+# === Print one vector as a sanity check ===
 print("Sample vector:")
 print(rgb_vectors[0])
 print("Corresponding key:")

@@ -93,7 +93,7 @@ def embed_images(model, processor, paths, device):
             B, T, D = tok.shape
             HW = H * W
 
-            # SigLIP2 有的版本没有 CLS，有的有；用长度判定
+            # Some versions of SigLIP2 have no CLS token, others do; determine by sequence length
             if T == HW:
                 tokens = tok                      # no CLS
             elif T == HW + 1:
@@ -169,7 +169,7 @@ def main():
     run_vecs: list[np.ndarray] = []
     written_scans = 0
 
-    for scan_dir in tqdm(sorted(scan_dirs)[1200:], desc="Scans"):
+    for scan_dir in tqdm(sorted(scan_dirs), desc="Scans"):
 
         if scan_dir.name in val_scan_ids:
             print(f"⚠️  Skipping validation scan {scan_dir.name}")
@@ -225,10 +225,10 @@ def main():
         patches_meta = []
 
         # embs: [num_frames, 144, D]
-        # 我们把它 reshape 成 [num_frames*144, D]，顺序与下面 key 循环一致
+        # reshape it to [num_frames*144, D], order consistent with the key loop below
         X = embs.reshape(-1, embs.shape[-1])  # float32
 
-        # 建 key 列表（长度 = num_frames*144）
+        # Build key list (length = num_frames*144)
         for frame_key in keys:
             for r in range(GRID_ROWS):
                 for c in range(GRID_COLS):
@@ -242,11 +242,11 @@ def main():
                         "col": c
                     })
 
-        # 安全检查：确保 keys 数量和矩阵行数一致
+        # Safety check: ensure the number of keys matches the number of matrix rows
         if X.shape[0] != len(patch_keys):
             raise RuntimeError(f"Patch count mismatch in {scan_id}: X={X.shape[0]} vs keys={len(patch_keys)}")
 
-        # 保存：推荐 float16（快、文件小），建索引时再转 float32
+        # Save: float16 is recommended (fast, small file); convert to float32 when building the index
         X_to_save = X.astype(np.float16, copy=False)
         np.save(npy_path, X_to_save)
 
