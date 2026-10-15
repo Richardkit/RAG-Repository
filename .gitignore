@@ -10,7 +10,11 @@ RAG_Rexplore_Qwen3/**/logs/
 RAG_Rexplore_Qwen3/temp_images/
 
 # --- exclude entire evaluate and logs folders ---
-RAG_baseline_Qwen3/evaluate/
 RAG_agentic/logs/
 RAG_agentic/**/evaluate/
 *.sh
+
+# Evaluation scripts only
+!RAG_baseline_Qwen3/evaluate/
+RAG_baseline_Qwen3/evaluate/**
+!RAG_baseline_Qwen3/evaluate/*.py

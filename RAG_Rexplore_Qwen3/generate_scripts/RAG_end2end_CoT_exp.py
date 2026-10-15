@@ -385,7 +385,7 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
 
         src_g = id_map[src_g]
         tgt_g = id_map[tgt_g]
-        
+
         preds = e["c_edge"]
 
         key = (src_g, tgt_g)
@@ -622,7 +622,7 @@ def get_base64_image(file_path):
         base64_data = base64.b64encode(image_file.read()).decode('utf-8')
         # 根据文件后缀判断类型，这里默认你的文件是 jpg
         return f"data:image/jpeg;base64,{base64_data}"
-    
+
 def build_prompt_window_rag(
     window_rgbs: List[str],
     prev_global: Optional[Dict[str, Any]],
@@ -631,7 +631,7 @@ def build_prompt_window_rag(
     relations_list: List[str],
     IF_API: bool = False,
 ) -> List[Dict[str, Any]]:
-    
+
     import json as _json
 
     content: List[Dict[str, Any]] = []
@@ -648,7 +648,7 @@ def build_prompt_window_rag(
     # --- stringify context blocks (keep exactly your variable names) ---
     prev_str = _json.dumps(prev_global or {"nodes": [], "edges": []},
                            ensure_ascii=False, separators=(",", ":"))
-    
+
     guides_str = _json.dumps({"guides": reference_guides or []}, ensure_ascii=False, separators=(",", ":"))
     # print(f"[DEBUG] reference_guides json: {guides_str}")
 
@@ -692,7 +692,7 @@ For each detected object O in this window:
       3) if O is a floor, ceiling or door, they are unique per scene, if there is already one in <PREV_GRAPH>, reuse it, otherwise create a new one,
       4) if O is large and prominent (e.g., bed, sofa, table, cabinet), it is less likely to be new if there is a similar one in <PREV_GRAPH>.
 
- 
+
   - Record the decision internally:
       1) All objects in this window that match an existing node id and are visible MUST be included in seen_old_nodes.
       2) For new detected objects, you are only allowed to assign less than 15 new nodes in each window, so choose these clear ones with high confidence.
@@ -753,7 +753,7 @@ Rules:
   - "close by" alone is NOT enough; add extra spatial predicates when possible.
   - Edges are directed: src -> tgt.
 
-FINAL OUTPUT FORMAT 
+FINAL OUTPUT FORMAT
 
 Output ONLY one JSON object with exactly these keys:
 
@@ -863,7 +863,7 @@ def run_qwen_vllm(messages, qwen_proc, max_new_tokens: int = 8192):
             return _json.loads(m.group(0)), out_text
         except Exception:
             return None, out_text
-        
+
 from http import HTTPStatus
 
 def run_qwen_window_api(
@@ -881,10 +881,10 @@ def run_qwen_window_api(
     # 推荐用环境变量配置 API Key，而不是在代码里写死
     # 例如: 在 shell 里 `export DASHSCOPE_API_KEY=sk-xxxx`
     # 然后在这里: dashscope.api_key = os.getenv("DASHSCOPE_API_KEY")
-    # 如果你坚持手动传，也可以在外面 dashscope.api_key = "sk-xxxx"
+    # 如果你坚持手动传，也可以在外面 dashscope.api_key=os.environ["DASHSCOPE_API_KEY"]
     try:
         response = dashscope.MultiModalConversation.call(
-            api_key="sk-09a3812f7fc34d8abe65aae9d4132a9f", 
+            api_key=os.environ["DASHSCOPE_API_KEY"],
             model=qwen_model_name,
             messages=messages,
             result_format="message",            # 返回 OpenAI-style message

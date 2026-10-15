@@ -378,7 +378,7 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
 
         if src_g == "" or tgt_g == "":
             continue
-        
+
         preds = e["c_edge"]
 
         key = (src_g, tgt_g)
@@ -574,7 +574,7 @@ def run_rag_for_window(
 ) -> List[Dict[str, Any]]:
     if not query_rgbs:
         raise FileNotFoundError(f"No query RGBs provided for {sequence_dir}")
-    
+
     processor, model, device = model_bundle
 
     faiss_index = faiss.read_index(embedding_index_path)
@@ -678,7 +678,7 @@ def get_base64_image(file_path):
         base64_data = base64.b64encode(image_file.read()).decode('utf-8')
         # Determine type by file extension, default is jpg here
         return f"data:image/jpeg;base64,{base64_data}"
-    
+
 def build_prompt_window_rag(
     window_rgbs: List[str],
     prev_global: Optional[Dict[str, Any]],
@@ -687,7 +687,7 @@ def build_prompt_window_rag(
     relations_list: List[str],
     IF_API: bool = False,
 ) -> List[Dict[str, Any]]:
-    
+
     import json as _json
 
     content: List[Dict[str, Any]] = []
@@ -814,7 +814,7 @@ Rules:
   - "close by" alone is NOT enough; add extra spatial predicates when possible.
   - Edges are directed: src -> tgt.
 
-FINAL OUTPUT FORMAT 
+FINAL OUTPUT FORMAT
 
 Output ONLY one JSON object with exactly these keys:
 
@@ -942,10 +942,10 @@ def run_qwen_window_api(
     # It is recommended to configure the API Key via environment variable rather than hardcoding it
     # For example: in the shell run `export DASHSCOPE_API_KEY=sk-xxxx`
     # Then here: dashscope.api_key = os.getenv("DASHSCOPE_API_KEY")
-    # If you insist on passing it manually, you can also set dashscope.api_key = "sk-xxxx" outside
+    # If you insist on passing it manually, you can also set dashscope.api_key=os.environ["DASHSCOPE_API_KEY"] outside
     try:
         response = dashscope.MultiModalConversation.call(
-            api_key="sk-09a3812f7fc34d8abe65aae9d4132a9f",
+            api_key=os.environ["DASHSCOPE_API_KEY"],
             model=qwen_model_name,
             messages=messages,
             result_format="message",            # Return OpenAI-style message
