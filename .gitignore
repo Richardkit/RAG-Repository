@@ -1,0 +1,20 @@
+# --- ignore caches & intermediate outputs (RAG) ---
+RAG_baseline_Qwen3/**/__pycache__/
+RAG_Rexplore_Qwen3/**/__pycache__/
+RAG_agentic/**/__pycache__/
+**/*.pyc
+
+RAG_baseline_Qwen3/temporary_img_qwen_judge_1/
+RAG_baseline_Qwen3/**/logs/
+RAG_Rexplore_Qwen3/**/logs/
+RAG_Rexplore_Qwen3/temp_images/
+
+# --- exclude entire evaluate and logs folders ---
+RAG_agentic/logs/
+RAG_agentic/**/evaluate/
+*.sh
+
+# Evaluation scripts only
+!RAG_baseline_Qwen3/evaluate/
+RAG_baseline_Qwen3/evaluate/**
+!RAG_baseline_Qwen3/evaluate/*.py

@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../data"
+		},
+		{
+			"path": "../../RAG_agentic"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../3DSSG"
+		},
+		{
+			"path": "../../Grounded-Segment-Anything"
+		},
+		{
+			"path": "../../compare_rag"
+		}
+	]
+}
