@@ -323,18 +323,18 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
                 # fallback: if history is invalid/None, overwrite with the full node
-                cur = {“id”: gid, “name”: ln_name, “description”: ln_desc}
+                cur = {"id": gid, "name": ln_name, "description": ln_desc}
                 global_nodes_by_id[gid] = cur
 
             # fill in name (force rename)
             if ln_name:
-                cur[“name”] = ln_name
+                cur["name"] = ln_name
             # only update description if new one is “richer”
-            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get(“description”, “”))):
-                cur[“description”] = ln_desc
+            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
+                cur["description"] = ln_desc
         else:
             # new global node: only three fields
-            global_nodes_by_id[gid] = {“id”: gid, “name”: ln_name, “description”: ln_desc}
+            global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
 
     # ---- Merge edges and deduplicate ----
     # prepare existing edges: map (src,tgt) -> edge index

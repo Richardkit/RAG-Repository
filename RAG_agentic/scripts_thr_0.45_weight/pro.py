@@ -71,9 +71,9 @@ Output ONLY one JSON object with exactly these keys:
   ]
 }}
 """.strip()
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=1.0\linewidth]{Bild1.png}
-    \caption{The top pipeline is traditional scene graph generation based on 3D reconstruction and GNN. The bottom shows our training-free semantic scene graph generation pipeline. We split the complete RGB sequence into RGB windows containing several consecutive frames. Through Colqwen retrieval, we determine whether a single frame is a key frame whose visual content is not in the processed buffer. The RAG component performs patch embedding and knowledge base search. To improve retrieval effectiveness, weights are assigned to each patch during voting for the final reference information.}
-    \label{fig:pipeline}
-\end{figure*}
+# \begin{figure*}[t]
+#     \centering
+#     \includegraphics[width=1.0\linewidth]{Bild1.png}
+#     \caption{The top pipeline is traditional scene graph generation based on 3D reconstruction and GNN. The bottom shows our training-free semantic scene graph generation pipeline. We split the complete RGB sequence into RGB windows containing several consecutive frames. Through Colqwen retrieval, we determine whether a single frame is a key frame whose visual content is not in the processed buffer. The RAG component performs patch embedding and knowledge base search. To improve retrieval effectiveness, weights are assigned to each patch during voting for the final reference information.}
+#     \label{fig:pipeline}
+# \end{figure*}

@@ -19,11 +19,11 @@ def _edge_lines(gray):
     return lines
 
 def _upright_score_from_lines(lines):
-    “””
+    """
     Compute “vertical appearance” score: the closer a line segment's direction is to 90°,
     the higher the score (weighted by length).
     Returns (score, n_lines). A larger score means more upright.
-    “””
+    """
     if lines is None:
         return -1e9, 0
     angles = []
@@ -46,12 +46,12 @@ def _upright_score_from_lines(lines):
     return float(s), len(w)
 
 def _best_upright_rotation(img_bgr):
-    “””
+    """
     Select the version with the highest “vertical appearance score” among
     {original, 90° counterclockwise, 90° clockwise}.
     Returns (best_rot_flag, best_img, n_lines),
     best_rot_flag in {0, cv.ROTATE_90_COUNTERCLOCKWISE, cv.ROTATE_90_CLOCKWISE}
-    “””
+    """
     candidates = [(0, img_bgr)]
     candidates.append((cv.ROTATE_90_COUNTERCLOCKWISE, cv.rotate(img_bgr, cv.ROTATE_90_COUNTERCLOCKWISE)))
     candidates.append((cv.ROTATE_90_CLOCKWISE, cv.rotate(img_bgr, cv.ROTATE_90_CLOCKWISE)))

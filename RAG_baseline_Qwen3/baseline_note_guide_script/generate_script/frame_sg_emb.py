@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-“””
+"""
 Use SigLIP2 to generate “note text” embeddings (text side) for 3RScan frame-level scene graphs, and save them per scan.
 
 Input:
@@ -16,7 +16,7 @@ Key points:
 - note_text is constructed solely from object.name in frame_sg: “Objects: floor, wall(x6), bed, pillow(x5), ...”
 - Uses SigLIP2's text encoder: model.get_text_features(...)
 - Automatically determines max token from model config (to prevent max_position_embeddings errors)
-“””
+"""
 
 import os
 import re

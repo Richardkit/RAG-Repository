@@ -278,14 +278,14 @@ def main():
     # 7.1 Raw class topk (to see what it most resembles in the “official class space”)
     k1 = min(TOPK_REPORT, len(classes))
     top_vals, top_idx = torch.topk(class_probs, k1)
-    print(f”\n[Top-{k1} official classes probability]”)
+    print(f"\n[Top-{k1} official classes probability]")
     for r, (v, i) in enumerate(zip(top_vals, top_idx), 1):
         print(f"{r:2d}. {classes[int(i)]:35s} {float(v):.6f}")
 
     # 7.2 Entropy space topk (if synonym groups are used, this is more “semantically consistent”)
     k2 = min(TOPK_REPORT, entropy_probs.numel())
     e_vals, e_idx = torch.topk(entropy_probs, k2)
-    print(f”\n[Top-{k2} entropy space ({'synonym-groups' if USE_SYNONYM_GROUPS_FOR_ENTROPY else 'classes'}) probability]”)
+    print(f"\n[Top-{k2} entropy space ({'synonym-groups' if USE_SYNONYM_GROUPS_FOR_ENTROPY else 'classes'}) probability]")
     for r, (v, i) in enumerate(zip(e_vals, e_idx), 1):
         print(f"{r:2d}. {entropy_names[int(i)]:35s} {float(v):.6f}")
 

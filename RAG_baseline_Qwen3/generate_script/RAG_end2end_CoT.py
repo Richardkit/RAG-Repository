@@ -350,15 +350,15 @@ def merge_graphs(global_graph: Dict[str, Any], local_graph: Dict[str, Any]) -> D
             cur = global_nodes_by_id[gid]
             if not isinstance(cur, dict):
                 # Fallback: if the historical entry is abnormal/None, overwrite with the full node
-                cur = {“id”: gid, “name”: ln_name, “description”: ln_desc}
+                cur = {"id": gid, "name": ln_name, "description": ln_desc}
                 global_nodes_by_id[gid] = cur
 
             # Name completion (force rename)
             if ln_name:
-                cur[“name”] = ln_name
+                cur["name"] = ln_name
             # Update description only when the new one is “richer”
-            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get(“description”, “”))):
-                cur[“description”] = ln_desc
+            if len(normalize_text(ln_desc)) > len(normalize_text(cur.get("description", ""))):
+                cur["description"] = ln_desc
         else:
             # New global node: only three fields
             global_nodes_by_id[gid] = {"id": gid, "name": ln_name, "description": ln_desc}
